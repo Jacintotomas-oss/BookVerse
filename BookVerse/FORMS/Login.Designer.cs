@@ -35,6 +35,7 @@
             label3 = new Label();
             ingresar = new Button();
             button1 = new Button();
+            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // label1
@@ -100,11 +101,22 @@
             button1.Text = "Salir";
             button1.UseVisualStyleBackColor = false;
             // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new Point(241, 206);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new Size(83, 19);
+            checkBox1.TabIndex = 7;
+            checkBox1.Text = "checkBox1";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(checkBox1);
             Controls.Add(button1);
             Controls.Add(ingresar);
             Controls.Add(label3);
@@ -128,5 +140,6 @@
         private Label label3;
         private Button ingresar;
         private Button button1;
+        private CheckBox checkBox1;
     }
 }
