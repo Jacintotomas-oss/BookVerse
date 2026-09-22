@@ -24,5 +24,10 @@ namespace BookVerse.FORMS
         {
 
         }
+
+        private void Libros_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Libros));
             dataGridView1 = new DataGridView();
             pnlPortada = new Panel();
             btnSeleccionarPortada = new Button();
@@ -76,25 +77,25 @@
             // 
             // btnSeleccionarPortada
             // 
-            btnSeleccionarPortada.BackColor = Color.DarkGray;
+            btnSeleccionarPortada.BackColor = Color.DarkGreen;
             btnSeleccionarPortada.FlatAppearance.BorderSize = 0;
             btnSeleccionarPortada.FlatStyle = FlatStyle.Flat;
-            btnSeleccionarPortada.Font = new Font("Georgia", 10F);
-            btnSeleccionarPortada.ForeColor = Color.Black;
-            btnSeleccionarPortada.Location = new Point(53, 592);
+            btnSeleccionarPortada.Font = new Font("Georgia", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSeleccionarPortada.ForeColor = Color.White;
+            btnSeleccionarPortada.Location = new Point(47, 592);
             btnSeleccionarPortada.Margin = new Padding(5, 4, 5, 4);
             btnSeleccionarPortada.Name = "btnSeleccionarPortada";
-            btnSeleccionarPortada.Size = new Size(214, 37);
+            btnSeleccionarPortada.Size = new Size(227, 45);
             btnSeleccionarPortada.TabIndex = 0;
             btnSeleccionarPortada.Text = "Seleccionar Portada";
             btnSeleccionarPortada.UseVisualStyleBackColor = false;
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(451, 318);
+            txtTitulo.Location = new Point(434, 318);
             txtTitulo.Margin = new Padding(5, 4, 5, 4);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(462, 30);
+            txtTitulo.Size = new Size(479, 30);
             txtTitulo.TabIndex = 2;
             txtTitulo.TextChanged += textBox1_TextChanged;
             // 
@@ -104,7 +105,7 @@
             label1.BackColor = Color.White;
             label1.Font = new Font("Georgia", 10F);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(357, 321);
+            label1.Location = new Point(360, 321);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(64, 24);
@@ -114,10 +115,10 @@
             // cboAutor
             // 
             cboAutor.FormattingEnabled = true;
-            cboAutor.Location = new Point(451, 368);
+            cboAutor.Location = new Point(434, 368);
             cboAutor.Margin = new Padding(5, 4, 5, 4);
             cboAutor.Name = "cboAutor";
-            cboAutor.Size = new Size(462, 32);
+            cboAutor.Size = new Size(479, 32);
             cboAutor.TabIndex = 4;
             // 
             // label2
@@ -126,7 +127,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Georgia", 10F);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(359, 371);
+            label2.Location = new Point(363, 371);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(61, 24);
@@ -136,28 +137,28 @@
             // cboEditorial
             // 
             cboEditorial.FormattingEnabled = true;
-            cboEditorial.Location = new Point(451, 420);
+            cboEditorial.Location = new Point(434, 420);
             cboEditorial.Margin = new Padding(5, 4, 5, 4);
             cboEditorial.Name = "cboEditorial";
-            cboEditorial.Size = new Size(462, 32);
+            cboEditorial.Size = new Size(479, 32);
             cboEditorial.TabIndex = 6;
             // 
             // cboCategoria
             // 
             cboCategoria.FormattingEnabled = true;
-            cboCategoria.Location = new Point(451, 481);
+            cboCategoria.Location = new Point(434, 481);
             cboCategoria.Margin = new Padding(5, 4, 5, 4);
             cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(462, 32);
+            cboCategoria.Size = new Size(479, 32);
             cboCategoria.TabIndex = 7;
             // 
             // cboSerie
             // 
             cboSerie.FormattingEnabled = true;
-            cboSerie.Location = new Point(451, 534);
+            cboSerie.Location = new Point(434, 534);
             cboSerie.Margin = new Padding(5, 4, 5, 4);
             cboSerie.Name = "cboSerie";
-            cboSerie.Size = new Size(462, 32);
+            cboSerie.Size = new Size(479, 32);
             cboSerie.TabIndex = 8;
             // 
             // label3
@@ -166,7 +167,7 @@
             label3.BackColor = Color.White;
             label3.Font = new Font("Georgia", 10F);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(345, 423);
+            label3.Location = new Point(336, 423);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(88, 24);
@@ -179,7 +180,7 @@
             label4.BackColor = Color.White;
             label4.Font = new Font("Georgia", 10F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(342, 484);
+            label4.Location = new Point(329, 484);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new Size(95, 24);
@@ -192,7 +193,7 @@
             label5.BackColor = Color.White;
             label5.Font = new Font("Georgia", 10F);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(362, 537);
+            label5.Location = new Point(369, 537);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(55, 24);
@@ -201,18 +202,18 @@
             // 
             // txtNumeroSerie
             // 
-            txtNumeroSerie.Location = new Point(451, 589);
+            txtNumeroSerie.Location = new Point(434, 589);
             txtNumeroSerie.Margin = new Padding(5, 4, 5, 4);
             txtNumeroSerie.Name = "txtNumeroSerie";
-            txtNumeroSerie.Size = new Size(462, 30);
+            txtNumeroSerie.Size = new Size(479, 30);
             txtNumeroSerie.TabIndex = 12;
             // 
             // txtRutaPdf
             // 
-            txtRutaPdf.Location = new Point(451, 646);
+            txtRutaPdf.Location = new Point(434, 646);
             txtRutaPdf.Margin = new Padding(5, 4, 5, 4);
             txtRutaPdf.Name = "txtRutaPdf";
-            txtRutaPdf.Size = new Size(335, 30);
+            txtRutaPdf.Size = new Size(352, 30);
             txtRutaPdf.TabIndex = 13;
             // 
             // label6
@@ -221,7 +222,7 @@
             label6.BackColor = Color.White;
             label6.Font = new Font("Georgia", 10F);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(349, 592);
+            label6.Location = new Point(344, 592);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new Size(80, 24);
@@ -234,7 +235,7 @@
             label7.BackColor = Color.White;
             label7.Font = new Font("Georgia", 10F);
             label7.ForeColor = Color.Black;
-            label7.Location = new Point(365, 649);
+            label7.Location = new Point(375, 649);
             label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
             label7.Size = new Size(49, 24);
@@ -263,14 +264,14 @@
             btnAgregar.Location = new Point(46, 716);
             btnAgregar.Margin = new Padding(5, 4, 5, 4);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(143, 35);
+            btnAgregar.Size = new Size(150, 60);
             btnAgregar.TabIndex = 17;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
             // 
             // btnActualizar
             // 
-            btnActualizar.BackColor = Color.Teal;
+            btnActualizar.BackColor = Color.ForestGreen;
             btnActualizar.FlatAppearance.BorderSize = 0;
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -278,7 +279,7 @@
             btnActualizar.Location = new Point(233, 716);
             btnActualizar.Margin = new Padding(5, 4, 5, 4);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(143, 35);
+            btnActualizar.Size = new Size(150, 60);
             btnActualizar.TabIndex = 18;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -293,7 +294,7 @@
             btnEliminar.Location = new Point(406, 716);
             btnEliminar.Margin = new Padding(5, 4, 5, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(143, 35);
+            btnEliminar.Size = new Size(150, 60);
             btnEliminar.TabIndex = 19;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -308,7 +309,7 @@
             btnLimpiar.Location = new Point(593, 716);
             btnLimpiar.Margin = new Padding(5, 4, 5, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(143, 35);
+            btnLimpiar.Size = new Size(150, 60);
             btnLimpiar.TabIndex = 20;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -323,7 +324,7 @@
             btnLeer.Location = new Point(770, 716);
             btnLeer.Margin = new Padding(5, 4, 5, 4);
             btnLeer.Name = "btnLeer";
-            btnLeer.Size = new Size(143, 35);
+            btnLeer.Size = new Size(150, 60);
             btnLeer.TabIndex = 21;
             btnLeer.Text = "Leer";
             btnLeer.UseVisualStyleBackColor = false;
@@ -346,7 +347,8 @@
             AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            BackgroundImage = Properties.Resources.Fondo_de_Iniciar_Sesion;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(968, 805);
             Controls.Add(btnLeer);
             Controls.Add(btnLimpiar);
@@ -372,11 +374,13 @@
             Controls.Add(pnlPortada);
             Controls.Add(dataGridView1);
             Controls.Add(label8);
+            DoubleBuffered = true;
             Font = new Font("Georgia", 10F);
             ForeColor = Color.Black;
             Margin = new Padding(5, 4, 5, 4);
             Name = "Libros";
             Text = "Libros";
+            Load += Libros_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

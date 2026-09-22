@@ -14,5 +14,10 @@ namespace BookVerse.FORMS
         {
             InitializeComponent();
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

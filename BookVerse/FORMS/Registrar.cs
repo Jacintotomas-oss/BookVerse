@@ -24,5 +24,10 @@ namespace BookVerse.FORMS
         {
 
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

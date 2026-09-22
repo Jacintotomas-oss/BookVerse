@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Prestamos));
             label1 = new Label();
             dgvPrestamos = new DataGridView();
             cboLibro = new ComboBox();
@@ -156,7 +157,7 @@
             btnSolicitar.Location = new Point(61, 548);
             btnSolicitar.Margin = new Padding(4, 3, 4, 3);
             btnSolicitar.Name = "btnSolicitar";
-            btnSolicitar.Size = new Size(218, 33);
+            btnSolicitar.Size = new Size(224, 54);
             btnSolicitar.TabIndex = 10;
             btnSolicitar.Text = "Solicitar";
             btnSolicitar.UseVisualStyleBackColor = false;
@@ -168,10 +169,10 @@
             btnAutorizar.FlatStyle = FlatStyle.Flat;
             btnAutorizar.Font = new Font("Georgia", 10F, FontStyle.Bold);
             btnAutorizar.ForeColor = Color.White;
-            btnAutorizar.Location = new Point(308, 548);
+            btnAutorizar.Location = new Point(298, 548);
             btnAutorizar.Margin = new Padding(4, 3, 4, 3);
             btnAutorizar.Name = "btnAutorizar";
-            btnAutorizar.Size = new Size(218, 33);
+            btnAutorizar.Size = new Size(224, 54);
             btnAutorizar.TabIndex = 11;
             btnAutorizar.Text = "Autorizar";
             btnAutorizar.UseVisualStyleBackColor = false;
@@ -183,10 +184,10 @@
             btnRegistrarDevolucion.FlatStyle = FlatStyle.Flat;
             btnRegistrarDevolucion.Font = new Font("Georgia", 10F, FontStyle.Bold);
             btnRegistrarDevolucion.ForeColor = Color.White;
-            btnRegistrarDevolucion.Location = new Point(562, 548);
+            btnRegistrarDevolucion.Location = new Point(537, 548);
             btnRegistrarDevolucion.Margin = new Padding(4, 3, 4, 3);
             btnRegistrarDevolucion.Name = "btnRegistrarDevolucion";
-            btnRegistrarDevolucion.Size = new Size(218, 33);
+            btnRegistrarDevolucion.Size = new Size(246, 54);
             btnRegistrarDevolucion.TabIndex = 12;
             btnRegistrarDevolucion.Text = "Registrar devolución";
             btnRegistrarDevolucion.UseVisualStyleBackColor = false;
@@ -198,20 +199,22 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.Location = new Point(61, 608);
+            btnLimpiar.Location = new Point(61, 627);
             btnLimpiar.Margin = new Padding(4, 3, 4, 3);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(719, 33);
+            btnLimpiar.Size = new Size(725, 54);
             btnLimpiar.TabIndex = 13;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // Prestamos
             // 
             AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Fondo_de_Iniciar_Sesion;
-            ClientSize = new Size(841, 676);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(841, 705);
             Controls.Add(btnLimpiar);
             Controls.Add(btnRegistrarDevolucion);
             Controls.Add(btnAutorizar);
@@ -226,6 +229,7 @@
             Controls.Add(cboLibro);
             Controls.Add(dgvPrestamos);
             Controls.Add(label1);
+            DoubleBuffered = true;
             Font = new Font("Georgia", 10F);
             Margin = new Padding(4, 3, 4, 3);
             Name = "Prestamos";

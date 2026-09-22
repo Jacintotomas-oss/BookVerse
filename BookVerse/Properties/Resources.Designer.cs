@@ -63,9 +63,9 @@ namespace BookVerse.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Fondo_de_Iniciar_Sesion {
+        internal static System.Drawing.Bitmap Fondo_login {
             get {
-                object obj = ResourceManager.GetObject("Fondo de Iniciar Sesion", resourceCulture);
+                object obj = ResourceManager.GetObject("Fondo login", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
