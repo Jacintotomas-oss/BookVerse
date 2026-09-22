@@ -51,211 +51,303 @@
             btnEliminar = new Button();
             btnLimpiar = new Button();
             btnLeer = new Button();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(73, 34);
+            dataGridView1.Location = new Point(46, 71);
+            dataGridView1.Margin = new Padding(5, 4, 5, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(668, 179);
+            dataGridView1.Size = new Size(867, 215);
             dataGridView1.TabIndex = 0;
             // 
             // pnlPortada
             // 
             pnlPortada.BackgroundImageLayout = ImageLayout.Zoom;
-            pnlPortada.Location = new Point(90, 239);
+            pnlPortada.Location = new Point(72, 318);
+            pnlPortada.Margin = new Padding(5, 4, 5, 4);
             pnlPortada.Name = "pnlPortada";
-            pnlPortada.Size = new Size(118, 164);
+            pnlPortada.Size = new Size(177, 263);
             pnlPortada.TabIndex = 1;
             // 
             // btnSeleccionarPortada
             // 
-            btnSeleccionarPortada.Location = new Point(73, 420);
+            btnSeleccionarPortada.BackColor = Color.DarkGray;
+            btnSeleccionarPortada.FlatAppearance.BorderSize = 0;
+            btnSeleccionarPortada.FlatStyle = FlatStyle.Flat;
+            btnSeleccionarPortada.Font = new Font("Georgia", 10F);
+            btnSeleccionarPortada.ForeColor = Color.Black;
+            btnSeleccionarPortada.Location = new Point(53, 592);
+            btnSeleccionarPortada.Margin = new Padding(5, 4, 5, 4);
             btnSeleccionarPortada.Name = "btnSeleccionarPortada";
-            btnSeleccionarPortada.Size = new Size(155, 31);
+            btnSeleccionarPortada.Size = new Size(214, 37);
             btnSeleccionarPortada.TabIndex = 0;
             btnSeleccionarPortada.Text = "Seleccionar Portada";
-            btnSeleccionarPortada.UseVisualStyleBackColor = true;
+            btnSeleccionarPortada.UseVisualStyleBackColor = false;
             // 
             // txtTitulo
             // 
-            txtTitulo.Location = new Point(345, 239);
+            txtTitulo.Location = new Point(451, 318);
+            txtTitulo.Margin = new Padding(5, 4, 5, 4);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(304, 27);
+            txtTitulo.Size = new Size(462, 30);
             txtTitulo.TabIndex = 2;
             txtTitulo.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(269, 242);
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Georgia", 10F);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(357, 321);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(47, 20);
+            label1.Size = new Size(64, 24);
             label1.TabIndex = 3;
             label1.Text = "Titulo";
             // 
             // cboAutor
             // 
             cboAutor.FormattingEnabled = true;
-            cboAutor.Location = new Point(345, 282);
+            cboAutor.Location = new Point(451, 368);
+            cboAutor.Margin = new Padding(5, 4, 5, 4);
             cboAutor.Name = "cboAutor";
-            cboAutor.Size = new Size(304, 28);
+            cboAutor.Size = new Size(462, 32);
             cboAutor.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(269, 285);
+            label2.BackColor = Color.White;
+            label2.Font = new Font("Georgia", 10F);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(359, 371);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(46, 20);
+            label2.Size = new Size(61, 24);
             label2.TabIndex = 5;
             label2.Text = "Autor";
             // 
             // cboEditorial
             // 
             cboEditorial.FormattingEnabled = true;
-            cboEditorial.Location = new Point(345, 325);
+            cboEditorial.Location = new Point(451, 420);
+            cboEditorial.Margin = new Padding(5, 4, 5, 4);
             cboEditorial.Name = "cboEditorial";
-            cboEditorial.Size = new Size(304, 28);
+            cboEditorial.Size = new Size(462, 32);
             cboEditorial.TabIndex = 6;
             // 
             // cboCategoria
             // 
             cboCategoria.FormattingEnabled = true;
-            cboCategoria.Location = new Point(345, 375);
+            cboCategoria.Location = new Point(451, 481);
+            cboCategoria.Margin = new Padding(5, 4, 5, 4);
             cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(304, 28);
+            cboCategoria.Size = new Size(462, 32);
             cboCategoria.TabIndex = 7;
             // 
             // cboSerie
             // 
             cboSerie.FormattingEnabled = true;
-            cboSerie.Location = new Point(345, 420);
+            cboSerie.Location = new Point(451, 534);
+            cboSerie.Margin = new Padding(5, 4, 5, 4);
             cboSerie.Name = "cboSerie";
-            cboSerie.Size = new Size(304, 28);
+            cboSerie.Size = new Size(462, 32);
             cboSerie.TabIndex = 8;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(254, 328);
+            label3.BackColor = Color.White;
+            label3.Font = new Font("Georgia", 10F);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(345, 423);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(65, 20);
+            label3.Size = new Size(88, 24);
             label3.TabIndex = 9;
             label3.Text = "Editorial";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(254, 378);
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Georgia", 10F);
+            label4.ForeColor = Color.Black;
+            label4.Location = new Point(342, 484);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(74, 20);
+            label4.Size = new Size(95, 24);
             label4.TabIndex = 10;
             label4.Text = "Categoria";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(269, 423);
+            label5.BackColor = Color.White;
+            label5.Font = new Font("Georgia", 10F);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(362, 537);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(42, 20);
+            label5.Size = new Size(55, 24);
             label5.TabIndex = 11;
             label5.Text = "Serie";
             // 
             // txtNumeroSerie
             // 
-            txtNumeroSerie.Location = new Point(345, 466);
+            txtNumeroSerie.Location = new Point(451, 589);
+            txtNumeroSerie.Margin = new Padding(5, 4, 5, 4);
             txtNumeroSerie.Name = "txtNumeroSerie";
-            txtNumeroSerie.Size = new Size(304, 27);
+            txtNumeroSerie.Size = new Size(462, 30);
             txtNumeroSerie.TabIndex = 12;
             // 
             // txtRutaPdf
             // 
-            txtRutaPdf.Location = new Point(345, 513);
+            txtRutaPdf.Location = new Point(451, 646);
+            txtRutaPdf.Margin = new Padding(5, 4, 5, 4);
             txtRutaPdf.Name = "txtRutaPdf";
-            txtRutaPdf.Size = new Size(225, 27);
+            txtRutaPdf.Size = new Size(335, 30);
             txtRutaPdf.TabIndex = 13;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(259, 473);
+            label6.BackColor = Color.White;
+            label6.Font = new Font("Georgia", 10F);
+            label6.ForeColor = Color.Black;
+            label6.Location = new Point(349, 592);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(60, 20);
+            label6.Size = new Size(80, 24);
             label6.TabIndex = 14;
             label6.Text = "N. Serie";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(274, 520);
+            label7.BackColor = Color.White;
+            label7.Font = new Font("Georgia", 10F);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(365, 649);
+            label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(35, 20);
+            label7.Size = new Size(49, 24);
             label7.TabIndex = 15;
             label7.Text = "PDF";
             // 
             // btnSeleccionarPdf
             // 
-            btnSeleccionarPdf.Location = new Point(590, 513);
+            btnSeleccionarPdf.Font = new Font("Georgia", 10F);
+            btnSeleccionarPdf.ForeColor = Color.Black;
+            btnSeleccionarPdf.Location = new Point(805, 646);
+            btnSeleccionarPdf.Margin = new Padding(5, 4, 5, 4);
             btnSeleccionarPdf.Name = "btnSeleccionarPdf";
-            btnSeleccionarPdf.Size = new Size(59, 29);
+            btnSeleccionarPdf.Size = new Size(108, 35);
             btnSeleccionarPdf.TabIndex = 16;
             btnSeleccionarPdf.Text = "Sel.";
             btnSeleccionarPdf.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(149, 569);
+            btnAgregar.BackColor = Color.Teal;
+            btnAgregar.FlatAppearance.BorderSize = 0;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.Font = new Font("Georgia", 10F, FontStyle.Bold);
+            btnAgregar.ForeColor = Color.White;
+            btnAgregar.Location = new Point(46, 716);
+            btnAgregar.Margin = new Padding(5, 4, 5, 4);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(94, 29);
+            btnAgregar.Size = new Size(143, 35);
             btnAgregar.TabIndex = 17;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(269, 569);
+            btnActualizar.BackColor = Color.Teal;
+            btnActualizar.FlatAppearance.BorderSize = 0;
+            btnActualizar.FlatStyle = FlatStyle.Flat;
+            btnActualizar.Font = new Font("Georgia", 10F, FontStyle.Bold);
+            btnActualizar.ForeColor = Color.White;
+            btnActualizar.Location = new Point(233, 716);
+            btnActualizar.Margin = new Padding(5, 4, 5, 4);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(94, 29);
+            btnActualizar.Size = new Size(143, 35);
             btnActualizar.TabIndex = 18;
             btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(389, 569);
+            btnEliminar.BackColor = Color.Firebrick;
+            btnEliminar.FlatAppearance.BorderSize = 0;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.Font = new Font("Georgia", 10F, FontStyle.Bold);
+            btnEliminar.ForeColor = Color.White;
+            btnEliminar.Location = new Point(406, 716);
+            btnEliminar.Margin = new Padding(5, 4, 5, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.Size = new Size(143, 35);
             btnEliminar.TabIndex = 19;
             btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.Location = new Point(511, 569);
+            btnLimpiar.BackColor = Color.DimGray;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = FlatStyle.Flat;
+            btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
+            btnLimpiar.ForeColor = Color.White;
+            btnLimpiar.Location = new Point(593, 716);
+            btnLimpiar.Margin = new Padding(5, 4, 5, 4);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(94, 29);
+            btnLimpiar.Size = new Size(143, 35);
             btnLimpiar.TabIndex = 20;
             btnLimpiar.Text = "Limpiar";
-            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.UseVisualStyleBackColor = false;
             // 
             // btnLeer
             // 
-            btnLeer.Location = new Point(631, 569);
+            btnLeer.BackColor = Color.Teal;
+            btnLeer.FlatAppearance.BorderSize = 0;
+            btnLeer.FlatStyle = FlatStyle.Flat;
+            btnLeer.Font = new Font("Georgia", 10F, FontStyle.Bold);
+            btnLeer.ForeColor = Color.White;
+            btnLeer.Location = new Point(770, 716);
+            btnLeer.Margin = new Padding(5, 4, 5, 4);
             btnLeer.Name = "btnLeer";
-            btnLeer.Size = new Size(94, 29);
+            btnLeer.Size = new Size(143, 35);
             btnLeer.TabIndex = 21;
             btnLeer.Text = "Leer";
-            btnLeer.UseVisualStyleBackColor = true;
+            btnLeer.UseVisualStyleBackColor = false;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = Color.WhiteSmoke;
+            label8.Font = new Font("Georgia", 20F, FontStyle.Bold);
+            label8.ForeColor = Color.Black;
+            label8.Location = new Point(402, 16);
+            label8.Name = "label8";
+            label8.Size = new Size(154, 46);
+            label8.TabIndex = 22;
+            label8.Text = "Libros";
+            label8.Click += label8_Click;
             // 
             // Libros
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(809, 670);
+            BackColor = Color.White;
+            BackgroundImage = Properties.Resources.Fondo_de_Iniciar_Sesion;
+            ClientSize = new Size(968, 805);
             Controls.Add(btnLeer);
             Controls.Add(btnLimpiar);
             Controls.Add(btnEliminar);
@@ -279,6 +371,10 @@
             Controls.Add(btnSeleccionarPortada);
             Controls.Add(pnlPortada);
             Controls.Add(dataGridView1);
+            Controls.Add(label8);
+            Font = new Font("Georgia", 10F);
+            ForeColor = Color.Black;
+            Margin = new Padding(5, 4, 5, 4);
             Name = "Libros";
             Text = "Libros";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -311,5 +407,6 @@
         private Button btnEliminar;
         private Button btnLimpiar;
         private Button btnLeer;
+        private Label label8;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             textBox1 = new TextBox();
             label2 = new Label();
@@ -44,8 +45,8 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Georgia", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(134, 84);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(197, 125);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(244, 38);
@@ -55,7 +56,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(212, 204);
+            textBox1.Location = new Point(277, 253);
             textBox1.Margin = new Padding(4, 5, 4, 5);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(225, 31);
@@ -66,8 +67,8 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Georgia", 10F, FontStyle.Bold);
-            label2.ForeColor = Color.WhiteSmoke;
-            label2.Location = new Point(90, 208);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(155, 257);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(93, 24);
@@ -77,7 +78,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(212, 278);
+            textBox2.Location = new Point(277, 327);
             textBox2.Margin = new Padding(4, 5, 4, 5);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(225, 31);
@@ -88,8 +89,8 @@
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Georgia", 10F, FontStyle.Bold);
-            label3.ForeColor = Color.WhiteSmoke;
-            label3.Location = new Point(72, 282);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(137, 331);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(128, 24);
@@ -102,8 +103,9 @@
             ingresar.BackColor = Color.Teal;
             ingresar.FlatAppearance.BorderSize = 0;
             ingresar.FlatStyle = FlatStyle.Flat;
+            ingresar.Font = new Font("Georgia", 10F);
             ingresar.ForeColor = Color.White;
-            ingresar.Location = new Point(89, 427);
+            ingresar.Location = new Point(152, 534);
             ingresar.Margin = new Padding(4, 5, 4, 5);
             ingresar.Name = "ingresar";
             ingresar.Size = new Size(140, 67);
@@ -117,8 +119,9 @@
             button1.BackColor = Color.Firebrick;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Georgia", 10F);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(283, 427);
+            button1.Location = new Point(346, 534);
             button1.Margin = new Padding(4, 5, 4, 5);
             button1.Name = "button1";
             button1.Size = new Size(140, 67);
@@ -129,13 +132,16 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(72, 350);
+            checkBox1.BackColor = Color.Transparent;
+            checkBox1.Font = new Font("Georgia", 10F);
+            checkBox1.Location = new Point(137, 404);
             checkBox1.Margin = new Padding(4, 5, 4, 5);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(191, 29);
+            checkBox1.Size = new Size(215, 28);
             checkBox1.TabIndex = 7;
-            checkBox1.Text = "Mostrar contraseña";
-            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.Text = "Mostrar Contraseña";
+            checkBox1.UseVisualStyleBackColor = false;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // sqlCommand1
             // 
@@ -146,8 +152,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Fondo_de_Iniciar_Sesion;
-            ClientSize = new Size(512, 554);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(638, 824);
             Controls.Add(checkBox1);
             Controls.Add(button1);
             Controls.Add(ingresar);
