@@ -300,7 +300,7 @@
             // 
             // btnLimpiar
             // 
-            btnLimpiar.BackColor = Color.DimGray;
+            btnLimpiar.BackColor = Color.Gray;
             btnLimpiar.FlatAppearance.BorderSize = 0;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
