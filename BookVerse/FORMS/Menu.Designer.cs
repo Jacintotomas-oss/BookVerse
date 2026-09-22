@@ -71,7 +71,6 @@
             buttonLeer.TabIndex = 2;
             buttonLeer.Text = "Leer";
             buttonLeer.UseVisualStyleBackColor = false;
-            buttonLeer.Click += button1_Click;
             // 
             // button2
             // 
