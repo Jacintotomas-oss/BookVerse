@@ -13,6 +13,9 @@ namespace BookVerse
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-        }
+        } 
     }
 }
+
+
+//migracion a entity framework 
