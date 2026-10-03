@@ -148,7 +148,7 @@
             btnSinCuenta.TabIndex = 8;
             btnSinCuenta.Text = "No tengo cuenta";
             btnSinCuenta.UseVisualStyleBackColor = true;
-            btnSinCuenta.Click += btnSinCuenta_Click;
+            //btnSinCuenta.Click += btnSinCuenta_Click;
             // 
             // Login
             // 

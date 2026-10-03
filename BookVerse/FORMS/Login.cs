@@ -34,17 +34,9 @@ namespace BookVerse.FORMS
             }
 
             string hash = Seguridad.HashPassword(contrasena);
-
             var repoEmpleado = new EmpleadoRepository();
-            var repoUsuario = new UsuarioRepository();
 
             if (repoEmpleado.ValidarLogin(usuario, hash))
-            {
-                Menu menu = new Menu();
-                menu.Show();
-                this.Hide();
-            }
-            else if (repoUsuario.ValidarLogin(usuario, hash))
             {
                 Menu menu = new Menu();
                 menu.Show();
@@ -54,14 +46,6 @@ namespace BookVerse.FORMS
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.");
             }
-        }
-
-        private void btnSinCuenta_Click(object sender, EventArgs e)
-        {
-            Registrar formRegistro = new Registrar();
-            formRegistro.Show();
-            this.Hide();
-
         }
     }
 }

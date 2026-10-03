@@ -1,25 +1,33 @@
-﻿using BookVerse.MODELS;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace BookVerse.Models
+namespace BookVerse.Models;
+
+public partial class Libro
 {
-    public class Libro
-    {
-        public int Id_Libro { get; set; }
-        public string Titulo { get; set; }
-        public Autor Autor { get; set; }
-        public Categoria Categoria { get; set; }
-        public Editorial Editorial { get; set; }
-        public Serie Serie { get; set; }
-        public int? NumeroSerie { get; set; }
-        public string RutaPDF { get; set; }
+    public int IdLibro { get; set; }
 
-        public string CompartirInformacion()
-        {
-            return $"ID_Libro: {Id_Libro}, Titulo: {Titulo}, Autor: {Autor?.Nombre}, " +
-                   $"Categoria: {Categoria?.Nombre}, Serie: {Serie?.Nombre}, Numero: {NumeroSerie}";
-        }
-    }
+    public string Titulo { get; set; } = null!;
+
+    public int? IdSeries { get; set; }
+
+    public int? IdCategoria { get; set; }
+
+    public int? IdAutor { get; set; }
+
+    public int? IdEditorial { get; set; }
+
+    public int? NumeroSerie { get; set; }
+
+    public string? RutaPdf { get; set; }
+
+    public virtual Autore? IdAutorNavigation { get; set; }
+
+    public virtual Categoria? IdCategoriaNavigation { get; set; }
+
+    public virtual Editorial? IdEditorialNavigation { get; set; }
+
+    public virtual Series? IdSeriesNavigation { get; set; }
+
+    public virtual ICollection<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
 }

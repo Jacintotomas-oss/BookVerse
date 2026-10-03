@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BookVerse.Data;
+using BookVerse.Models;
+using BookVerse.Services;
+using System;
 using System.Linq;
 using System.Windows.Forms;
-using BookVerse.Data;
-using BookVerse.Services;
 
 namespace BookVerse.FORMS
 {
@@ -47,14 +48,15 @@ namespace BookVerse.FORMS
 
         private void ingresar_Click(object sender, EventArgs e)
         {
-            string nombre = textBox1.Text.Trim();      // Nombre
-            string usuario = textBox2.Text.Trim();     // Usuario
-            string contrasena = textBox3.Text;          // Contraseña
-            string confirmar = textBox4.Text;            // Confirmar Contraseña
-            string email = textBox5.Text.Trim();        // Email
+            string nombre = textBox1.Text.Trim();
+            string usuario = textBox2.Text.Trim();
+            string contrasena = textBox3.Text;
+            string confirmar = textBox4.Text;
+            string email = textBox5.Text.Trim();
+            string dui = txtDui.Text.Trim();
 
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(usuario) ||
-                string.IsNullOrEmpty(contrasena) || string.IsNullOrEmpty(email))
+                string.IsNullOrEmpty(contrasena) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(dui))
             {
                 MessageBox.Show("Completa todos los campos.");
                 return;
@@ -66,43 +68,34 @@ namespace BookVerse.FORMS
                 return;
             }
 
-            string hash = Seguridad.HashPassword(contrasena);
-
-            if (checkEmpleado.Checked)
+            if (dui.Length != 10)
             {
-                string dui = txtDui.Text.Trim();
-
-                if (string.IsNullOrEmpty(dui) || dui.Length != 10)
-                {
-                    MessageBox.Show("Ingresa un DUI válido (########-#).");
-                    return;
-                }
-
-                var repoEmpleado = new EmpleadoRepository();
-                if (repoEmpleado.ExisteUsuario(usuario))
-                {
-                    MessageBox.Show("Ese usuario ya existe.");
-                    return;
-                }
-                repoEmpleado.Registrar(nombre, "", email, dui, usuario, hash);
-            }
-            else
-            {
-                var repoUsuario = new UsuarioRepository();
-                if (repoUsuario.ExisteUsuario(usuario))
-                {
-                    MessageBox.Show("Ese usuario ya existe.");
-                    return;
-                }
-                repoUsuario.Registrar(nombre, email, usuario, hash);
+                MessageBox.Show("Ingresa un DUI válido (########-#).");
+                return;
             }
 
+            var repoEmpleado = new EmpleadoRepository();
+            if (repoEmpleado.ExisteUsuario(usuario))
+            {
+                MessageBox.Show("Ese usuario ya existe.");
+                return;
+            }
+
+            var nuevoEmpleado = new Empleado
+            {
+                Nombre = nombre,
+                Email = email,
+                Dui = dui,
+                Usuario = usuario,
+                Contrasena = Seguridad.HashPassword(contrasena)
+            };
+
+            repoEmpleado.Registrar(nuevoEmpleado);
             MessageBox.Show("Registro exitoso.");
-            { 
+
             Menu menu = new Menu();
             menu.Show();
             this.Close();
-            }
         }
 
         private void BtnSalir_Click(object sender, EventArgs e)
