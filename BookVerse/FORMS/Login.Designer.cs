@@ -37,7 +37,6 @@
             button1 = new Button();
             checkBox1 = new CheckBox();
             sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            btnSinCuenta = new Button();
             SuspendLayout();
             // 
             // label1
@@ -140,16 +139,6 @@
             sqlCommand1.CommandTimeout = 30;
             sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
-            // btnSinCuenta
-            // 
-            btnSinCuenta.Location = new Point(78, 233);
-            btnSinCuenta.Name = "btnSinCuenta";
-            btnSinCuenta.Size = new Size(105, 23);
-            btnSinCuenta.TabIndex = 8;
-            btnSinCuenta.Text = "No tengo cuenta";
-            btnSinCuenta.UseVisualStyleBackColor = true;
-            //btnSinCuenta.Click += btnSinCuenta_Click;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -157,7 +146,6 @@
             BackgroundImage = Properties.Resources.Fondo_login;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(412, 371);
-            Controls.Add(btnSinCuenta);
             Controls.Add(checkBox1);
             Controls.Add(button1);
             Controls.Add(ingresar);
@@ -184,6 +172,5 @@
         private Button button1;
         private CheckBox checkBox1;
         private Microsoft.Data.SqlClient.SqlCommand sqlCommand1;
-        private Button btnSinCuenta;
     }
 }

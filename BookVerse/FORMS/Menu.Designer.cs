@@ -30,16 +30,16 @@
         {
             label1 = new Label();
             panel1 = new Panel();
-            buttonLeer = new Button();
+            buttonDescripcion = new Button();
             button2 = new Button();
             button3 = new Button();
-            button4 = new Button();
+            this.buttonDescripcion1 = new Button();
             panel2 = new Panel();
             button5 = new Button();
-            button6 = new Button();
+            this.buttonDescripcion2 = new Button();
             panel3 = new Panel();
             button7 = new Button();
-            button8 = new Button();
+            buttonDescripcion3 = new Button();
             panel4 = new Panel();
             SuspendLayout();
             // 
@@ -62,16 +62,15 @@
             panel1.Size = new Size(204, 215);
             panel1.TabIndex = 1;
             // 
-            // buttonLeer
+            // buttonDescripcion
             // 
-            buttonLeer.BackColor = SystemColors.AppWorkspace;
-            buttonLeer.Location = new Point(12, 360);
-            buttonLeer.Name = "buttonLeer";
-            buttonLeer.Size = new Size(96, 27);
-            buttonLeer.TabIndex = 2;
-            buttonLeer.Text = "Leer";
-            buttonLeer.UseVisualStyleBackColor = false;
-            buttonLeer.Click += buttonLeer_Click_1;
+            buttonDescripcion.BackColor = SystemColors.AppWorkspace;
+            buttonDescripcion.Location = new Point(12, 360);
+            buttonDescripcion.Name = "buttonDescripcion";
+            buttonDescripcion.Size = new Size(96, 27);
+            buttonDescripcion.TabIndex = 2;
+            buttonDescripcion.Text = "Descripcion";
+            buttonDescripcion.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
@@ -93,15 +92,15 @@
             button3.Text = "Solicitar";
             button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // buttonDescripcion1
             // 
-            button4.BackColor = SystemColors.AppWorkspace;
-            button4.Location = new Point(265, 360);
-            button4.Name = "button4";
-            button4.Size = new Size(96, 27);
-            button4.TabIndex = 5;
-            button4.Text = "Leer";
-            button4.UseVisualStyleBackColor = false;
+            this.buttonDescripcion1.BackColor = SystemColors.AppWorkspace;
+            this.buttonDescripcion1.Location = new Point(265, 360);
+            this.buttonDescripcion1.Name = "buttonDescripcion1";
+            this.buttonDescripcion1.Size = new Size(96, 27);
+            this.buttonDescripcion1.TabIndex = 5;
+            this.buttonDescripcion1.Text = "Descripcion";
+            this.buttonDescripcion1.UseVisualStyleBackColor = false;
             // 
             // panel2
             // 
@@ -123,15 +122,15 @@
             button5.Text = "Solicitar";
             button5.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // buttonDescripcion2
             // 
-            button6.BackColor = SystemColors.AppWorkspace;
-            button6.Location = new Point(511, 360);
-            button6.Name = "button6";
-            button6.Size = new Size(96, 27);
-            button6.TabIndex = 8;
-            button6.Text = "Leer";
-            button6.UseVisualStyleBackColor = false;
+            this.buttonDescripcion2.BackColor = SystemColors.AppWorkspace;
+            this.buttonDescripcion2.Location = new Point(511, 360);
+            this.buttonDescripcion2.Name = "buttonDescripcion2";
+            this.buttonDescripcion2.Size = new Size(96, 27);
+            this.buttonDescripcion2.TabIndex = 8;
+            this.buttonDescripcion2.Text = "Descripcion";
+            this.buttonDescripcion2.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -153,15 +152,15 @@
             button7.Text = "Solicitar";
             button7.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // buttonDescripcion3
             // 
-            button8.BackColor = SystemColors.AppWorkspace;
-            button8.Location = new Point(12, 634);
-            button8.Name = "button8";
-            button8.Size = new Size(96, 27);
-            button8.TabIndex = 11;
-            button8.Text = "Leer";
-            button8.UseVisualStyleBackColor = false;
+            buttonDescripcion3.BackColor = SystemColors.AppWorkspace;
+            buttonDescripcion3.Location = new Point(12, 634);
+            buttonDescripcion3.Name = "buttonDescripcion3";
+            buttonDescripcion3.Size = new Size(96, 27);
+            buttonDescripcion3.TabIndex = 11;
+            buttonDescripcion3.Text = "Descripcion";
+            buttonDescripcion3.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
@@ -179,16 +178,16 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 749);
             Controls.Add(button7);
-            Controls.Add(button8);
+            Controls.Add(buttonDescripcion3);
             Controls.Add(panel4);
             Controls.Add(button5);
-            Controls.Add(button6);
+            Controls.Add(this.buttonDescripcion2);
             Controls.Add(panel3);
             Controls.Add(button3);
-            Controls.Add(button4);
+            Controls.Add(this.buttonDescripcion1);
             Controls.Add(panel2);
             Controls.Add(button2);
-            Controls.Add(buttonLeer);
+            Controls.Add(buttonDescripcion);
             Controls.Add(panel1);
             Controls.Add(label1);
             Name = "Menu";
@@ -201,16 +200,16 @@
 
         private Label label1;
         private Panel panel1;
-        private Button buttonLeer;
+        private Button buttonDescripcion;
         private Button button2;
         private Button button3;
-        private Button button4;
+        private Button buttonDescripcion1;
         private Panel panel2;
         private Button button5;
-        private Button button6;
+        private Button buttonDescripcion2;
         private Panel panel3;
         private Button button7;
-        private Button button8;
+        private Button buttonDescripcion3;
         private Panel panel4;
     }
 }

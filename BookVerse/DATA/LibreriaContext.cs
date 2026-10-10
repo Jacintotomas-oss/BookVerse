@@ -113,10 +113,7 @@ public partial class LibreriaContext : DbContext
             entity.Property(e => e.IdEditorial).HasColumnName("ID_Editorial");
             entity.Property(e => e.IdSeries).HasColumnName("ID_Series");
             entity.Property(e => e.NumeroSerie).HasColumnName("Numero_Serie");
-            entity.Property(e => e.RutaPdf)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("Ruta_PDF");
+            
             entity.Property(e => e.Titulo)
                 .HasMaxLength(100)
                 .IsUnicode(false);

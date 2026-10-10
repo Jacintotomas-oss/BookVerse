@@ -19,7 +19,7 @@ public partial class Libro
 
     public int? NumeroSerie { get; set; }
 
-    public string? RutaPdf { get; set; }
+    public string? Descripcion { get; set; }
 
     public virtual Autore? IdAutorNavigation { get; set; }
 

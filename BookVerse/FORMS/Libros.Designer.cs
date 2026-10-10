@@ -43,16 +43,15 @@
             label4 = new Label();
             label5 = new Label();
             txtNumeroSerie = new TextBox();
-            txtRutaPdf = new TextBox();
             label6 = new Label();
-            label7 = new Label();
-            btnSeleccionarPdf = new Button();
             btnAgregar = new Button();
             btnActualizar = new Button();
             btnEliminar = new Button();
             btnLimpiar = new Button();
             btnLeer = new Button();
             label8 = new Label();
+            label7 = new Label();
+            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -95,7 +94,7 @@
             txtTitulo.Location = new Point(434, 318);
             txtTitulo.Margin = new Padding(5, 4, 5, 4);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(479, 30);
+            txtTitulo.Size = new Size(479, 23);
             txtTitulo.TabIndex = 2;
             txtTitulo.TextChanged += textBox1_TextChanged;
             // 
@@ -108,7 +107,7 @@
             label1.Location = new Point(360, 321);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(64, 24);
+            label1.Size = new Size(47, 17);
             label1.TabIndex = 3;
             label1.Text = "Titulo";
             // 
@@ -118,7 +117,7 @@
             cboAutor.Location = new Point(434, 368);
             cboAutor.Margin = new Padding(5, 4, 5, 4);
             cboAutor.Name = "cboAutor";
-            cboAutor.Size = new Size(479, 32);
+            cboAutor.Size = new Size(479, 24);
             cboAutor.TabIndex = 4;
             // 
             // label2
@@ -130,7 +129,7 @@
             label2.Location = new Point(363, 371);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(61, 24);
+            label2.Size = new Size(45, 17);
             label2.TabIndex = 5;
             label2.Text = "Autor";
             // 
@@ -140,7 +139,7 @@
             cboEditorial.Location = new Point(434, 420);
             cboEditorial.Margin = new Padding(5, 4, 5, 4);
             cboEditorial.Name = "cboEditorial";
-            cboEditorial.Size = new Size(479, 32);
+            cboEditorial.Size = new Size(479, 24);
             cboEditorial.TabIndex = 6;
             // 
             // cboCategoria
@@ -149,7 +148,7 @@
             cboCategoria.Location = new Point(434, 481);
             cboCategoria.Margin = new Padding(5, 4, 5, 4);
             cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(479, 32);
+            cboCategoria.Size = new Size(479, 24);
             cboCategoria.TabIndex = 7;
             // 
             // cboSerie
@@ -158,7 +157,7 @@
             cboSerie.Location = new Point(434, 534);
             cboSerie.Margin = new Padding(5, 4, 5, 4);
             cboSerie.Name = "cboSerie";
-            cboSerie.Size = new Size(479, 32);
+            cboSerie.Size = new Size(479, 24);
             cboSerie.TabIndex = 8;
             // 
             // label3
@@ -170,7 +169,7 @@
             label3.Location = new Point(336, 423);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(88, 24);
+            label3.Size = new Size(63, 17);
             label3.TabIndex = 9;
             label3.Text = "Editorial";
             // 
@@ -183,7 +182,7 @@
             label4.Location = new Point(329, 484);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(95, 24);
+            label4.Size = new Size(68, 17);
             label4.TabIndex = 10;
             label4.Text = "Categoria";
             // 
@@ -196,7 +195,7 @@
             label5.Location = new Point(369, 537);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(55, 24);
+            label5.Size = new Size(40, 17);
             label5.TabIndex = 11;
             label5.Text = "Serie";
             // 
@@ -205,16 +204,8 @@
             txtNumeroSerie.Location = new Point(434, 589);
             txtNumeroSerie.Margin = new Padding(5, 4, 5, 4);
             txtNumeroSerie.Name = "txtNumeroSerie";
-            txtNumeroSerie.Size = new Size(479, 30);
+            txtNumeroSerie.Size = new Size(479, 23);
             txtNumeroSerie.TabIndex = 12;
-            // 
-            // txtRutaPdf
-            // 
-            txtRutaPdf.Location = new Point(434, 646);
-            txtRutaPdf.Margin = new Padding(5, 4, 5, 4);
-            txtRutaPdf.Name = "txtRutaPdf";
-            txtRutaPdf.Size = new Size(352, 30);
-            txtRutaPdf.TabIndex = 13;
             // 
             // label6
             // 
@@ -225,34 +216,9 @@
             label6.Location = new Point(344, 592);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(80, 24);
+            label6.Size = new Size(58, 17);
             label6.TabIndex = 14;
             label6.Text = "N. Serie";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.White;
-            label7.Font = new Font("Georgia", 10F);
-            label7.ForeColor = Color.Black;
-            label7.Location = new Point(375, 649);
-            label7.Margin = new Padding(5, 0, 5, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(49, 24);
-            label7.TabIndex = 15;
-            label7.Text = "PDF";
-            // 
-            // btnSeleccionarPdf
-            // 
-            btnSeleccionarPdf.Font = new Font("Georgia", 10F);
-            btnSeleccionarPdf.ForeColor = Color.Black;
-            btnSeleccionarPdf.Location = new Point(805, 646);
-            btnSeleccionarPdf.Margin = new Padding(5, 4, 5, 4);
-            btnSeleccionarPdf.Name = "btnSeleccionarPdf";
-            btnSeleccionarPdf.Size = new Size(108, 35);
-            btnSeleccionarPdf.TabIndex = 16;
-            btnSeleccionarPdf.Text = "Sel.";
-            btnSeleccionarPdf.UseVisualStyleBackColor = true;
             // 
             // btnAgregar
             // 
@@ -337,28 +303,43 @@
             label8.ForeColor = Color.Black;
             label8.Location = new Point(402, 16);
             label8.Name = "label8";
-            label8.Size = new Size(154, 46);
+            label8.Size = new Size(105, 31);
             label8.TabIndex = 22;
             label8.Text = "Libros";
             label8.Click += label8_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(344, 630);
+            label7.Name = "label7";
+            label7.Size = new Size(46, 17);
+            label7.TabIndex = 23;
+            label7.Text = "label7";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(434, 630);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(479, 23);
+            textBox1.TabIndex = 24;
+            // 
             // Libros
             // 
-            AutoScaleDimensions = new SizeF(12F, 24F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(968, 805);
+            ClientSize = new Size(968, 749);
+            Controls.Add(textBox1);
+            Controls.Add(label7);
             Controls.Add(btnLeer);
             Controls.Add(btnLimpiar);
             Controls.Add(btnEliminar);
             Controls.Add(btnActualizar);
             Controls.Add(btnAgregar);
-            Controls.Add(btnSeleccionarPdf);
-            Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(txtRutaPdf);
             Controls.Add(txtNumeroSerie);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -402,15 +383,14 @@
         private Label label4;
         private Label label5;
         private TextBox txtNumeroSerie;
-        private TextBox txtRutaPdf;
         private Label label6;
-        private Label label7;
-        private Button btnSeleccionarPdf;
         private Button btnAgregar;
         private Button btnActualizar;
         private Button btnEliminar;
         private Button btnLimpiar;
         private Button btnLeer;
         private Label label8;
+        private Label label7;
+        private TextBox textBox1;
     }
 }
