@@ -18,8 +18,27 @@ namespace BookVerse.FORMS
 
         private void buttonLeer_Click(object sender, EventArgs e)
         {
-           
+
         }
 
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Menu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDescripcion2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
