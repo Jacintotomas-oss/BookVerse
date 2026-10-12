@@ -53,12 +53,13 @@
             label1.Location = new Point(300, 27);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(240, 46);
+            label1.Size = new Size(203, 39);
             label1.TabIndex = 0;
             label1.Text = "Prestamos";
             // 
             // dgvPrestamos
             // 
+            dgvPrestamos.BackgroundColor = SystemColors.GradientInactiveCaption;
             dgvPrestamos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvPrestamos.Location = new Point(61, 89);
             dgvPrestamos.Margin = new Padding(4, 3, 4, 3);
@@ -73,7 +74,7 @@
             cboLibro.Location = new Point(266, 320);
             cboLibro.Margin = new Padding(4, 3, 4, 3);
             cboLibro.Name = "cboLibro";
-            cboLibro.Size = new Size(513, 32);
+            cboLibro.Size = new Size(513, 28);
             cboLibro.TabIndex = 2;
             // 
             // cboUsuario
@@ -82,7 +83,7 @@
             cboUsuario.Location = new Point(266, 370);
             cboUsuario.Margin = new Padding(4, 3, 4, 3);
             cboUsuario.Name = "cboUsuario";
-            cboUsuario.Size = new Size(513, 32);
+            cboUsuario.Size = new Size(513, 28);
             cboUsuario.TabIndex = 3;
             // 
             // label2
@@ -92,7 +93,7 @@
             label2.Location = new Point(191, 323);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(58, 24);
+            label2.Size = new Size(50, 20);
             label2.TabIndex = 4;
             label2.Text = "Libro";
             // 
@@ -103,7 +104,7 @@
             label3.Location = new Point(168, 373);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(81, 24);
+            label3.Size = new Size(69, 20);
             label3.TabIndex = 5;
             label3.Text = "Usuario";
             // 
@@ -113,7 +114,7 @@
             dtpFechaPrestamo.Location = new Point(266, 428);
             dtpFechaPrestamo.Margin = new Padding(4, 3, 4, 3);
             dtpFechaPrestamo.Name = "dtpFechaPrestamo";
-            dtpFechaPrestamo.Size = new Size(513, 30);
+            dtpFechaPrestamo.Size = new Size(513, 26);
             dtpFechaPrestamo.TabIndex = 6;
             // 
             // dtpFechaDevolucion
@@ -122,7 +123,7 @@
             dtpFechaDevolucion.Location = new Point(266, 482);
             dtpFechaDevolucion.Margin = new Padding(4, 3, 4, 3);
             dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            dtpFechaDevolucion.Size = new Size(513, 30);
+            dtpFechaDevolucion.Size = new Size(513, 26);
             dtpFechaDevolucion.TabIndex = 7;
             // 
             // label4
@@ -132,7 +133,7 @@
             label4.Location = new Point(132, 433);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(117, 24);
+            label4.Size = new Size(99, 20);
             label4.TabIndex = 8;
             label4.Text = "F. Prestamo";
             // 
@@ -143,13 +144,13 @@
             label5.Location = new Point(115, 487);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(134, 24);
+            label5.Size = new Size(113, 20);
             label5.TabIndex = 9;
             label5.Text = "F. Devolucion";
             // 
             // btnSolicitar
             // 
-            btnSolicitar.BackColor = Color.Teal;
+            btnSolicitar.BackColor = Color.Plum;
             btnSolicitar.FlatAppearance.BorderSize = 0;
             btnSolicitar.FlatStyle = FlatStyle.Flat;
             btnSolicitar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -164,7 +165,7 @@
             // 
             // btnAutorizar
             // 
-            btnAutorizar.BackColor = Color.ForestGreen;
+            btnAutorizar.BackColor = Color.Salmon;
             btnAutorizar.FlatAppearance.BorderSize = 0;
             btnAutorizar.FlatStyle = FlatStyle.Flat;
             btnAutorizar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -179,7 +180,7 @@
             // 
             // btnRegistrarDevolucion
             // 
-            btnRegistrarDevolucion.BackColor = Color.Navy;
+            btnRegistrarDevolucion.BackColor = Color.HotPink;
             btnRegistrarDevolucion.FlatAppearance.BorderSize = 0;
             btnRegistrarDevolucion.FlatStyle = FlatStyle.Flat;
             btnRegistrarDevolucion.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -191,10 +192,11 @@
             btnRegistrarDevolucion.TabIndex = 12;
             btnRegistrarDevolucion.Text = "Registrar devolución";
             btnRegistrarDevolucion.UseVisualStyleBackColor = false;
+            btnRegistrarDevolucion.Click += btnRegistrarDevolucion_Click;
             // 
             // btnLimpiar
             // 
-            btnLimpiar.BackColor = Color.Gray;
+            btnLimpiar.BackColor = Color.RosyBrown;
             btnLimpiar.FlatAppearance.BorderSize = 0;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -210,7 +212,7 @@
             // 
             // Prestamos
             // 
-            AutoScaleDimensions = new SizeF(12F, 24F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;

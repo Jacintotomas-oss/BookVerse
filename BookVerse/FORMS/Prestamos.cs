@@ -19,5 +19,10 @@ namespace BookVerse.FORMS
         {
 
         }
+
+        private void btnRegistrarDevolucion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
