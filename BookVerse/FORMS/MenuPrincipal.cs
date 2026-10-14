@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace BookVerse.FORMS
 {
-    public partial class Menu : Form
+    public partial class MenuPrincipal : Form
     {
-        public Menu()
+        public MenuPrincipal()
         {
             InitializeComponent();
         }

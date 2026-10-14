@@ -46,37 +46,37 @@
             // 
             dgvAutores.BackgroundColor = SystemColors.GradientInactiveCaption;
             dgvAutores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAutores.Location = new Point(61, 72);
-            dgvAutores.Margin = new Padding(2, 2, 2, 2);
+            dgvAutores.Location = new Point(76, 90);
+            dgvAutores.Margin = new Padding(2);
             dgvAutores.Name = "dgvAutores";
             dgvAutores.RowHeadersWidth = 62;
-            dgvAutores.Size = new Size(365, 251);
+            dgvAutores.Size = new Size(456, 314);
             dgvAutores.TabIndex = 0;
             dgvAutores.CellContentClick += dgvAutores_CellContentClick;
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(129, 361);
-            txtNombre.Margin = new Padding(2, 2, 2, 2);
+            txtNombre.Location = new Point(161, 451);
+            txtNombre.Margin = new Padding(2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(298, 27);
+            txtNombre.Size = new Size(372, 31);
             txtNombre.TabIndex = 1;
             // 
             // txtPais
             // 
-            txtPais.Location = new Point(129, 401);
-            txtPais.Margin = new Padding(2, 2, 2, 2);
+            txtPais.Location = new Point(161, 501);
+            txtPais.Margin = new Padding(2);
             txtPais.Name = "txtPais";
-            txtPais.Size = new Size(298, 27);
+            txtPais.Size = new Size(372, 31);
             txtPais.TabIndex = 2;
             // 
             // Nombre
             // 
             Nombre.AutoSize = true;
-            Nombre.Location = new Point(61, 363);
+            Nombre.Location = new Point(76, 454);
             Nombre.Margin = new Padding(2, 0, 2, 0);
             Nombre.Name = "Nombre";
-            Nombre.Size = new Size(64, 20);
+            Nombre.Size = new Size(78, 25);
             Nombre.TabIndex = 3;
             Nombre.Text = "Nombre";
             Nombre.Click += label1_Click;
@@ -84,10 +84,10 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(90, 403);
+            label2.Location = new Point(112, 504);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(34, 20);
+            label2.Size = new Size(42, 25);
             label2.TabIndex = 4;
             label2.Text = "País";
             label2.Click += label2_Click_1;
@@ -99,10 +99,10 @@
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Georgia", 10F, FontStyle.Bold);
             btnAgregar.ForeColor = Color.White;
-            btnAgregar.Location = new Point(61, 453);
-            btnAgregar.Margin = new Padding(2, 2, 2, 2);
+            btnAgregar.Location = new Point(76, 566);
+            btnAgregar.Margin = new Padding(2);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(97, 38);
+            btnAgregar.Size = new Size(121, 48);
             btnAgregar.TabIndex = 5;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = false;
@@ -115,10 +115,10 @@
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Georgia", 10F, FontStyle.Bold);
             btnActualizar.ForeColor = Color.White;
-            btnActualizar.Location = new Point(193, 453);
-            btnActualizar.Margin = new Padding(2, 2, 2, 2);
+            btnActualizar.Location = new Point(241, 566);
+            btnActualizar.Margin = new Padding(2);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(101, 38);
+            btnActualizar.Size = new Size(126, 48);
             btnActualizar.TabIndex = 6;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
@@ -131,10 +131,10 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Georgia", 10F, FontStyle.Bold);
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(329, 453);
-            btnEliminar.Margin = new Padding(2, 2, 2, 2);
+            btnEliminar.Location = new Point(411, 566);
+            btnEliminar.Margin = new Padding(2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(97, 38);
+            btnEliminar.Size = new Size(121, 48);
             btnEliminar.TabIndex = 7;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -147,10 +147,10 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
             btnLimpiar.ForeColor = Color.White;
-            btnLimpiar.Location = new Point(61, 513);
-            btnLimpiar.Margin = new Padding(2, 2, 2, 2);
+            btnLimpiar.Location = new Point(76, 641);
+            btnLimpiar.Margin = new Padding(2);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(365, 38);
+            btnLimpiar.Size = new Size(456, 48);
             btnLimpiar.TabIndex = 8;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -159,21 +159,21 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Georgia", 20F, FontStyle.Bold);
-            label1.Location = new Point(170, 19);
+            label1.Location = new Point(212, 24);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(156, 39);
+            label1.Size = new Size(183, 46);
             label1.TabIndex = 9;
             label1.Text = "Autores";
             label1.Click += label1_Click_1;
             // 
             // Autores
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(487, 586);
+            ClientSize = new Size(609, 732);
             Controls.Add(label1);
             Controls.Add(btnLimpiar);
             Controls.Add(btnEliminar);
@@ -184,8 +184,12 @@
             Controls.Add(txtPais);
             Controls.Add(txtNombre);
             Controls.Add(dgvAutores);
-            Margin = new Padding(2, 2, 2, 2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Autores";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Autores";
             ((System.ComponentModel.ISupportInitialize)dgvAutores).EndInit();
             ResumeLayout(false);

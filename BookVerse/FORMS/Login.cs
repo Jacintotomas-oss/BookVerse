@@ -39,7 +39,7 @@ namespace BookVerse.FORMS
 
             if (repoEmpleado.ValidarLogin(usuario, hash))
             {
-                Menu menu = new Menu();
+                MenuPrincipal menu = new MenuPrincipal();
                 menu.Show();
                 this.Hide();
             }
