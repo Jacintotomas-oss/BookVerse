@@ -40,6 +40,7 @@ namespace BookVerse.FORMS
             if (repoEmpleado.ValidarLogin(usuario, hash))
             {
                 MenuPrincipal menu = new MenuPrincipal();
+                menu.FormClosed += (s, args) => this.Close();
                 menu.Show();
                 this.Hide();
             }
@@ -61,5 +62,7 @@ namespace BookVerse.FORMS
                 (this.ClientSize.Height - panel1.Height) / 2
             );
         }
+
+        
     }
 }
