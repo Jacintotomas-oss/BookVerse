@@ -89,6 +89,7 @@
             button1.TabIndex = 14;
             button1.Text = "Salir";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // ingresar
             // 

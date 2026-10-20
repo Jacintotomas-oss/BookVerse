@@ -63,6 +63,11 @@ namespace BookVerse.FORMS
             );
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Al tocar este boton se cierra la app
+            Application.Exit();
+
+        }
     }
 }
