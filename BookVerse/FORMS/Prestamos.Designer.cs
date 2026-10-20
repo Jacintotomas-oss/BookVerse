@@ -54,7 +54,7 @@
             label1.Location = new Point(300, 27);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(161, 31);
+            label1.Size = new Size(240, 46);
             label1.TabIndex = 0;
             label1.Text = "Prestamos";
             // 
@@ -75,7 +75,7 @@
             cboLibro.Location = new Point(267, 310);
             cboLibro.Margin = new Padding(4, 3, 4, 3);
             cboLibro.Name = "cboLibro";
-            cboLibro.Size = new Size(513, 24);
+            cboLibro.Size = new Size(513, 32);
             cboLibro.TabIndex = 2;
             // 
             // label2
@@ -85,7 +85,7 @@
             label2.Location = new Point(191, 310);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 17);
+            label2.Size = new Size(58, 24);
             label2.TabIndex = 4;
             label2.Text = "Libro";
             // 
@@ -95,7 +95,7 @@
             dtpFechaPrestamo.Location = new Point(266, 380);
             dtpFechaPrestamo.Margin = new Padding(4, 3, 4, 3);
             dtpFechaPrestamo.Name = "dtpFechaPrestamo";
-            dtpFechaPrestamo.Size = new Size(513, 23);
+            dtpFechaPrestamo.Size = new Size(513, 30);
             dtpFechaPrestamo.TabIndex = 6;
             // 
             // dtpFechaDevolucion
@@ -104,7 +104,7 @@
             dtpFechaDevolucion.Location = new Point(266, 434);
             dtpFechaDevolucion.Margin = new Padding(4, 3, 4, 3);
             dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            dtpFechaDevolucion.Size = new Size(513, 23);
+            dtpFechaDevolucion.Size = new Size(513, 30);
             dtpFechaDevolucion.TabIndex = 7;
             // 
             // label4
@@ -114,7 +114,7 @@
             label4.Location = new Point(132, 385);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(83, 17);
+            label4.Size = new Size(117, 24);
             label4.TabIndex = 8;
             label4.Text = "F. Prestamo";
             // 
@@ -125,7 +125,7 @@
             label5.Location = new Point(115, 439);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(95, 17);
+            label5.Size = new Size(134, 24);
             label5.TabIndex = 9;
             label5.Text = "F. Devolucion";
             // 
@@ -189,7 +189,7 @@
             lblUsuario.AutoSize = true;
             lblUsuario.Location = new Point(175, 348);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(58, 17);
+            lblUsuario.Size = new Size(81, 24);
             lblUsuario.TabIndex = 15;
             lblUsuario.Text = "Usuario";
             // 
@@ -197,7 +197,7 @@
             // 
             textBox1.Location = new Point(266, 345);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(512, 23);
+            textBox1.Size = new Size(512, 30);
             textBox1.TabIndex = 16;
             // 
             // AutorizarBtn
@@ -213,7 +213,7 @@
             // 
             // Prestamos
             // 
-            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleDimensions = new SizeF(12F, 24F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -237,7 +237,6 @@
             Font = new Font("Georgia", 10F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
-            MaximizeBox = false;
             MinimizeBox = false;
             Name = "Prestamos";
             StartPosition = FormStartPosition.CenterScreen;
