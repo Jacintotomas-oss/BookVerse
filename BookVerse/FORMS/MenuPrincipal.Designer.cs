@@ -37,20 +37,18 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Georgia", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(231, 95);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(162, 57);
             label1.Name = "label1";
-            label1.Size = new Size(522, 46);
+            label1.Size = new Size(352, 31);
             label1.TabIndex = 0;
             label1.Text = "Bienvenido a BookVerse";
             label1.Click += label1_Click;
             // 
             // btnAgregarAutor
             // 
-            btnAgregarAutor.Location = new Point(970, 157);
-            btnAgregarAutor.Margin = new Padding(4, 5, 4, 5);
+            btnAgregarAutor.Location = new Point(679, 94);
             btnAgregarAutor.Name = "btnAgregarAutor";
-            btnAgregarAutor.Size = new Size(136, 38);
+            btnAgregarAutor.Size = new Size(95, 23);
             btnAgregarAutor.TabIndex = 13;
             btnAgregarAutor.Text = "Agregar Autor";
             btnAgregarAutor.UseVisualStyleBackColor = true;
@@ -58,10 +56,9 @@
             // 
             // btnAgregarLibro
             // 
-            btnAgregarLibro.Location = new Point(970, 108);
-            btnAgregarLibro.Margin = new Padding(4, 5, 4, 5);
+            btnAgregarLibro.Location = new Point(679, 65);
             btnAgregarLibro.Name = "btnAgregarLibro";
-            btnAgregarLibro.Size = new Size(136, 38);
+            btnAgregarLibro.Size = new Size(95, 23);
             btnAgregarLibro.TabIndex = 14;
             btnAgregarLibro.Text = "Agregar libro";
             btnAgregarLibro.UseVisualStyleBackColor = true;
@@ -69,17 +66,15 @@
             // 
             // MenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Linen;
-            ClientSize = new Size(1141, 820);
+            ClientSize = new Size(799, 449);
             Controls.Add(btnAgregarLibro);
             Controls.Add(btnAgregarAutor);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 5, 4, 5);
-            MinimizeBox = false;
             Name = "MenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
