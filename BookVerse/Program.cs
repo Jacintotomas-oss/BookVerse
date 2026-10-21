@@ -12,6 +12,7 @@ namespace BookVerse
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Autores());
             Application.Run(new Login());
         } 
     }

@@ -2,6 +2,7 @@
 using BookVerse.DATA;
 using BookVerse.Models;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace BookVerse.FORMS
@@ -20,6 +21,9 @@ namespace BookVerse.FORMS
             btnEliminar.Click += btnEliminar_Click;
             btnLimpiar.Click += btnLimpiar_Click;
             Load += Autores_Load;
+
+            // [BLOQUE RESPONSIVIDAD] Suscribe el evento de redimensionamiento
+            this.Resize += Autores_Resize;
         }
 
         private void Autores_Load(object sender, EventArgs e)
@@ -29,11 +33,18 @@ namespace BookVerse.FORMS
 
         private void CargarGrid()
         {
-            dgvAutores.DataSource = repo.ObtenerTodos();
+            try
+            {
+                dgvAutores.DataSource = repo.ObtenerTodos();
 
-            // Oculta la colección de libros que EF agrega al modelo
-            if (dgvAutores.Columns["Libros"] != null)
-                dgvAutores.Columns["Libros"].Visible = false;
+                // Oculta la colección de libros que EF agrega al modelo
+                if (dgvAutores.Columns["Libros"] != null)
+                    dgvAutores.Columns["Libros"].Visible = false;
+            }
+            catch (Exception)
+            {
+                // [BLOQUE RESPONSIVIDAD] Evita que caiga la app si no hay DB local al diseñar
+            }
         }
 
         private void dgvAutores_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,6 +117,18 @@ namespace BookVerse.FORMS
             txtPais.Clear();
         }
 
+        // [BLOQUE RESPONSIVIDAD] Centra el panel contenedor dinámicamente al cambiar el tamaño de ventana
+        private void Autores_Resize(object sender, EventArgs e)
+        {
+            if (panel1 != null)
+            {
+                panel1.Location = new Point(
+                    (this.ClientSize.Width - panel1.Width) / 2,
+                    (this.ClientSize.Height - panel1.Height) / 2
+                );
+            }
+        }
+
         // Los siguientes los referencia el Designer: no los borres
         private void Nombre_Click(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
@@ -114,5 +137,15 @@ namespace BookVerse.FORMS
         private void label1_Click(object sender, EventArgs e) { }
         private void label1_Click_1(object sender, EventArgs e) { }
         private void dgvAutores_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+
+        private void Autores_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }
