@@ -61,6 +61,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(500, 602);
             panel1.TabIndex = 10;
+            panel1.Paint += panel1_Paint;
             // 
             // label1
             // 
@@ -138,22 +139,26 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.LightCyan;
             label2.Location = new Point(96, 419);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(34, 20);
             label2.TabIndex = 14;
             label2.Text = "País";
+            label2.Click += label2_Click_2;
             // 
             // Nombre
             // 
             Nombre.AutoSize = true;
+            Nombre.BackColor = Color.LavenderBlush;
             Nombre.Location = new Point(67, 379);
             Nombre.Margin = new Padding(2, 0, 2, 0);
             Nombre.Name = "Nombre";
             Nombre.Size = new Size(64, 20);
             Nombre.TabIndex = 13;
             Nombre.Text = "Nombre";
+            Nombre.Click += Nombre_Click_1;
             // 
             // txtPais
             // 

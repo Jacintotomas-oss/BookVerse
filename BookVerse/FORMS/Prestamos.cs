@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using BookVerse.DATA;
 
@@ -19,20 +20,37 @@ namespace BookVerse.FORMS
             dgvPrestamos.CellClick += dgvPrestamos_CellClick;
 
             cboLibro.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            // [BLOQUE RESPONSIVIDAD] Suscribe el evento de redimensionamiento
+            this.Resize += Prestamos_Resize;
         }
 
         private void Prestamos_Load(object sender, EventArgs e)
         {
-            cboLibro.DisplayMember = "Titulo";
-            cboLibro.ValueMember = "IdLibro";
-            cboLibro.DataSource = repo.ObtenerLibros();
+            try
+            {
+                cboLibro.DisplayMember = "Titulo";
+                cboLibro.ValueMember = "IdLibro";
+                cboLibro.DataSource = repo.ObtenerLibros();
 
-            CargarGrid();
+                CargarGrid();
+            }
+            catch (Exception)
+            {
+                // [BLOQUE RESPONSIVIDAD] Evita que caiga la app si no hay BD local al diseñar
+            }
         }
 
         private void CargarGrid()
         {
-            dgvPrestamos.DataSource = repo.ObtenerLibrosParaGrid();
+            try
+            {
+                dgvPrestamos.DataSource = repo.ObtenerLibrosParaGrid();
+            }
+            catch (Exception)
+            {
+                // Evita excepciones si no hay conexión al refrescar la tabla
+            }
         }
 
         // Al hacer clic en una fila del grid, el combo se posiciona en ese libro
@@ -81,6 +99,23 @@ namespace BookVerse.FORMS
             cboLibro.SelectedIndex = -1;
             dgvPrestamos.ClearSelection();
             CargarGrid();
+        }
+
+        // [BLOQUE RESPONSIVIDAD] Centra el panel contenedor dinámicamente al cambiar el tamaño de ventana
+        private void Prestamos_Resize(object sender, EventArgs e)
+        {
+            if (panel1 != null)
+            {
+                panel1.Location = new Point(
+                    (this.ClientSize.Width - panel1.Width) / 2,
+                    (this.ClientSize.Height - panel1.Height) / 2
+                );
+            }
+        }
+
+        private void dgvPrestamos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

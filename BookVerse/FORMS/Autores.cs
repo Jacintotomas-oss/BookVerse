@@ -147,5 +147,20 @@ namespace BookVerse.FORMS
         {
 
         }
+
+        private void Nombre_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
