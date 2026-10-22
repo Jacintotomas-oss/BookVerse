@@ -25,6 +25,9 @@ namespace BookVerse.FORMS
             btnLimpiar.Click += btnLimpiar_Click;
             btnSeleccionarPortada.Click += btnSeleccionarPortada_Click;
             dgvLibros.CellClick += dgvLibros_CellClick;
+
+            //Evento de redimensionamiento del formulario
+            this.Resize += Libros_Resize;
         }
 
         // Los referencia el Designer: no los borres
@@ -214,6 +217,28 @@ namespace BookVerse.FORMS
         private void True(object sender, ScrollEventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblDescripcion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Centrado de panel y contenedor dinamico 
+        private void Libros_Resize(object sender, EventArgs e)
+        {
+            if (panel1 != null)
+            {
+                panel1.Location = new Point(
+                    (this.ClientSize.Width - panel1.Width) / 2,
+                    (this.ClientSize.Height - panel1.Height) / 2
+                );
+            }
         }
     }
 }
