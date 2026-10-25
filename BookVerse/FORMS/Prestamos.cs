@@ -9,6 +9,12 @@ namespace BookVerse.FORMS
     {
         private PrestamosRepository repo = new PrestamosRepository();
 
+        private static void Conectar(Button boton, EventHandler manejador)
+        {
+            boton.Click -= manejador;
+            boton.Click += manejador;
+        }
+
         public Prestamos()
         {
             InitializeComponent();
@@ -17,11 +23,18 @@ namespace BookVerse.FORMS
             dgvPrestamos.AllowUserToAddRows = false;
             dgvPrestamos.MultiSelect = false;
             dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            Conectar(btnSolicitar, btnSolicitar_Click);
+            Conectar(btnRegistrarDevolucion, btnRegistrarDevolucion_Click);
+            Conectar(btnLimpiar, btnLimpiar_Click);
+
+            dgvPrestamos.CellClick -= dgvPrestamos_CellClick;
             dgvPrestamos.CellClick += dgvPrestamos_CellClick;
 
-            cboLibro.DropDownStyle = ComboBoxStyle.DropDownList;
+            Load -= Prestamos_Load;
+            Load += Prestamos_Load;
 
-            // [BLOQUE RESPONSIVIDAD] Suscribe el evento de redimensionamiento
+            cboLibro.DropDownStyle = ComboBoxStyle.DropDownList;
             this.Resize += Prestamos_Resize;
         }
 
@@ -114,6 +127,11 @@ namespace BookVerse.FORMS
         }
 
         private void dgvPrestamos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnSolicitar_Click_1(object sender, EventArgs e)
         {
 
         }

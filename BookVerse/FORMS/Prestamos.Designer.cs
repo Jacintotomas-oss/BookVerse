@@ -87,7 +87,7 @@
             // 
             textBox1.Location = new Point(278, 355);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(512, 26);
+            textBox1.Size = new Size(512, 23);
             textBox1.TabIndex = 31;
             // 
             // lblUsuario
@@ -95,7 +95,7 @@
             lblUsuario.AutoSize = true;
             lblUsuario.Location = new Point(187, 358);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(69, 20);
+            lblUsuario.Size = new Size(58, 17);
             lblUsuario.TabIndex = 30;
             lblUsuario.Text = "Usuario";
             // 
@@ -150,6 +150,7 @@
             btnSolicitar.TabIndex = 26;
             btnSolicitar.Text = "Solicitar";
             btnSolicitar.UseVisualStyleBackColor = false;
+            btnSolicitar.Click += btnSolicitar_Click_1;
             // 
             // label5
             // 
@@ -158,7 +159,7 @@
             label5.Location = new Point(127, 449);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(113, 20);
+            label5.Size = new Size(95, 17);
             label5.TabIndex = 25;
             label5.Text = "F. Devolucion";
             // 
@@ -169,7 +170,7 @@
             label4.Location = new Point(144, 395);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(99, 20);
+            label4.Size = new Size(83, 17);
             label4.TabIndex = 24;
             label4.Text = "F. Prestamo";
             // 
@@ -179,7 +180,7 @@
             dtpFechaDevolucion.Location = new Point(278, 444);
             dtpFechaDevolucion.Margin = new Padding(4, 3, 4, 3);
             dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            dtpFechaDevolucion.Size = new Size(513, 26);
+            dtpFechaDevolucion.Size = new Size(513, 23);
             dtpFechaDevolucion.TabIndex = 23;
             // 
             // dtpFechaPrestamo
@@ -188,7 +189,7 @@
             dtpFechaPrestamo.Location = new Point(278, 390);
             dtpFechaPrestamo.Margin = new Padding(4, 3, 4, 3);
             dtpFechaPrestamo.Name = "dtpFechaPrestamo";
-            dtpFechaPrestamo.Size = new Size(513, 26);
+            dtpFechaPrestamo.Size = new Size(513, 23);
             dtpFechaPrestamo.TabIndex = 22;
             // 
             // label2
@@ -198,7 +199,7 @@
             label2.Location = new Point(203, 320);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(50, 20);
+            label2.Size = new Size(42, 17);
             label2.TabIndex = 21;
             label2.Text = "Libro";
             // 
@@ -208,7 +209,7 @@
             cboLibro.Location = new Point(279, 320);
             cboLibro.Margin = new Padding(4, 3, 4, 3);
             cboLibro.Name = "cboLibro";
-            cboLibro.Size = new Size(513, 28);
+            cboLibro.Size = new Size(513, 24);
             cboLibro.TabIndex = 20;
             // 
             // dgvPrestamos
@@ -229,13 +230,13 @@
             label1.Location = new Point(335, 39);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(203, 39);
+            label1.Size = new Size(161, 31);
             label1.TabIndex = 18;
             label1.Text = "Prestamos";
             // 
             // Prestamos
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;

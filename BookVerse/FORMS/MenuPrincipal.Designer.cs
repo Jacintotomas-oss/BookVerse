@@ -28,79 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             btnAgregarLibro = new Button();
             btnAgregarAutor = new Button();
             label1 = new Label();
-            panel1.SuspendLayout();
+            btnVentaPrestamos = new Button();
             SuspendLayout();
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Transparent;
-            panel1.Controls.Add(btnAgregarAutor);
-            panel1.Controls.Add(btnAgregarLibro);
-            panel1.Controls.Add(label1);
-            panel1.Location = new Point(-9, -9);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(919, 608);
-            panel1.TabIndex = 15;
-            panel1.Paint += panel1_Paint;
             // 
             // btnAgregarLibro
             // 
-            btnAgregarLibro.Location = new Point(759, 42);
-            btnAgregarLibro.Margin = new Padding(3, 4, 3, 4);
+            btnAgregarLibro.Location = new Point(641, 31);
             btnAgregarLibro.Name = "btnAgregarLibro";
-            btnAgregarLibro.Size = new Size(109, 31);
-            btnAgregarLibro.TabIndex = 18;
+            btnAgregarLibro.Size = new Size(95, 23);
+            btnAgregarLibro.TabIndex = 21;
             btnAgregarLibro.Text = "Agregar libro";
             btnAgregarLibro.UseVisualStyleBackColor = true;
+            btnAgregarLibro.Click += btnAgregarLibro_Click_2;
             // 
             // btnAgregarAutor
             // 
-            btnAgregarAutor.Location = new Point(759, 90);
-            btnAgregarAutor.Margin = new Padding(3, 4, 3, 4);
+            btnAgregarAutor.Location = new Point(641, 67);
             btnAgregarAutor.Name = "btnAgregarAutor";
-            btnAgregarAutor.Size = new Size(109, 31);
-            btnAgregarAutor.TabIndex = 17;
+            btnAgregarAutor.Size = new Size(95, 23);
+            btnAgregarAutor.TabIndex = 20;
             btnAgregarAutor.Text = "Agregar Autor";
             btnAgregarAutor.UseVisualStyleBackColor = true;
+            btnAgregarAutor.Click += btnAgregarAutor_Click_1;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Georgia", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(197, 53);
+            label1.Location = new Point(149, 39);
             label1.Name = "label1";
-            label1.Size = new Size(443, 39);
-            label1.TabIndex = 16;
+            label1.Size = new Size(352, 31);
+            label1.TabIndex = 19;
             label1.Text = "Bienvenido a BookVerse";
+            // 
+            // btnVentaPrestamos
+            // 
+            btnVentaPrestamos.Location = new Point(641, 107);
+            btnVentaPrestamos.Name = "btnVentaPrestamos";
+            btnVentaPrestamos.Size = new Size(95, 23);
+            btnVentaPrestamos.TabIndex = 22;
+            btnVentaPrestamos.Text = "Registro";
+            btnVentaPrestamos.UseVisualStyleBackColor = true;
+            btnVentaPrestamos.Click += btnVentaPrestamos_Click;
             // 
             // MenuPrincipal
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.Linen;
-            ClientSize = new Size(913, 599);
-            Controls.Add(panel1);
+            ClientSize = new Size(799, 449);
+            Controls.Add(btnVentaPrestamos);
+            Controls.Add(btnAgregarLibro);
+            Controls.Add(btnAgregarAutor);
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MenuPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
             Load += Menu_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Panel panel1;
-        private Button btnAgregarAutor;
         private Button btnAgregarLibro;
+        private Button btnAgregarAutor;
         private Label label1;
+        private Button btnVentaPrestamos;
     }
 }

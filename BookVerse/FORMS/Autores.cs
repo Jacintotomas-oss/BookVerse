@@ -12,17 +12,27 @@ namespace BookVerse.FORMS
         private AutorRepository repo = new AutorRepository();
         private int idSeleccionado = 0;
 
+        private static void Conectar(Button boton, EventHandler manejador)
+        {
+            boton.Click -= manejador;
+            boton.Click += manejador;
+        }
+
         public Autores()
         {
             InitializeComponent();
 
-            // Conectados desde código para no tocar el Designer
+            Conectar(btnAgregar, btnAgregar_Click);
+            Conectar(btnActualizar, btnActualizar_Click);
+            Conectar(btnEliminar, btnEliminar_Click);
+            Conectar(btnLimpiar, btnLimpiar_Click);
+
+            dgvAutores.CellClick -= dgvAutores_CellClick;
             dgvAutores.CellClick += dgvAutores_CellClick;
-            btnEliminar.Click += btnEliminar_Click;
-            btnLimpiar.Click += btnLimpiar_Click;
+
+            Load -= Autores_Load;
             Load += Autores_Load;
 
-            // [BLOQUE RESPONSIVIDAD] Suscribe el evento de redimensionamiento
             this.Resize += Autores_Resize;
         }
 
@@ -159,6 +169,26 @@ namespace BookVerse.FORMS
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
         {
 
         }
