@@ -90,6 +90,7 @@
             // btnLimpiar
             // 
             btnLimpiar.BackColor = Color.Gray;
+            btnLimpiar.Cursor = Cursors.Hand;
             btnLimpiar.FlatAppearance.BorderSize = 0;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -105,6 +106,7 @@
             // btnEliminar
             // 
             btnEliminar.BackColor = Color.Firebrick;
+            btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -120,6 +122,7 @@
             // btnActualizar
             // 
             btnActualizar.BackColor = Color.ForestGreen;
+            btnActualizar.Cursor = Cursors.Hand;
             btnActualizar.FlatAppearance.BorderSize = 0;
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -135,6 +138,7 @@
             // btnAgregar
             // 
             btnAgregar.BackColor = Color.Teal;
+            btnAgregar.Cursor = Cursors.Hand;
             btnAgregar.FlatAppearance.BorderSize = 0;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -151,7 +155,7 @@
             // 
             txtDescripcion.Location = new Point(449, 644);
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(479, 26);
+            txtDescripcion.Size = new Size(479, 23);
             txtDescripcion.TabIndex = 46;
             // 
             // lblDescripcion
@@ -160,7 +164,7 @@
             lblDescripcion.BackColor = Color.White;
             lblDescripcion.Location = new Point(344, 644);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(99, 20);
+            lblDescripcion.Size = new Size(83, 17);
             lblDescripcion.TabIndex = 45;
             lblDescripcion.Text = "Descripción";
             lblDescripcion.Click += lblDescripcion_Click;
@@ -174,7 +178,7 @@
             label6.Location = new Point(359, 606);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(69, 20);
+            label6.Size = new Size(58, 17);
             label6.TabIndex = 39;
             label6.Text = "N. Serie";
             // 
@@ -183,7 +187,7 @@
             txtNumeroSerie.Location = new Point(449, 603);
             txtNumeroSerie.Margin = new Padding(5, 4, 5, 4);
             txtNumeroSerie.Name = "txtNumeroSerie";
-            txtNumeroSerie.Size = new Size(479, 26);
+            txtNumeroSerie.Size = new Size(479, 23);
             txtNumeroSerie.TabIndex = 38;
             // 
             // label5
@@ -195,7 +199,7 @@
             label5.Location = new Point(384, 551);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(47, 20);
+            label5.Size = new Size(40, 17);
             label5.TabIndex = 37;
             label5.Text = "Serie";
             // 
@@ -208,7 +212,7 @@
             label4.Location = new Point(344, 498);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(82, 20);
+            label4.Size = new Size(68, 17);
             label4.TabIndex = 36;
             label4.Text = "Categoria";
             // 
@@ -221,7 +225,7 @@
             label3.Location = new Point(351, 437);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(76, 20);
+            label3.Size = new Size(63, 17);
             label3.TabIndex = 35;
             label3.Text = "Editorial";
             // 
@@ -231,7 +235,7 @@
             cboSerie.Location = new Point(449, 548);
             cboSerie.Margin = new Padding(5, 4, 5, 4);
             cboSerie.Name = "cboSerie";
-            cboSerie.Size = new Size(479, 28);
+            cboSerie.Size = new Size(479, 24);
             cboSerie.TabIndex = 34;
             // 
             // cboCategoria
@@ -240,7 +244,7 @@
             cboCategoria.Location = new Point(449, 495);
             cboCategoria.Margin = new Padding(5, 4, 5, 4);
             cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(479, 28);
+            cboCategoria.Size = new Size(479, 24);
             cboCategoria.TabIndex = 33;
             // 
             // cboEditorial
@@ -249,7 +253,7 @@
             cboEditorial.Location = new Point(449, 434);
             cboEditorial.Margin = new Padding(5, 4, 5, 4);
             cboEditorial.Name = "cboEditorial";
-            cboEditorial.Size = new Size(479, 28);
+            cboEditorial.Size = new Size(479, 24);
             cboEditorial.TabIndex = 32;
             // 
             // label2
@@ -261,7 +265,7 @@
             label2.Location = new Point(378, 385);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(52, 20);
+            label2.Size = new Size(45, 17);
             label2.TabIndex = 31;
             label2.Text = "Autor";
             // 
@@ -271,7 +275,7 @@
             cboAutor.Location = new Point(449, 382);
             cboAutor.Margin = new Padding(5, 4, 5, 4);
             cboAutor.Name = "cboAutor";
-            cboAutor.Size = new Size(479, 28);
+            cboAutor.Size = new Size(479, 24);
             cboAutor.TabIndex = 30;
             // 
             // label1
@@ -283,7 +287,7 @@
             label1.Location = new Point(375, 335);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(55, 20);
+            label1.Size = new Size(47, 17);
             label1.TabIndex = 29;
             label1.Text = "Titulo";
             // 
@@ -292,7 +296,7 @@
             txtTitulo.Location = new Point(449, 332);
             txtTitulo.Margin = new Padding(5, 4, 5, 4);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(479, 26);
+            txtTitulo.Size = new Size(479, 23);
             txtTitulo.TabIndex = 28;
             // 
             // btnSeleccionarPortada
@@ -312,6 +316,7 @@
             // 
             // pnlPortada
             // 
+            pnlPortada.BackColor = Color.DarkGray;
             pnlPortada.BackgroundImageLayout = ImageLayout.Zoom;
             pnlPortada.Location = new Point(87, 332);
             pnlPortada.Margin = new Padding(5, 4, 5, 4);
@@ -337,13 +342,13 @@
             label8.ForeColor = Color.Black;
             label8.Location = new Point(417, 30);
             label8.Name = "label8";
-            label8.Size = new Size(131, 39);
+            label8.Size = new Size(105, 31);
             label8.TabIndex = 44;
             label8.Text = "Libros";
             // 
             // Libros
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
@@ -354,6 +359,7 @@
             Font = new Font("Georgia", 10F);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5, 4, 5, 4);
             MinimizeBox = false;
             Name = "Libros";

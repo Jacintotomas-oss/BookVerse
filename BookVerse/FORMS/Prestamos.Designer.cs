@@ -75,6 +75,7 @@
             // AutorizarBtn
             // 
             AutorizarBtn.BackColor = Color.FromArgb(255, 128, 128);
+            AutorizarBtn.Cursor = Cursors.Hand;
             AutorizarBtn.ForeColor = SystemColors.ButtonHighlight;
             AutorizarBtn.Location = new Point(335, 500);
             AutorizarBtn.Name = "AutorizarBtn";
@@ -93,7 +94,8 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
-            lblUsuario.Location = new Point(187, 358);
+            lblUsuario.BackColor = Color.Silver;
+            lblUsuario.Location = new Point(213, 358);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(58, 17);
             lblUsuario.TabIndex = 30;
@@ -102,6 +104,7 @@
             // btnLimpiar
             // 
             btnLimpiar.BackColor = Color.RosyBrown;
+            btnLimpiar.Cursor = Cursors.Hand;
             btnLimpiar.FlatAppearance.BorderSize = 0;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -117,6 +120,7 @@
             // btnRegistrarDevolucion
             // 
             btnRegistrarDevolucion.BackColor = Color.HotPink;
+            btnRegistrarDevolucion.Cursor = Cursors.Hand;
             btnRegistrarDevolucion.FlatAppearance.BorderSize = 0;
             btnRegistrarDevolucion.FlatStyle = FlatStyle.Flat;
             btnRegistrarDevolucion.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -139,6 +143,7 @@
             // btnSolicitar
             // 
             btnSolicitar.BackColor = Color.Plum;
+            btnSolicitar.Cursor = Cursors.Hand;
             btnSolicitar.FlatAppearance.BorderSize = 0;
             btnSolicitar.FlatStyle = FlatStyle.Flat;
             btnSolicitar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -155,8 +160,9 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.Silver;
             label5.Font = new Font("Georgia", 10F);
-            label5.Location = new Point(127, 449);
+            label5.Location = new Point(176, 449);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(95, 17);
@@ -166,8 +172,9 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Silver;
             label4.Font = new Font("Georgia", 10F);
-            label4.Location = new Point(144, 395);
+            label4.Location = new Point(188, 395);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(83, 17);
@@ -195,8 +202,9 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Silver;
             label2.Font = new Font("Georgia", 10F);
-            label2.Location = new Point(203, 320);
+            label2.Location = new Point(229, 323);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(42, 17);
@@ -227,6 +235,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Georgia", 20F, FontStyle.Bold);
+            label1.ForeColor = SystemColors.Control;
             label1.Location = new Point(335, 39);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -245,6 +254,7 @@
             DoubleBuffered = true;
             Font = new Font("Georgia", 10F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             MinimizeBox = false;
             Name = "Prestamos";

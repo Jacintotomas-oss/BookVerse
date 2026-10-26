@@ -80,6 +80,7 @@
             // btnLimpiar
             // 
             btnLimpiar.BackColor = Color.RosyBrown;
+            btnLimpiar.Cursor = Cursors.Hand;
             btnLimpiar.FlatAppearance.BorderSize = 0;
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -96,6 +97,7 @@
             // btnEliminar
             // 
             btnEliminar.BackColor = Color.Red;
+            btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -112,6 +114,7 @@
             // btnActualizar
             // 
             btnActualizar.BackColor = Color.Orchid;
+            btnActualizar.Cursor = Cursors.Hand;
             btnActualizar.FlatAppearance.BorderSize = 0;
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -128,6 +131,7 @@
             // btnAgregar
             // 
             btnAgregar.BackColor = Color.LimeGreen;
+            btnAgregar.Cursor = Cursors.Hand;
             btnAgregar.FlatAppearance.BorderSize = 0;
             btnAgregar.FlatStyle = FlatStyle.Flat;
             btnAgregar.Font = new Font("Georgia", 10F, FontStyle.Bold);
@@ -201,6 +205,7 @@
             ClientSize = new Size(426, 440);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
             MinimizeBox = false;
             Name = "Autores";
