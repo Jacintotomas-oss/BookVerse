@@ -57,6 +57,7 @@ namespace BookVerse.FORMS
                 cboSerie.DataSource = series;
             }
 
+            nudStock.Value = 1;
             CargarGrid();
         }
 
@@ -109,7 +110,8 @@ namespace BookVerse.FORMS
                 IdCategoria = (int)cboCategoria.SelectedValue,
                 IdSeries = LeerIdSerie(),
                 NumeroSerie = LeerNumeroSerie(),
-                Descripcion = txtDescripcion.Text.Trim()
+                Descripcion = txtDescripcion.Text.Trim(),
+                Stock = (int)nudStock.Value
             };
 
             using (var contexto = new LibreriaContext())
@@ -138,6 +140,7 @@ namespace BookVerse.FORMS
             cboSerie.SelectedValue = libro.IdSeries ?? 0;
             txtNumeroSerie.Text = libro.NumeroSerie?.ToString();
             txtDescripcion.Text = libro.Descripcion;
+            nudStock.Value = Math.Min(libro.Stock, nudStock.Maximum);
 
             rutaPortadaNueva = null;
             pnlPortada.BackgroundImage = Portadas.Cargar(idSeleccionado);
@@ -157,6 +160,14 @@ namespace BookVerse.FORMS
                 var libro = contexto.Libros.Find(idSeleccionado);
                 if (libro == null) return;
 
+                // El stock no puede quedar por debajo de los ejemplares que ya están prestados
+                int prestados = contexto.Prestamos.Count(p => p.IdLibro == idSeleccionado && p.FechaDevolucion == null);
+                if ((int)nudStock.Value < prestados)
+                {
+                    MessageBox.Show("Hay " + prestados + " ejemplares prestados; el stock no puede ser menor.");
+                    return;
+                }
+
                 libro.Titulo = txtTitulo.Text.Trim();
                 libro.IdAutor = (int)cboAutor.SelectedValue;
                 libro.IdEditorial = (int)cboEditorial.SelectedValue;
@@ -164,6 +175,7 @@ namespace BookVerse.FORMS
                 libro.IdSeries = LeerIdSerie();
                 libro.NumeroSerie = LeerNumeroSerie();
                 libro.Descripcion = txtDescripcion.Text.Trim();
+                libro.Stock = (int)nudStock.Value;
                 contexto.SaveChanges();
             }
 
@@ -211,25 +223,16 @@ namespace BookVerse.FORMS
             txtNumeroSerie.Clear();
             txtDescripcion.Clear();
             cboSerie.SelectedValue = 0;
+            nudStock.Value = 1;
             pnlPortada.BackgroundImage = null;
         }
 
-        private void True(object sender, ScrollEventArgs e)
-        {
+        // Los referencia el Designer: no los borres
+        private void True(object sender, ScrollEventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void lblDescripcion_Click(object sender, EventArgs e) { }
 
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void lblDescripcion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        // Centrado de panel y contenedor dinamico 
+        // Centrado de panel y contenedor dinamico
         private void Libros_Resize(object sender, EventArgs e)
         {
             if (panel1 != null)

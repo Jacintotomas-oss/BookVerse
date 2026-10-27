@@ -52,13 +52,18 @@
             pnlPortada = new Panel();
             dgvLibros = new DataGridView();
             label8 = new Label();
+            nudStock = new NumericUpDown();
+            lblStock = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLibros).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(lblStock);
+            panel1.Controls.Add(nudStock);
             panel1.Controls.Add(btnLimpiar);
             panel1.Controls.Add(btnEliminar);
             panel1.Controls.Add(btnActualizar);
@@ -153,7 +158,7 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(449, 644);
+            txtDescripcion.Location = new Point(449, 575);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(479, 23);
             txtDescripcion.TabIndex = 46;
@@ -162,7 +167,7 @@
             // 
             lblDescripcion.AutoSize = true;
             lblDescripcion.BackColor = Color.White;
-            lblDescripcion.Location = new Point(344, 644);
+            lblDescripcion.Location = new Point(344, 575);
             lblDescripcion.Name = "lblDescripcion";
             lblDescripcion.Size = new Size(83, 17);
             lblDescripcion.TabIndex = 45;
@@ -175,7 +180,7 @@
             label6.BackColor = Color.White;
             label6.Font = new Font("Georgia", 10F);
             label6.ForeColor = Color.Black;
-            label6.Location = new Point(359, 606);
+            label6.Location = new Point(359, 541);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
             label6.Size = new Size(58, 17);
@@ -184,7 +189,7 @@
             // 
             // txtNumeroSerie
             // 
-            txtNumeroSerie.Location = new Point(449, 603);
+            txtNumeroSerie.Location = new Point(449, 538);
             txtNumeroSerie.Margin = new Padding(5, 4, 5, 4);
             txtNumeroSerie.Name = "txtNumeroSerie";
             txtNumeroSerie.Size = new Size(479, 23);
@@ -196,7 +201,7 @@
             label5.BackColor = Color.White;
             label5.Font = new Font("Georgia", 10F);
             label5.ForeColor = Color.Black;
-            label5.Location = new Point(384, 551);
+            label5.Location = new Point(384, 498);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(40, 17);
@@ -209,7 +214,7 @@
             label4.BackColor = Color.White;
             label4.Font = new Font("Georgia", 10F);
             label4.ForeColor = Color.Black;
-            label4.Location = new Point(344, 498);
+            label4.Location = new Point(344, 457);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
             label4.Size = new Size(68, 17);
@@ -222,7 +227,7 @@
             label3.BackColor = Color.White;
             label3.Font = new Font("Georgia", 10F);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(351, 437);
+            label3.Location = new Point(351, 417);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
             label3.Size = new Size(63, 17);
@@ -232,7 +237,7 @@
             // cboSerie
             // 
             cboSerie.FormattingEnabled = true;
-            cboSerie.Location = new Point(449, 548);
+            cboSerie.Location = new Point(449, 495);
             cboSerie.Margin = new Padding(5, 4, 5, 4);
             cboSerie.Name = "cboSerie";
             cboSerie.Size = new Size(479, 24);
@@ -241,7 +246,7 @@
             // cboCategoria
             // 
             cboCategoria.FormattingEnabled = true;
-            cboCategoria.Location = new Point(449, 495);
+            cboCategoria.Location = new Point(449, 454);
             cboCategoria.Margin = new Padding(5, 4, 5, 4);
             cboCategoria.Name = "cboCategoria";
             cboCategoria.Size = new Size(479, 24);
@@ -250,7 +255,7 @@
             // cboEditorial
             // 
             cboEditorial.FormattingEnabled = true;
-            cboEditorial.Location = new Point(449, 434);
+            cboEditorial.Location = new Point(449, 414);
             cboEditorial.Margin = new Padding(5, 4, 5, 4);
             cboEditorial.Name = "cboEditorial";
             cboEditorial.Size = new Size(479, 24);
@@ -262,7 +267,7 @@
             label2.BackColor = Color.White;
             label2.Font = new Font("Georgia", 10F);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(378, 385);
+            label2.Location = new Point(378, 375);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(45, 17);
@@ -272,7 +277,7 @@
             // cboAutor
             // 
             cboAutor.FormattingEnabled = true;
-            cboAutor.Location = new Point(449, 382);
+            cboAutor.Location = new Point(449, 372);
             cboAutor.Margin = new Padding(5, 4, 5, 4);
             cboAutor.Name = "cboAutor";
             cboAutor.Size = new Size(479, 24);
@@ -346,6 +351,25 @@
             label8.TabIndex = 44;
             label8.Text = "Libros";
             // 
+            // nudStock
+            // 
+            nudStock.Location = new Point(449, 606);
+            nudStock.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            nudStock.Name = "nudStock";
+            nudStock.Size = new Size(120, 23);
+            nudStock.TabIndex = 47;
+            nudStock.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // lblStock
+            // 
+            lblStock.AutoSize = true;
+            lblStock.BackColor = Color.White;
+            lblStock.Location = new Point(384, 612);
+            lblStock.Name = "lblStock";
+            lblStock.Size = new Size(44, 17);
+            lblStock.TabIndex = 48;
+            lblStock.Text = "Stock";
+            // 
             // Libros
             // 
             AutoScaleDimensions = new SizeF(8F, 16F);
@@ -370,6 +394,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvLibros).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
             ResumeLayout(false);
         }
 
@@ -398,5 +423,7 @@
         private Panel pnlPortada;
         private DataGridView dgvLibros;
         private Label label8;
+        private Label lblStock;
+        private NumericUpDown nudStock;
     }
 }
