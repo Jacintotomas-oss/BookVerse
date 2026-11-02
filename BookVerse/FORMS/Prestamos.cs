@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using BookVerse.DATA;
 
@@ -27,6 +28,7 @@ namespace BookVerse.FORMS
             Conectar(btnSolicitar, btnSolicitar_Click);
             Conectar(btnRegistrarDevolucion, btnRegistrarDevolucion_Click);
             Conectar(btnLimpiar, btnLimpiar_Click);
+            Conectar(btnGenerarPdf, btnGenerarPdf_Click); // Conectado limpio aquí
 
             dgvPrestamos.CellClick -= dgvPrestamos_CellClick;
             dgvPrestamos.CellClick += dgvPrestamos_CellClick;
@@ -50,7 +52,7 @@ namespace BookVerse.FORMS
             }
             catch (Exception)
             {
-                // [BLOQUE RESPONSIVIDAD] Evita que caiga la app si no hay BD local al diseñar
+                // Evita que caiga la app si no hay BD local al diseñar
             }
         }
 
@@ -66,7 +68,6 @@ namespace BookVerse.FORMS
             }
         }
 
-        // Al hacer clic en una fila del grid, el combo se posiciona en ese libro
         private void dgvPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -114,7 +115,6 @@ namespace BookVerse.FORMS
             CargarGrid();
         }
 
-        // [BLOQUE RESPONSIVIDAD] Centra el panel contenedor dinámicamente al cambiar el tamaño de ventana
         private void Prestamos_Resize(object sender, EventArgs e)
         {
             if (panel1 != null)
@@ -126,14 +126,47 @@ namespace BookVerse.FORMS
             }
         }
 
-        private void dgvPrestamos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnSolicitar_Click_1(object sender, EventArgs e) => btnSolicitar_Click(sender, e);
+
+        private void btnGenerarPdf_Click(object sender, EventArgs e)
+
         {
+            try
+            {
+                ReporteInventario reporte = repo.GenerarReporte();
+                string rutaPdf = repo.RutaReporte();
 
-        }
+                using (StreamWriter sw = new StreamWriter(rutaPdf))
+                {
+                    sw.WriteLine("========================================");
+                    sw.WriteLine("       BOOKVERSE - REPORTE DE INVENTARIO   ");
+                    sw.WriteLine("========================================");
+                    sw.WriteLine($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm:ss}\n");
 
-        private void btnSolicitar_Click_1(object sender, EventArgs e)
-        {
+                    foreach (var seccion in reporte.Secciones())
+                    {
+                        sw.WriteLine($"--- {seccion.Titulo.ToUpper()} ---");
+                        if (seccion.Lineas.Count == 0)
+                        {
+                            sw.WriteLine("  (Sin registros)");
+                        }
+                        else
+                        {
+                            foreach (var linea in seccion.Lineas)
+                            {
+                                sw.WriteLine($"  * {linea}");
+                            }
+                        }
+                        sw.WriteLine();
+                    }
+                }
 
+                MessageBox.Show($"Reporte generado en:\n{rutaPdf}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

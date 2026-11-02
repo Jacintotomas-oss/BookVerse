@@ -45,6 +45,7 @@
             cboLibro = new ComboBox();
             dgvPrestamos = new DataGridView();
             label1 = new Label();
+            btnGenerarPdf = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPrestamos).BeginInit();
             SuspendLayout();
@@ -52,6 +53,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(btnGenerarPdf);
             panel1.Controls.Add(AutorizarBtn);
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(lblUsuario);
@@ -88,7 +90,7 @@
             // 
             textBox1.Location = new Point(278, 355);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(512, 23);
+            textBox1.Size = new Size(512, 26);
             textBox1.TabIndex = 31;
             // 
             // lblUsuario
@@ -97,7 +99,7 @@
             lblUsuario.BackColor = Color.Silver;
             lblUsuario.Location = new Point(213, 358);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(58, 17);
+            lblUsuario.Size = new Size(69, 20);
             lblUsuario.TabIndex = 30;
             lblUsuario.Text = "Usuario";
             // 
@@ -112,7 +114,7 @@
             btnLimpiar.Location = new Point(73, 579);
             btnLimpiar.Margin = new Padding(4, 3, 4, 3);
             btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(725, 54);
+            btnLimpiar.Size = new Size(406, 54);
             btnLimpiar.TabIndex = 28;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
@@ -165,7 +167,7 @@
             label5.Location = new Point(176, 449);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(95, 17);
+            label5.Size = new Size(113, 20);
             label5.TabIndex = 25;
             label5.Text = "F. Devolucion";
             // 
@@ -177,7 +179,7 @@
             label4.Location = new Point(188, 395);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(83, 17);
+            label4.Size = new Size(99, 20);
             label4.TabIndex = 24;
             label4.Text = "F. Prestamo";
             // 
@@ -187,7 +189,7 @@
             dtpFechaDevolucion.Location = new Point(278, 444);
             dtpFechaDevolucion.Margin = new Padding(4, 3, 4, 3);
             dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            dtpFechaDevolucion.Size = new Size(513, 23);
+            dtpFechaDevolucion.Size = new Size(513, 26);
             dtpFechaDevolucion.TabIndex = 23;
             // 
             // dtpFechaPrestamo
@@ -196,7 +198,7 @@
             dtpFechaPrestamo.Location = new Point(278, 390);
             dtpFechaPrestamo.Margin = new Padding(4, 3, 4, 3);
             dtpFechaPrestamo.Name = "dtpFechaPrestamo";
-            dtpFechaPrestamo.Size = new Size(513, 23);
+            dtpFechaPrestamo.Size = new Size(513, 26);
             dtpFechaPrestamo.TabIndex = 22;
             // 
             // label2
@@ -207,7 +209,7 @@
             label2.Location = new Point(229, 323);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 17);
+            label2.Size = new Size(50, 20);
             label2.TabIndex = 21;
             label2.Text = "Libro";
             // 
@@ -217,7 +219,7 @@
             cboLibro.Location = new Point(279, 320);
             cboLibro.Margin = new Padding(4, 3, 4, 3);
             cboLibro.Name = "cboLibro";
-            cboLibro.Size = new Size(513, 24);
+            cboLibro.Size = new Size(513, 28);
             cboLibro.TabIndex = 20;
             // 
             // dgvPrestamos
@@ -239,13 +241,30 @@
             label1.Location = new Point(335, 39);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(161, 31);
+            label1.Size = new Size(203, 39);
             label1.TabIndex = 18;
             label1.Text = "Prestamos";
             // 
+            // btnGenerarPdf
+            // 
+            btnGenerarPdf.BackColor = Color.Crimson;
+            btnGenerarPdf.Cursor = Cursors.Hand;
+            btnGenerarPdf.FlatAppearance.BorderSize = 0;
+            btnGenerarPdf.FlatStyle = FlatStyle.Flat;
+            btnGenerarPdf.Font = new Font("Georgia", 10F, FontStyle.Bold);
+            btnGenerarPdf.ForeColor = Color.White;
+            btnGenerarPdf.Location = new Point(549, 579);
+            btnGenerarPdf.Margin = new Padding(4, 3, 4, 3);
+            btnGenerarPdf.Name = "btnGenerarPdf";
+            btnGenerarPdf.Size = new Size(246, 54);
+            btnGenerarPdf.TabIndex = 33;
+            btnGenerarPdf.Text = "Exportar PDF";
+            btnGenerarPdf.UseVisualStyleBackColor = false;
+            
+            // 
             // Prestamos
             // 
-            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleDimensions = new SizeF(10F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
@@ -284,5 +303,6 @@
         private ComboBox cboLibro;
         private DataGridView dgvPrestamos;
         private Label label1;
+        private Button btnGenerarPdf;
     }
 }
