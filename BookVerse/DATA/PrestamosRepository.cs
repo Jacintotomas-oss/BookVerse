@@ -5,6 +5,7 @@ using System.Linq;
 using BookVerse.Data;
 using BookVerse.Models;
 using System.IO;
+using QuestPDF; //esto ayuda al PDF creo yo 
 
 namespace BookVerse.DATA
 {
