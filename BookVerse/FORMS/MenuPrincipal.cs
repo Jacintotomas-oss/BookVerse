@@ -21,7 +21,8 @@ namespace BookVerse.FORMS
         public MenuPrincipal()
         {
             InitializeComponent();
-
+            // Cambio seguro: Centrar la ventana del menú principal al abrirse
+            this.StartPosition = FormStartPosition.CenterScreen;
             FormBorderStyle = FormBorderStyle.Sizable;
             MaximizeBox = true;
             AutoScroll = true;
