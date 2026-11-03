@@ -30,4 +30,9 @@ public partial class Libro
     public virtual Series? IdSeriesNavigation { get; set; }
 
     public virtual ICollection<Prestamo> Prestamos { get; set; } = new List<Prestamo>();
+
+    // Propiedad personalizada segura (no afecta la base de datos)
+    public string TituloConFormato => $"Libro: {Titulo}";
 }
+
+
