@@ -21,6 +21,8 @@ namespace BookVerse.FORMS
         public Autores()
         {
             InitializeComponent();
+            // Cambio seguro: Personalizar el título de la ventana
+            this.Text = "Gestión de Autores - BookVerse";
 
             Conectar(btnAgregar, btnAgregar_Click);
             Conectar(btnActualizar, btnActualizar_Click);
