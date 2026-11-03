@@ -10,6 +10,8 @@ namespace BookVerse.FORMS
         public Login()
         {
             InitializeComponent();
+            // Cambio seguro: Personalizar el título de la ventana de Login
+            this.Text = "Iniciar Sesión - BookVerse System";
             this.Resize += Login_Resize;
         }
 
