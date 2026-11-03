@@ -14,5 +14,13 @@ namespace BookVerse.Services
                 return Convert.ToBase64String(bytes);
             }
         }
+        // Método auxiliar seguro: Formatear correos electrónicos
+        public static string NormalizarCorreo(string correo)
+        {
+            if (string.IsNullOrWhiteSpace(correo))
+                return string.Empty;
+
+            return correo.Trim().ToLower();
+        }
     }
 }
