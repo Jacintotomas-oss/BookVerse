@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 using BookVerse.DATA;
-using QuestPDF;//hola :D
+using QuestPDF.Fluent;
 
 namespace BookVerse.FORMS
 {
@@ -29,7 +29,7 @@ namespace BookVerse.FORMS
             Conectar(btnSolicitar, btnSolicitar_Click);
             Conectar(btnRegistrarDevolucion, btnRegistrarDevolucion_Click);
             Conectar(btnLimpiar, btnLimpiar_Click);
-            Conectar(btnGenerarPdf, btnGenerarPdf_Click); // Conectado limpio aquí
+            Conectar(btnGenerarPdf, btnGenerarPdf_Click);
 
             dgvPrestamos.CellClick -= dgvPrestamos_CellClick;
             dgvPrestamos.CellClick += dgvPrestamos_CellClick;
@@ -130,44 +130,48 @@ namespace BookVerse.FORMS
         private void btnSolicitar_Click_1(object sender, EventArgs e) => btnSolicitar_Click(sender, e);
 
         private void btnGenerarPdf_Click(object sender, EventArgs e)
-
         {
             try
             {
-                ReporteInventario reporte = repo.GenerarReporte();
-                string rutaPdf = repo.RutaReporte();
+                string ruta = repo.RutaReporte();   // Documentos\BookVerse\Reportes\Reporte_Inventario.pdf
+                ExportarPdf(repo.GenerarReporte(), ruta);
 
-                using (StreamWriter sw = new StreamWriter(rutaPdf))
-                {
-                    sw.WriteLine("========================================");
-                    sw.WriteLine("       BOOKVERSE - REPORTE DE INVENTARIO   ");
-                    sw.WriteLine("========================================");
-                    sw.WriteLine($"Fecha: {DateTime.Now:dd/MM/yyyy HH:mm:ss}\n");
-
-                    foreach (var seccion in reporte.Secciones())
-                    {
-                        sw.WriteLine($"--- {seccion.Titulo.ToUpper()} ---");
-                        if (seccion.Lineas.Count == 0)
-                        {
-                            sw.WriteLine("  (Sin registros)");
-                        }
-                        else
-                        {
-                            foreach (var linea in seccion.Lineas)
-                            {
-                                sw.WriteLine($"  * {linea}");
-                            }
-                        }
-                        sw.WriteLine();
-                    }
-                }
-
-                MessageBox.Show($"Reporte generado en:\n{rutaPdf}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Reporte generado en:\n{ruta}", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Process.Start("explorer.exe", $"/select,\"{ruta}\"");   // abre la carpeta con el archivo marcado
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ExportarPdf(ReporteInventario r, string ruta)
+        {
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+
+            Document.Create(doc => doc.Page(page =>
+            {
+                page.Margin(40);
+                page.DefaultTextStyle(x => x.FontSize(11));
+                page.Header().Text("BookVerse · Reporte de inventario").FontSize(20).Bold();
+
+                page.Content().PaddingVertical(15).Column(col =>
+                {
+                    col.Spacing(6);
+                    foreach (var (titulo, lineas) in r.Secciones())
+                    {
+                        col.Item().PaddingTop(10).Text(titulo).FontSize(14).Bold();
+                        if (lineas.Count == 0) col.Item().Text("Sin datos.").Italic();
+                        foreach (var l in lineas) col.Item().Text("• " + l);
+                    }
+                });
+
+                page.Footer().AlignCenter().Text(t =>
+                {
+                    t.Span($"Generado el {DateTime.Now:dd/MM/yyyy HH:mm} · Página ");
+                    t.CurrentPageNumber();
+                });
+            })).GeneratePdf(ruta);
         }
     }
 }
