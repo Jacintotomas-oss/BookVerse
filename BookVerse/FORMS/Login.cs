@@ -10,6 +10,9 @@ namespace BookVerse.FORMS
         public Login()
         {
             InitializeComponent();
+            // Oculta la clave al iniciar
+            textBox2.UseSystemPasswordChar = true; // Oculta la clave al iniciar
+
             // Cambio seguro: Personalizar el título de la ventana de Login
             this.Text = "Iniciar Sesión - BookVerse System";
             this.Resize += Login_Resize;
