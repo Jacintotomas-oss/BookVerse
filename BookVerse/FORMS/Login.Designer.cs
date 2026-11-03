@@ -59,9 +59,8 @@
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(-3, -1);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(396, 374);
+            panel1.Size = new Size(453, 499);
             panel1.TabIndex = 8;
             panel1.Paint += panel1_Paint;
             // 
@@ -69,10 +68,11 @@
             // 
             checkBox1.AutoSize = true;
             checkBox1.BackColor = Color.Transparent;
-            checkBox1.Font = new Font("Georgia", 10F);
-            checkBox1.Location = new Point(102, 223);
+            checkBox1.Font = new Font("Georgia", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            checkBox1.Location = new Point(117, 297);
+            checkBox1.Margin = new Padding(3, 4, 3, 4);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(152, 21);
+            checkBox1.Size = new Size(214, 24);
             checkBox1.TabIndex = 15;
             checkBox1.Text = "Mostrar Contraseña";
             checkBox1.UseVisualStyleBackColor = false;
@@ -85,9 +85,10 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Georgia", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(213, 289);
+            button1.Location = new Point(243, 385);
+            button1.Margin = new Padding(3, 4, 3, 4);
             button1.Name = "button1";
-            button1.Size = new Size(98, 40);
+            button1.Size = new Size(112, 53);
             button1.TabIndex = 14;
             button1.Text = "Salir";
             button1.UseVisualStyleBackColor = false;
@@ -101,9 +102,10 @@
             ingresar.FlatStyle = FlatStyle.Flat;
             ingresar.Font = new Font("Georgia", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ingresar.ForeColor = Color.White;
-            ingresar.Location = new Point(78, 289);
+            ingresar.Location = new Point(89, 385);
+            ingresar.Margin = new Padding(3, 4, 3, 4);
             ingresar.Name = "ingresar";
-            ingresar.Size = new Size(98, 40);
+            ingresar.Size = new Size(112, 53);
             ingresar.TabIndex = 13;
             ingresar.Text = "Ingresar";
             ingresar.UseVisualStyleBackColor = false;
@@ -115,17 +117,18 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Georgia", 10F, FontStyle.Bold);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(65, 178);
+            label3.Location = new Point(74, 237);
             label3.Name = "label3";
-            label3.Size = new Size(91, 17);
+            label3.Size = new Size(115, 20);
             label3.TabIndex = 12;
             label3.Text = "Contraseña";
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(163, 175);
+            textBox2.Location = new Point(186, 233);
+            textBox2.Margin = new Padding(3, 4, 3, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(159, 23);
+            textBox2.Size = new Size(181, 27);
             textBox2.TabIndex = 11;
             // 
             // label2
@@ -134,17 +137,18 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Georgia", 10F, FontStyle.Bold);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(78, 133);
+            label2.Location = new Point(89, 177);
             label2.Name = "label2";
-            label2.Size = new Size(65, 17);
+            label2.Size = new Size(82, 20);
             label2.TabIndex = 10;
             label2.Text = "Usuario";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(163, 131);
+            textBox1.Location = new Point(186, 175);
+            textBox1.Margin = new Padding(3, 4, 3, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(159, 23);
+            textBox1.Size = new Size(181, 27);
             textBox1.TabIndex = 9;
             // 
             // label1
@@ -153,22 +157,23 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Georgia", 20F, FontStyle.Bold);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(102, 51);
+            label1.Location = new Point(108, 77);
             label1.Name = "label1";
-            label1.Size = new Size(209, 31);
+            label1.Size = new Size(259, 39);
             label1.TabIndex = 8;
             label1.Text = "Iniciar Sesion";
             // 
             // Login
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.Fondo_login;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(391, 371);
+            ClientSize = new Size(447, 495);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(3, 4, 3, 4);
             MinimizeBox = false;
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
