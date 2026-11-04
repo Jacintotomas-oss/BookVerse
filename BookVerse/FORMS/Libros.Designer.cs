@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Libros));
             panel1 = new Panel();
-            lblStock = new Label();
-            nudStock = new NumericUpDown();
             btnLimpiar = new Button();
             btnEliminar = new Button();
             btnActualizar = new Button();
@@ -54,9 +52,11 @@
             pnlPortada = new Panel();
             dgvLibros = new DataGridView();
             label8 = new Label();
+            nudStock = new NumericUpDown();
+            lblStock = new Label();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLibros).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -91,25 +91,6 @@
             panel1.Size = new Size(988, 764);
             panel1.TabIndex = 25;
             panel1.Paint += panel1_Paint;
-            // 
-            // lblStock
-            // 
-            lblStock.AutoSize = true;
-            lblStock.BackColor = Color.White;
-            lblStock.Location = new Point(384, 612);
-            lblStock.Name = "lblStock";
-            lblStock.Size = new Size(51, 20);
-            lblStock.TabIndex = 48;
-            lblStock.Text = "Stock";
-            // 
-            // nudStock
-            // 
-            nudStock.Location = new Point(449, 606);
-            nudStock.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
-            nudStock.Name = "nudStock";
-            nudStock.Size = new Size(120, 26);
-            nudStock.TabIndex = 47;
-            nudStock.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // btnLimpiar
             // 
@@ -179,7 +160,7 @@
             // 
             txtDescripcion.Location = new Point(449, 575);
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(479, 26);
+            txtDescripcion.Size = new Size(479, 23);
             txtDescripcion.TabIndex = 46;
             // 
             // lblDescripcion
@@ -188,7 +169,7 @@
             lblDescripcion.BackColor = Color.White;
             lblDescripcion.Location = new Point(344, 575);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(99, 20);
+            lblDescripcion.Size = new Size(83, 17);
             lblDescripcion.TabIndex = 45;
             lblDescripcion.Text = "Descripción";
             lblDescripcion.Click += lblDescripcion_Click;
@@ -202,7 +183,7 @@
             label6.Location = new Point(359, 541);
             label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(69, 20);
+            label6.Size = new Size(58, 17);
             label6.TabIndex = 39;
             label6.Text = "N. Serie";
             // 
@@ -211,7 +192,7 @@
             txtNumeroSerie.Location = new Point(449, 538);
             txtNumeroSerie.Margin = new Padding(5, 4, 5, 4);
             txtNumeroSerie.Name = "txtNumeroSerie";
-            txtNumeroSerie.Size = new Size(479, 26);
+            txtNumeroSerie.Size = new Size(479, 23);
             txtNumeroSerie.TabIndex = 38;
             // 
             // label5
@@ -223,7 +204,7 @@
             label5.Location = new Point(384, 498);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(47, 20);
+            label5.Size = new Size(40, 17);
             label5.TabIndex = 37;
             label5.Text = "Serie";
             // 
@@ -236,7 +217,7 @@
             label4.Location = new Point(344, 457);
             label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(82, 20);
+            label4.Size = new Size(68, 17);
             label4.TabIndex = 36;
             label4.Text = "Categoria";
             // 
@@ -249,7 +230,7 @@
             label3.Location = new Point(351, 417);
             label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(76, 20);
+            label3.Size = new Size(63, 17);
             label3.TabIndex = 35;
             label3.Text = "Editorial";
             // 
@@ -259,7 +240,7 @@
             cboSerie.Location = new Point(449, 495);
             cboSerie.Margin = new Padding(5, 4, 5, 4);
             cboSerie.Name = "cboSerie";
-            cboSerie.Size = new Size(479, 28);
+            cboSerie.Size = new Size(479, 24);
             cboSerie.TabIndex = 34;
             // 
             // cboCategoria
@@ -268,7 +249,7 @@
             cboCategoria.Location = new Point(449, 454);
             cboCategoria.Margin = new Padding(5, 4, 5, 4);
             cboCategoria.Name = "cboCategoria";
-            cboCategoria.Size = new Size(479, 28);
+            cboCategoria.Size = new Size(479, 24);
             cboCategoria.TabIndex = 33;
             // 
             // cboEditorial
@@ -277,7 +258,7 @@
             cboEditorial.Location = new Point(449, 414);
             cboEditorial.Margin = new Padding(5, 4, 5, 4);
             cboEditorial.Name = "cboEditorial";
-            cboEditorial.Size = new Size(479, 28);
+            cboEditorial.Size = new Size(479, 24);
             cboEditorial.TabIndex = 32;
             // 
             // label2
@@ -289,7 +270,7 @@
             label2.Location = new Point(378, 375);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(52, 20);
+            label2.Size = new Size(45, 17);
             label2.TabIndex = 31;
             label2.Text = "Autor";
             // 
@@ -299,7 +280,7 @@
             cboAutor.Location = new Point(449, 372);
             cboAutor.Margin = new Padding(5, 4, 5, 4);
             cboAutor.Name = "cboAutor";
-            cboAutor.Size = new Size(479, 28);
+            cboAutor.Size = new Size(479, 24);
             cboAutor.TabIndex = 30;
             // 
             // label1
@@ -311,7 +292,7 @@
             label1.Location = new Point(375, 335);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(55, 20);
+            label1.Size = new Size(47, 17);
             label1.TabIndex = 29;
             label1.Text = "Titulo";
             // 
@@ -320,12 +301,12 @@
             txtTitulo.Location = new Point(449, 332);
             txtTitulo.Margin = new Padding(5, 4, 5, 4);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(479, 26);
+            txtTitulo.Size = new Size(479, 23);
             txtTitulo.TabIndex = 28;
             // 
             // btnSeleccionarPortada
             // 
-            btnSeleccionarPortada.BackColor = Color.DarkRed;
+            btnSeleccionarPortada.BackColor = Color.DarkOrchid;
             btnSeleccionarPortada.FlatAppearance.BorderSize = 0;
             btnSeleccionarPortada.FlatStyle = FlatStyle.Flat;
             btnSeleccionarPortada.Font = new Font("Georgia", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -366,13 +347,32 @@
             label8.ForeColor = Color.Black;
             label8.Location = new Point(417, 30);
             label8.Name = "label8";
-            label8.Size = new Size(131, 39);
+            label8.Size = new Size(105, 31);
             label8.TabIndex = 44;
             label8.Text = "Libros";
             // 
+            // nudStock
+            // 
+            nudStock.Location = new Point(449, 606);
+            nudStock.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            nudStock.Name = "nudStock";
+            nudStock.Size = new Size(120, 23);
+            nudStock.TabIndex = 47;
+            nudStock.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // lblStock
+            // 
+            lblStock.AutoSize = true;
+            lblStock.BackColor = Color.White;
+            lblStock.Location = new Point(384, 612);
+            lblStock.Name = "lblStock";
+            lblStock.Size = new Size(44, 17);
+            lblStock.TabIndex = 48;
+            lblStock.Text = "Stock";
+            // 
             // Libros
             // 
-            AutoScaleDimensions = new SizeF(10F, 20F);
+            AutoScaleDimensions = new SizeF(8F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
@@ -393,8 +393,8 @@
             Scroll += True;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvLibros).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
             ResumeLayout(false);
         }
 
