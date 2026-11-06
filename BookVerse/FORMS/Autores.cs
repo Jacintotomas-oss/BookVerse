@@ -1,4 +1,4 @@
-﻿using BookVerse.Data;
+using BookVerse.Data;
 using BookVerse.DATA;
 using BookVerse.Models;
 using System;
@@ -21,8 +21,28 @@ namespace BookVerse.FORMS
         public Autores()
         {
             InitializeComponent();
-            // Cambio seguro: Personalizar el título de la ventana
+
+            // Configuración de ventana y fondo oscuro
+            this.BackgroundImage = null;
+            this.Size = new Size(740, 560);
+            this.ClientSize = new Size(720, 520);
+            this.MinimumSize = new Size(700, 500);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.FromArgb(17, 24, 39);
             this.Text = "Gestión de Autores - BookVerse";
+
+            // Configuración de tabla dgvAutores
+            dgvAutores.ReadOnly = true;
+            dgvAutores.AllowUserToAddRows = false;
+            dgvAutores.MultiSelect = false;
+            dgvAutores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAutores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvAutores.RowHeadersVisible = false;
+            dgvAutores.BorderStyle = BorderStyle.None;
+            dgvAutores.EnableHeadersVisualStyles = false;
 
             Conectar(btnAgregar, btnAgregar_Click);
             Conectar(btnActualizar, btnActualizar_Click);
@@ -49,9 +69,11 @@ namespace BookVerse.FORMS
             {
                 dgvAutores.DataSource = repo.ObtenerTodos();
 
-                // Oculta la colección de libros que EF agrega al modelo
+                // Oculta las colecciones de navegación que EF agrega al modelo
                 if (dgvAutores.Columns["Libros"] != null)
                     dgvAutores.Columns["Libros"].Visible = false;
+                if (dgvAutores.Columns["Series"] != null)
+                    dgvAutores.Columns["Series"].Visible = false;
             }
             catch (Exception)
             {
@@ -129,14 +151,14 @@ namespace BookVerse.FORMS
             txtPais.Clear();
         }
 
-        // [BLOQUE RESPONSIVIDAD] Centra el panel contenedor dinámicamente al cambiar el tamaño de ventana
+        // [BLOQUE RESPONSIVIDAD] Centra el panel contenedor dinámicamente si no está acoplado
         private void Autores_Resize(object sender, EventArgs e)
         {
-            if (panel1 != null)
+            if (panel1 != null && panel1.Dock == DockStyle.None)
             {
                 panel1.Location = new Point(
-                    (this.ClientSize.Width - panel1.Width) / 2,
-                    (this.ClientSize.Height - panel1.Height) / 2
+                    Math.Max(0, (this.ClientSize.Width - panel1.Width) / 2),
+                    Math.Max(0, (this.ClientSize.Height - panel1.Height) / 2)
                 );
             }
         }
@@ -149,50 +171,14 @@ namespace BookVerse.FORMS
         private void label1_Click(object sender, EventArgs e) { }
         private void label1_Click_1(object sender, EventArgs e) { }
         private void dgvAutores_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
-
-        private void Autores_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Nombre_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_2(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void btnAgregar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnActualizar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEliminar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLimpiar_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        private void Autores_Load_1(object sender, EventArgs e) { }
+        private void label1_Click_2(object sender, EventArgs e) { }
+        private void Nombre_Click_1(object sender, EventArgs e) { }
+        private void label2_Click_2(object sender, EventArgs e) { }
+        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void btnAgregar_Click_1(object sender, EventArgs e) { }
+        private void btnActualizar_Click_1(object sender, EventArgs e) { }
+        private void btnEliminar_Click_1(object sender, EventArgs e) { }
+        private void btnLimpiar_Click_1(object sender, EventArgs e) { }
     }
 }
