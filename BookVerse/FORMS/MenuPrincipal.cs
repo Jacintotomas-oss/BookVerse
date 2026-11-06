@@ -30,10 +30,12 @@ namespace BookVerse.FORMS
         {
             InitializeComponent();
 
-            // Tamaño de la ventana al iniciar (1360 x 820, centrada)
+            // Tamaño de la ventana, centrado al desmaximizar y arranque maximizado
             this.Size = new Size(1360, 820);
             this.MinimumSize = new Size(1100, 700);
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.CenterToScreen(); // Registra el centro de pantalla antes de maximizar
+            this.WindowState = FormWindowState.Maximized;
             this.BackColor = Color.FromArgb(17, 24, 39);
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.MaximizeBox = true;
@@ -45,9 +47,9 @@ namespace BookVerse.FORMS
                 btn.TextAlign = ContentAlignment.MiddleCenter;
             }
 
-            // Margen inferior amplio para que el scroll nunca corte la última fila de libros
-            flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 80);
+            // Margen inferior mediante propiedades del contenedor (sin paneles anchos extra)
             flowLayoutCatalogo.AutoScrollMargin = new Size(0, 60);
+            flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 60);
 
             // Asegurar orden de acoplamiento: panelHeader arriba y flowLayoutCatalogo ocupando el resto
             panelHeader.SendToBack();
@@ -58,13 +60,51 @@ namespace BookVerse.FORMS
             KeyPreview = true;
             KeyDown += (s, e) => { if (e.KeyCode == Keys.F11) AlternarPantallaCompleta(); };
 
-            // Invisible hasta que la intro esté encima, para que no se vea ni un parpadeo
-            Opacity = 0;
+            // Invisible hasta que la intro haya terminado por completo
+            this.Opacity = 0;
 
             Load += (s, e) => CargarCatalogo();
             Shown += (s, e) => MostrarBienvenida();
-            Resize += (s, e) => CentrarBotonesHeader();
+            this.Resize += (s, e) =>
+            {
+                CentrarBotonesHeader();
+                AjustarMargenCatalogo();
+                if (flowLayoutCatalogo != null)
+                {
+                    flowLayoutCatalogo.PerformLayout();
+                    flowLayoutCatalogo.Invalidate();
+                }
+            };
+            flowLayoutCatalogo.Resize += (s, e) => AjustarMargenCatalogo();
             panelHeader.Resize += (s, e) => CentrarBotonesHeader();
+        }
+
+        private void AjustarMargenCatalogo()
+        {
+            if (flowLayoutCatalogo == null || flowLayoutCatalogo.Controls.Count == 0) return;
+
+            // Ancho real de cada tarjeta (210) + sus márgenes laterales (12 + 12 = 24) = 234 px
+            const int anchoItem = 234;
+            int anchoDisponible = flowLayoutCatalogo.ClientSize.Width;
+
+            if (anchoDisponible <= 0) return;
+
+            // Cuántas columnas completas caben en el ancho actual:
+            int columnas = Math.Max(1, anchoDisponible / anchoItem);
+
+            // Cuánto ancho ocupan esas columnas en total:
+            int anchoOcupado = columnas * anchoItem;
+
+            // Repartir el sobrante exactamente a partes iguales a izquierda y derecha:
+            int paddingLateral = Math.Max(15, (anchoDisponible - anchoOcupado) / 2);
+
+            // Asignar el padding para centrar todo el bloque:
+            flowLayoutCatalogo.Padding = new Padding(
+                paddingLateral,
+                flowLayoutCatalogo.Padding.Top,
+                paddingLateral,
+                flowLayoutCatalogo.Padding.Bottom
+            );
         }
 
         private void CentrarBotonesHeader()
@@ -89,13 +129,18 @@ namespace BookVerse.FORMS
             try
             {
                 var intro = new PantallaBienvenida(Screen.FromControl(this).Bounds);
-                intro.FormClosed += (s, e) => Activate();
+                intro.Shown += (s, e) =>
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                    this.Opacity = 1; // Ya está listo y renderizado detrás de la intro negra
+                };
+                intro.FormClosed += (s, e) => this.Activate();
                 intro.Show(this);
-                Opacity = 1;   // el menú ya está listo debajo de la intro
             }
             catch
             {
-                Opacity = 1;   // si algo falla, el menú se muestra igual
+                this.WindowState = FormWindowState.Maximized;
+                this.Opacity = 1;   // si algo falla, el menú se muestra igual
             }
         }
 
@@ -206,18 +251,12 @@ namespace BookVerse.FORMS
                     flowLayoutCatalogo.Controls.Add(tarjeta);
                 }
 
-                Panel pnlEspacioFinal = new Panel
-                {
-                    Size = new Size(Math.Max(100, flowLayoutCatalogo.ClientSize.Width - 50), 80),
-                    BackColor = Color.Transparent
-                };
-                flowLayoutCatalogo.Controls.Add(pnlEspacioFinal);
-
-                flowLayoutCatalogo.ResumeLayout();
+                AjustarMargenCatalogo();
+                flowLayoutCatalogo.ResumeLayout(true);
             }
             catch (Exception ex)
             {
-                flowLayoutCatalogo.ResumeLayout();
+                flowLayoutCatalogo.ResumeLayout(true);
                 MessageBox.Show("No se pudo cargar el catálogo: " + (ex.InnerException?.Message ?? ex.Message));
             }
         }
@@ -225,8 +264,15 @@ namespace BookVerse.FORMS
         // Agregar Libro: ShowDialog para refrescar el catálogo al cerrar
         private void btnAgregarLibro_Click(object sender, EventArgs e)
         {
+            int totalAntes = flowLayoutCatalogo.Controls.OfType<Panel>().Count();
             new Libros().ShowDialog();
-            CargarCatalogo();
+            using (var ctx = new LibreriaContext())
+            {
+                if (ctx.Libros.Count() != totalAntes) // Solo recarga si de verdad se agregó o borró un libro
+                {
+                    CargarCatalogo();
+                }
+            }
         }
 
         private void btnAgregarLibro_Click_1(object sender, EventArgs e) => btnAgregarLibro_Click(sender, e);
@@ -236,7 +282,7 @@ namespace BookVerse.FORMS
         private void btnAgregarAutor_Click(object sender, EventArgs e)
         {
             new Autores().ShowDialog();
-            CargarCatalogo();
+            // No es necesario recargar las tarjetas de libros si solo se abrió la ventana de autores.
         }
 
         private void btnAgregarAutor_Click_1(object sender, EventArgs e) => btnAgregarAutor_Click(sender, e);
@@ -288,8 +334,8 @@ namespace BookVerse.FORMS
             }
         }
 
-        private const float DuracionTotal = 7.6f;   // segundos antes del fundido final
-        private const float DuracionSalida = 1.2f;  // duración del fundido de salida
+        private const float DuracionTotal = 2.5f;   // 2.5 seg de frase (en vez de 7.6 seg)
+        private const float DuracionSalida = 0.4f;  // Fundido rápido (en vez de 1.2 seg)
         private readonly System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer { Interval = 15 };
         private readonly Stopwatch reloj = Stopwatch.StartNew();
         private readonly List<Particula> particulas = new List<Particula>();
@@ -378,7 +424,7 @@ namespace BookVerse.FORMS
 
         private void Salir()
         {
-            if (saliendo || reloj.Elapsed.TotalSeconds < 0.5) return;   // ignora clics accidentales
+            if (saliendo) return;
             saliendo = true;
             inicioSalida = reloj.Elapsed.TotalSeconds;
         }
@@ -435,20 +481,20 @@ namespace BookVerse.FORMS
             }
 
             // Título: aparece y sube suavemente
-            float aTitulo = Suave(Progreso(t, 0.8f, 2.2f));
+            float aTitulo = Suave(Progreso(t, 0.1f, 0.7f));
             float subida = (1 - aTitulo) * 24f;
             using (var pincel = new SolidBrush(Color.FromArgb((int)(255 * aTitulo), 212, 175, 106)))
                 g.DrawString("Bienvenido a BookVerse", fuenteTitulo, pincel,
                              new RectangleF(0, cy - 60 + subida, W, 90), centrado);
 
             // Línea dorada que se abre desde el centro
-            float pl = Suave(Progreso(t, 1.6f, 2.8f));
+            float pl = Suave(Progreso(t, 0.3f, 0.9f));
             float mitad = 170f * pl;
             using (var lapiz = new Pen(Color.FromArgb((int)(200 * pl), 212, 175, 106), 1.5f))
                 g.DrawLine(lapiz, cx - mitad, cy + 34, cx + mitad, cy + 34);
 
             // Frase
-            float aFrase = Suave(Progreso(t, 2.6f, 4.0f));
+            float aFrase = Suave(Progreso(t, 0.5f, 1.2f));
             float anchoFrase = W * 0.62f;
             var medida = g.MeasureString(frase, fuenteFrase, (int)anchoFrase);
             using (var pincel = new SolidBrush(Color.FromArgb((int)(235 * aFrase), 232, 226, 212)))
@@ -456,7 +502,7 @@ namespace BookVerse.FORMS
                              new RectangleF(cx - anchoFrase / 2, cy + 58, anchoFrase, medida.Height + 4), centrado);
 
             // Autor
-            float aAutor = Suave(Progreso(t, 3.4f, 4.6f));
+            float aAutor = Suave(Progreso(t, 0.8f, 1.5f));
             using (var pincel = new SolidBrush(Color.FromArgb((int)(255 * aAutor), 212, 175, 106)))
                 g.DrawString("— " + autor, fuenteAutor, pincel,
                              new RectangleF(0, cy + 58 + medida.Height + 16, W, 30), centrado);

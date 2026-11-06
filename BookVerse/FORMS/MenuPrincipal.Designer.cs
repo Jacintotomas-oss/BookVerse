@@ -110,7 +110,7 @@ namespace BookVerse.FORMS
             flowLayoutCatalogo.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutCatalogo.Location = new Point(0, 65);
             flowLayoutCatalogo.Name = "flowLayoutCatalogo";
-            flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 80);
+            flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 60);
             flowLayoutCatalogo.Size = new Size(1360, 755);
             flowLayoutCatalogo.TabIndex = 1;
             flowLayoutCatalogo.WrapContents = true;

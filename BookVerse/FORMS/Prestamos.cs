@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
@@ -21,10 +21,23 @@ namespace BookVerse.FORMS
         {
             InitializeComponent();
 
+            this.BackgroundImage = null;
+            this.ClientSize = new Size(950, 580);
+            this.Size = new Size(966, 619);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.FromArgb(17, 24, 39);
+
             dgvPrestamos.ReadOnly = true;
             dgvPrestamos.AllowUserToAddRows = false;
             dgvPrestamos.MultiSelect = false;
             dgvPrestamos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPrestamos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPrestamos.RowHeadersVisible = false;
+            dgvPrestamos.BorderStyle = BorderStyle.None;
+            dgvPrestamos.EnableHeadersVisualStyles = false;
 
             Conectar(btnSolicitar, btnSolicitar_Click);
             Conectar(btnRegistrarDevolucion, btnRegistrarDevolucion_Click);
@@ -118,11 +131,11 @@ namespace BookVerse.FORMS
 
         private void Prestamos_Resize(object sender, EventArgs e)
         {
-            if (panel1 != null)
+            if (panel1 != null && panel1.Dock == DockStyle.None)
             {
                 panel1.Location = new Point(
-                    (this.ClientSize.Width - panel1.Width) / 2,
-                    (this.ClientSize.Height - panel1.Height) / 2
+                    Math.Max(0, (this.ClientSize.Width - panel1.Width) / 2),
+                    Math.Max(0, (this.ClientSize.Height - panel1.Height) / 2)
                 );
             }
         }
