@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
 using System.Windows.Forms;
+using Microsoft.EntityFrameworkCore;
 using BookVerse.Data;
 using BookVerse.Models;
 using BookVerse.Services;
@@ -15,21 +16,45 @@ namespace BookVerse.FORMS
 {
     public partial class MenuPrincipal : Form
     {
-        private readonly List<Control> tarjetas = new List<Control>();
         private bool pantallaCompleta = false;
+
+        private ToolTip toolTipLibros = new ToolTip
+        {
+            AutoPopDelay = 5000,
+            InitialDelay = 250, // Aparece rápido (en 0.25 seg)
+            ReshowDelay = 100,
+            ShowAlways = true   // Se muestra siempre aunque la ventana no tenga el foco activo
+        };
 
         public MenuPrincipal()
         {
             InitializeComponent();
-            // Cambio seguro: Centrar la ventana del menú principal al abrirse
-            this.StartPosition = FormStartPosition.CenterScreen;
-            FormBorderStyle = FormBorderStyle.Sizable;
-            MaximizeBox = true;
-            AutoScroll = true;
-            MinimumSize = new Size(680, 400);
 
-            // Siempre inicia en pantalla completa (maximizado); F11 alterna sin bordes
-            WindowState = FormWindowState.Maximized;
+            // Tamaño de la ventana al iniciar (1360 x 820, centrada)
+            this.Size = new Size(1360, 820);
+            this.MinimumSize = new Size(1100, 700);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.FromArgb(17, 24, 39);
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+            this.MaximizeBox = true;
+
+            // Asegurar ancho uniforme y texto centrado en los 3 botones superiores
+            foreach (var btn in new[] { btnAgregarAutor, btnAgregarLibro, btnVentaPrestamos })
+            {
+                btn.Size = new Size(170, 40);
+                btn.TextAlign = ContentAlignment.MiddleCenter;
+            }
+
+            // Margen inferior amplio para que el scroll nunca corte la última fila de libros
+            flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 80);
+            flowLayoutCatalogo.AutoScrollMargin = new Size(0, 60);
+
+            // Asegurar orden de acoplamiento: panelHeader arriba y flowLayoutCatalogo ocupando el resto
+            panelHeader.SendToBack();
+            flowLayoutCatalogo.BringToFront();
+
+            CentrarBotonesHeader();
+
             KeyPreview = true;
             KeyDown += (s, e) => { if (e.KeyCode == Keys.F11) AlternarPantallaCompleta(); };
 
@@ -38,7 +63,25 @@ namespace BookVerse.FORMS
 
             Load += (s, e) => CargarCatalogo();
             Shown += (s, e) => MostrarBienvenida();
-            Resize += (s, e) => Reacomodar();
+            Resize += (s, e) => CentrarBotonesHeader();
+            panelHeader.Resize += (s, e) => CentrarBotonesHeader();
+        }
+
+        private void CentrarBotonesHeader()
+        {
+            if (panelHeader == null) return;
+
+            const int anchoBoton = 170;
+            const int altoBoton = 40;
+            const int separacion = 20;
+
+            int anchoTotal = (anchoBoton * 3) + (separacion * 2);
+            int startX = Math.Max(12, (panelHeader.ClientSize.Width - anchoTotal) / 2);
+            int posY = (panelHeader.Height - altoBoton) / 2;
+
+            btnAgregarAutor.Location = new Point(startX, posY);
+            btnAgregarLibro.Location = new Point(startX + anchoBoton + separacion, posY);
+            btnVentaPrestamos.Location = new Point(startX + (anchoBoton + separacion) * 2, posY);
         }
 
         private void MostrarBienvenida()
@@ -61,102 +104,122 @@ namespace BookVerse.FORMS
             pantallaCompleta = !pantallaCompleta;
             WindowState = FormWindowState.Normal;
             FormBorderStyle = pantallaCompleta ? FormBorderStyle.None : FormBorderStyle.Sizable;
-            WindowState = FormWindowState.Maximized;
+            WindowState = pantallaCompleta ? FormWindowState.Maximized : FormWindowState.Normal;
         }
 
         private void CargarCatalogo()
         {
             try
             {
-                foreach (var t in tarjetas) { Controls.Remove(t); t.Dispose(); }
-                tarjetas.Clear();
+                flowLayoutCatalogo.SuspendLayout();
 
-                List<Libro> libros;
-                using (var contexto = new LibreriaContext())
-                    libros = contexto.Libros.OrderBy(l => l.IdLibro).ToList();
+                foreach (Control ctrl in flowLayoutCatalogo.Controls)
+                {
+                    ctrl.Dispose();
+                }
+                flowLayoutCatalogo.Controls.Clear();
+
+                using var context = new LibreriaContext();
+                var libros = context.Libros
+                    .Include(l => l.IdAutorNavigation)
+                    .OrderBy(l => l.IdLibro)
+                    .ToList();
 
                 foreach (var libro in libros)
                 {
-                    var tarjeta = new Panel { Size = new Size(220, 305) };
-
-                    var portada = new Panel
+                    var tarjeta = new Panel
                     {
-                        Location = new Point(8, 0),
-                        Size = new Size(204, 215),
-                        BackColor = SystemColors.ActiveCaption,
-                        BackgroundImageLayout = ImageLayout.Zoom,
-                        BackgroundImage = Portadas.Cargar(libro.IdLibro)
+                        Size = new Size(210, 370),
+                        Margin = new Padding(12, 12, 12, 12),
+                        BackColor = Color.FromArgb(31, 41, 55)
+                    };
+
+                    var pbPortada = new PictureBox
+                    {
+                        Location = new Point(10, 10),
+                        Size = new Size(190, 265),
+                        SizeMode = PictureBoxSizeMode.Zoom,
+                        BackColor = Color.FromArgb(55, 65, 81),
+                        Image = Portadas.Cargar(libro.IdLibro)
                     };
 
                     var lblTitulo = new Label
                     {
+                        Location = new Point(10, 282),
+                        Size = new Size(190, 42),
+                        AutoSize = false,
+                        AutoEllipsis = true,
                         Text = libro.Titulo,
-                        Location = new Point(8, 220),
-                        Size = new Size(204, 36),
+                        ForeColor = Color.White,
+                        Font = new Font("Segoe UI", 9F, FontStyle.Bold),
                         TextAlign = ContentAlignment.MiddleCenter
                     };
+                    toolTipLibros.SetToolTip(lblTitulo, libro.Titulo);
+                    toolTipLibros.SetToolTip(pbPortada, libro.Titulo); // También si pasa el mouse sobre la portada se verá el título completo
 
-                    var btnDescripcion = new Button { Text = "Descripción", Location = new Point(8, 265), Size = new Size(96, 27) };
-                    var btnSolicitar = new Button { Text = "Solicitar", Location = new Point(116, 265), Size = new Size(96, 27) };
+                    // Botones inferiores
+                    var btnDetalles = new Button
+                    {
+                        Location = new Point(10, 328),
+                        Size = new Size(90, 32),
+                        Text = "Detalles",
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        BackColor = Color.FromArgb(55, 65, 81),
+                        ForeColor = Color.FromArgb(209, 213, 219),
+                        FlatStyle = FlatStyle.Flat,
+                        Font = new Font("Segoe UI", 8F, FontStyle.Bold),
+                        Cursor = Cursors.Hand,
+                        UseVisualStyleBackColor = false
+                    };
+                    btnDetalles.FlatAppearance.BorderSize = 0;
 
-                    string titulo = libro.Titulo;
-                    string descripcion = libro.Descripcion;
+                    var btnSolicitar = new Button
+                    {
+                        Location = new Point(105, 328),
+                        Size = new Size(95, 32),
+                        Text = "Solicitar",
+                        TextAlign = ContentAlignment.MiddleCenter,
+                        BackColor = Color.FromArgb(37, 99, 235),
+                        ForeColor = Color.White,
+                        FlatStyle = FlatStyle.Flat,
+                        Font = new Font("Segoe UI", 8F, FontStyle.Bold),
+                        Cursor = Cursors.Hand,
+                        UseVisualStyleBackColor = false
+                    };
+                    btnSolicitar.FlatAppearance.BorderSize = 0;
 
-                    btnDescripcion.Click += (s, e) =>
-                        MessageBox.Show(string.IsNullOrWhiteSpace(descripcion) ? "Sin descripción." : descripcion, titulo);
+                    btnDetalles.Click += (s, e) =>
+                        MessageBox.Show(
+                            $"Autor: {libro.IdAutorNavigation?.Nombre ?? "Desconocido"}\n\nDescripción:\n{libro.Descripcion}",
+                            libro.Titulo,
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.None // Sin icono para que abra limpio y en silencio
+                        );
 
-                    btnSolicitar.Click += (s, e) => new Prestamos().Show();
+                    btnSolicitar.Click += (s, e) => new Prestamos().ShowDialog();
 
-                    tarjeta.Controls.AddRange(new Control[] { portada, lblTitulo, btnDescripcion, btnSolicitar });
-                    Controls.Add(tarjeta);
-                    tarjetas.Add(tarjeta);
+                    tarjeta.Controls.Add(pbPortada);
+                    tarjeta.Controls.Add(lblTitulo);
+                    tarjeta.Controls.Add(btnDetalles);
+                    tarjeta.Controls.Add(btnSolicitar);
+
+                    flowLayoutCatalogo.Controls.Add(tarjeta);
                 }
 
-                Reacomodar();
+                Panel pnlEspacioFinal = new Panel
+                {
+                    Size = new Size(Math.Max(100, flowLayoutCatalogo.ClientSize.Width - 50), 80),
+                    BackColor = Color.Transparent
+                };
+                flowLayoutCatalogo.Controls.Add(pnlEspacioFinal);
+
+                flowLayoutCatalogo.ResumeLayout();
             }
             catch (Exception ex)
             {
+                flowLayoutCatalogo.ResumeLayout();
                 MessageBox.Show("No se pudo cargar el catálogo: " + (ex.InnerException?.Message ?? ex.Message));
             }
-        }
-
-        // Recalcula posiciones según el ancho actual de la ventana
-        private void Reacomodar()
-        {
-            SuspendLayout();
-            AutoScrollPosition = new Point(0, 0);
-
-            const int anchoTarjeta = 220, altoTarjeta = 305, separacion = 25, margen = 12, inicioY = 110;
-
-            // Título centrado
-            //label1.Left = (ClientSize.Width - label1.Width) / 2;
-
-            // Botones de arriba: mismo ancho, apilados a la derecha
-            var botones = new[] { btnAgregarLibro, btnAgregarAutor, btnVentaPrestamos };
-            int anchoBoton = botones.Max(b => b.Width);
-            int y = 15;
-            foreach (var b in botones)
-            {
-                b.Width = anchoBoton;
-                b.Left = ClientSize.Width - anchoBoton - 20;
-                b.Top = y;
-                y += b.Height + 6;
-            }
-
-            // Tarjetas: columnas según el ancho de la ventana
-            int paso = anchoTarjeta + separacion;
-            int columnas = Math.Max(1, (ClientSize.Width - margen) / paso);
-            int anchoBloque = columnas * paso - separacion;
-            int inicioX = Math.Max(margen, (ClientSize.Width - anchoBloque) / 2);
-
-            for (int i = 0; i < tarjetas.Count; i++)
-            {
-                tarjetas[i].Location = new Point(
-                    inicioX + (i % columnas) * paso,
-                    inicioY + (i / columnas) * (altoTarjeta + separacion));
-            }
-
-            ResumeLayout();
         }
 
         // Agregar Libro: ShowDialog para refrescar el catálogo al cerrar
@@ -173,6 +236,7 @@ namespace BookVerse.FORMS
         private void btnAgregarAutor_Click(object sender, EventArgs e)
         {
             new Autores().ShowDialog();
+            CargarCatalogo();
         }
 
         private void btnAgregarAutor_Click_1(object sender, EventArgs e) => btnAgregarAutor_Click(sender, e);
@@ -197,7 +261,6 @@ namespace BookVerse.FORMS
         private void button7_Click(object sender, EventArgs e) { }
     }
 
-    
     [DesignerCategory("Code")]
     internal class PantallaBienvenida : Form
     {

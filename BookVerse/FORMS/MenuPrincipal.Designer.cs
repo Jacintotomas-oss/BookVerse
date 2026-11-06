@@ -1,4 +1,4 @@
-﻿namespace BookVerse.FORMS
+namespace BookVerse.FORMS
 {
     partial class MenuPrincipal
     {
@@ -28,87 +28,119 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Label label1;
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
-            btnAgregarLibro = new Button();
+            panelHeader = new Panel();
             btnAgregarAutor = new Button();
+            btnAgregarLibro = new Button();
             btnVentaPrestamos = new Button();
-            label1 = new Label();
+            flowLayoutCatalogo = new FlowLayoutPanel();
+            panelHeader.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // panelHeader
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Georgia", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(25, 0);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(206, 18);
-            label1.TabIndex = 19;
-            label1.Text = "Bienvenido a BookVerse";
-            // 
-            // btnAgregarLibro
-            // 
-            btnAgregarLibro.Cursor = Cursors.Hand;
-            btnAgregarLibro.Location = new Point(10, 53);
-            btnAgregarLibro.Name = "btnAgregarLibro";
-            btnAgregarLibro.Size = new Size(95, 23);
-            btnAgregarLibro.TabIndex = 21;
-            btnAgregarLibro.Text = "Agregar libro";
-            btnAgregarLibro.UseVisualStyleBackColor = true;
-            btnAgregarLibro.Click += btnAgregarLibro_Click_2;
+            panelHeader.BackColor = Color.FromArgb(31, 41, 55);
+            panelHeader.Controls.Add(btnAgregarAutor);
+            panelHeader.Controls.Add(btnAgregarLibro);
+            panelHeader.Controls.Add(btnVentaPrestamos);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1360, 65);
+            panelHeader.TabIndex = 0;
             // 
             // btnAgregarAutor
             // 
+            btnAgregarAutor.BackColor = Color.FromArgb(55, 65, 81);
             btnAgregarAutor.Cursor = Cursors.Hand;
-            btnAgregarAutor.Location = new Point(10, 82);
+            btnAgregarAutor.FlatAppearance.BorderSize = 0;
+            btnAgregarAutor.FlatStyle = FlatStyle.Flat;
+            btnAgregarAutor.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAgregarAutor.ForeColor = Color.White;
+            btnAgregarAutor.Location = new Point(405, 12);
             btnAgregarAutor.Name = "btnAgregarAutor";
-            btnAgregarAutor.Size = new Size(95, 23);
-            btnAgregarAutor.TabIndex = 20;
+            btnAgregarAutor.Size = new Size(170, 40);
+            btnAgregarAutor.TabIndex = 0;
             btnAgregarAutor.Text = "Agregar Autor";
-            btnAgregarAutor.UseVisualStyleBackColor = true;
+            btnAgregarAutor.TextAlign = ContentAlignment.MiddleCenter;
+            btnAgregarAutor.UseVisualStyleBackColor = false;
             btnAgregarAutor.Click += btnAgregarAutor_Click_1;
+            // 
+            // btnAgregarLibro
+            // 
+            btnAgregarLibro.BackColor = Color.FromArgb(55, 65, 81);
+            btnAgregarLibro.Cursor = Cursors.Hand;
+            btnAgregarLibro.FlatAppearance.BorderSize = 0;
+            btnAgregarLibro.FlatStyle = FlatStyle.Flat;
+            btnAgregarLibro.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAgregarLibro.ForeColor = Color.White;
+            btnAgregarLibro.Location = new Point(595, 12);
+            btnAgregarLibro.Name = "btnAgregarLibro";
+            btnAgregarLibro.Size = new Size(170, 40);
+            btnAgregarLibro.TabIndex = 1;
+            btnAgregarLibro.Text = "Agregar Libro";
+            btnAgregarLibro.TextAlign = ContentAlignment.MiddleCenter;
+            btnAgregarLibro.UseVisualStyleBackColor = false;
+            btnAgregarLibro.Click += btnAgregarLibro_Click_2;
             // 
             // btnVentaPrestamos
             // 
+            btnVentaPrestamos.BackColor = Color.FromArgb(55, 65, 81);
             btnVentaPrestamos.Cursor = Cursors.Hand;
-            btnVentaPrestamos.Location = new Point(10, 112);
+            btnVentaPrestamos.FlatAppearance.BorderSize = 0;
+            btnVentaPrestamos.FlatStyle = FlatStyle.Flat;
+            btnVentaPrestamos.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnVentaPrestamos.ForeColor = Color.White;
+            btnVentaPrestamos.Location = new Point(785, 12);
             btnVentaPrestamos.Name = "btnVentaPrestamos";
-            btnVentaPrestamos.Size = new Size(95, 23);
-            btnVentaPrestamos.TabIndex = 22;
+            btnVentaPrestamos.Size = new Size(170, 40);
+            btnVentaPrestamos.TabIndex = 2;
             btnVentaPrestamos.Text = "Registro";
-            btnVentaPrestamos.UseVisualStyleBackColor = true;
+            btnVentaPrestamos.TextAlign = ContentAlignment.MiddleCenter;
+            btnVentaPrestamos.UseVisualStyleBackColor = false;
             btnVentaPrestamos.Click += btnVentaPrestamos_Click;
+            // 
+            // flowLayoutCatalogo
+            // 
+            flowLayoutCatalogo.AutoScroll = true;
+            flowLayoutCatalogo.AutoScrollMargin = new Size(0, 60);
+            flowLayoutCatalogo.BackColor = Color.FromArgb(17, 24, 39);
+            flowLayoutCatalogo.Dock = DockStyle.Fill;
+            flowLayoutCatalogo.FlowDirection = FlowDirection.LeftToRight;
+            flowLayoutCatalogo.Location = new Point(0, 65);
+            flowLayoutCatalogo.Name = "flowLayoutCatalogo";
+            flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 80);
+            flowLayoutCatalogo.Size = new Size(1360, 755);
+            flowLayoutCatalogo.TabIndex = 1;
+            flowLayoutCatalogo.WrapContents = true;
             // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
-            BackColor = Color.Linen;
-            BackgroundImage = Properties.Resources.logo;
-            BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(799, 449);
-            Controls.Add(btnVentaPrestamos);
-            Controls.Add(btnAgregarLibro);
-            Controls.Add(btnAgregarAutor);
-            Controls.Add(label1);
+            BackColor = Color.FromArgb(17, 24, 39);
+            ClientSize = new Size(1360, 820);
+            Controls.Add(flowLayoutCatalogo);
+            Controls.Add(panelHeader);
             DoubleBuffered = true;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimumSize = new Size(1100, 700);
             Name = "MenuPrincipal";
+            Size = new Size(1360, 820);
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Menu";
+            Text = "BookVerse - Catálogo Digital";
             Load += Menu_Load;
+            panelHeader.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
+        private Panel panelHeader;
+        private FlowLayoutPanel flowLayoutCatalogo;
         private Button btnAgregarLibro;
         private Button btnAgregarAutor;
-        private Label label1;
         private Button btnVentaPrestamos;
     }
 }
