@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 using BookVerse.Data;
 using BookVerse.Services;
@@ -10,11 +11,23 @@ namespace BookVerse.FORMS
         public Login()
         {
             InitializeComponent();
-            // Oculta la clave al iniciar
-            textBox2.UseSystemPasswordChar = true; // Oculta la clave al iniciar
 
-            // Cambio seguro: Personalizar el título de la ventana de Login
-            this.Text = "Iniciar Sesión - BookVerse System";
+            // Configuración de ventana y tema oscuro
+            this.BackgroundImage = null;
+            this.BackColor = Color.FromArgb(17, 24, 39);
+            this.Size = new Size(440, 520);
+            this.ClientSize = new Size(424, 481);
+            this.MinimumSize = new Size(440, 520);
+            this.MaximumSize = new Size(440, 520);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "BookVerse - Iniciar Sesión";
+
+            // Oculta la clave al iniciar
+            textBox2.UseSystemPasswordChar = true;
+
             this.Resize += Login_Resize;
         }
 
@@ -62,17 +75,19 @@ namespace BookVerse.FORMS
 
         private void Login_Resize(object sender, EventArgs e)
         {
-            panel1.Location = new Point(
-                (this.ClientSize.Width - panel1.Width) / 2,
-                (this.ClientSize.Height - panel1.Height) / 2
-            );
+            if (panel1 != null && panel1.Dock == DockStyle.None)
+            {
+                panel1.Location = new Point(
+                    (this.ClientSize.Width - panel1.Width) / 2,
+                    (this.ClientSize.Height - panel1.Height) / 2
+                );
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Al tocar este boton se cierra la app
+            // Al tocar este botón se cierra la app
             Application.Exit();
-
         }
     }
 }
