@@ -281,20 +281,35 @@ namespace BookVerse.FORMS
                 {
                     var libro = contexto.Libros.Find(idSeleccionado);
                     if (libro == null) return;
+
+                    var prestamos = contexto.Prestamos.Where(p => p.IdLibro == idSeleccionado).ToList();
+                    int activos = prestamos.Count(p => p.FechaDevolucion == null);
+
+                    if (activos > 0)
+                    {
+                        MessageBox.Show("No se puede eliminar: tiene " + activos + " ejemplar(es) prestado(s) sin devolver.");
+                        return;
+                    }
+                    if (prestamos.Count > 0 &&
+                        MessageBox.Show("Este libro tiene " + prestamos.Count + " préstamo(s) ya devueltos en el historial. " +
+                                        "Se eliminarán junto con el libro. ¿Continuar?",
+                                        "Eliminar libro", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                        return;
+
+                    contexto.Prestamos.RemoveRange(prestamos);
                     contexto.Libros.Remove(libro);
                     contexto.SaveChanges();
-                    HuboCambios = true;
                 }
+
                 Portadas.Borrar(idSeleccionado);
                 CargarGrid();
                 Limpiar();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("No se puede eliminar: este libro tiene préstamos registrados.");
+                MessageBox.Show("No se pudo eliminar: " + (ex.InnerException?.Message ?? ex.Message));
             }
         }
-
         private void btnLimpiar_Click(object sender, EventArgs e) => Limpiar();
 
         private void Limpiar()

@@ -49,7 +49,7 @@ namespace BookVerse.DATA
             }
         }
 
-        public bool Prestar(int idLibro, out string mensaje)
+        public bool Prestar(int idLibro, string prestatario, string telefono, out string mensaje)
         {
             using (var contexto = new LibreriaContext())
             {
@@ -70,13 +70,31 @@ namespace BookVerse.DATA
                 contexto.Prestamos.Add(new Prestamo
                 {
                     IdLibro = idLibro,
-                    FechaPrestamo = DateOnly.FromDateTime(DateTime.Today)
+                    FechaPrestamo = DateOnly.FromDateTime(DateTime.Today),
+                    NombrePrestatario = prestatario,
+                    TelefonoPrestatario = telefono
                 });
                 contexto.SaveChanges();
 
-                mensaje = "Préstamo registrado. Quedan " + (libro.Stock - activos - 1) +
+                mensaje = "Préstamo registrado a nombre de " + prestatario + ". Quedan " + (libro.Stock - activos - 1) +
                           " ejemplares. Fecha límite: " + DateTime.Today.AddMonths(1).ToString("dd/MM/yyyy");
                 return true;
+            }
+        }
+        public List<(string Prestatario, string Telefono, string Prestado, string Vence)> ObtenerPrestamosActivos(int idLibro)
+        {
+            using (var contexto = new LibreriaContext())
+            {
+                return contexto.Prestamos
+                    .Where(p => p.IdLibro == idLibro && p.FechaDevolucion == null)
+                    .ToList()
+                    .OrderBy(p => p.FechaPrestamo)
+                    .Select(p => (
+                        Prestatario: p.NombrePrestatario ?? "(sin nombre)",
+                        Telefono: p.TelefonoPrestatario ?? "(sin teléfono)",
+                        Prestado: p.FechaPrestamo.ToString("dd/MM/yyyy"),
+                        Vence: p.FechaPrestamo.AddMonths(1).ToString("dd/MM/yyyy")))
+                    .ToList();
             }
         }
 
@@ -138,8 +156,14 @@ namespace BookVerse.DATA
 
                 return new ReporteInventario
                 {
-                    Prestados = estado.Where(x => x.Prestados > 0)
-                                      .Select(x => (x.Titulo, x.Prestados, x.Vence)).ToList(),
+                    Prestados = activos
+                        .OrderBy(p => p.FechaPrestamo)
+                        .Select(p => (
+                            Titulo: libros.FirstOrDefault(l => l.IdLibro == p.IdLibro)?.Titulo ?? "(libro eliminado)",
+                            Prestatario: p.NombrePrestatario ?? "(sin nombre)",
+                            Telefono: p.TelefonoPrestatario ?? "(sin teléfono)",
+                            Vence: p.FechaPrestamo.AddMonths(1).ToString("dd/MM/yyyy")))
+                        .ToList(),
                     StockBajo = estado.Where(x => x.Disponibles <= UmbralStockBajo)
                                       .Select(x => (x.Titulo, x.Stock, x.Disponibles)).ToList(),
                     Disponibles = estado.Where(x => x.Disponibles > 0)
@@ -160,15 +184,16 @@ namespace BookVerse.DATA
     }
     public class ReporteInventario
     {
-        public List<(string Titulo, int Prestados, string Vence)> Prestados { get; set; }
+        public List<(string Titulo, string Prestatario, string Telefono, string Vence)> Prestados { get; set; }
         public List<(string Titulo, int Stock, int Disponibles)> StockBajo { get; set; }
         public List<(string Titulo, int Disponibles, int Stock)> Disponibles { get; set; }
+
 
         // Las tres secciones del reporte, listas para dibujar
         public List<(string Titulo, List<string> Lineas)> Secciones() => new List<(string, List<string>)>
     {
         ("Libros prestados",
-            Prestados.Select(x => $"{x.Titulo}: {x.Prestados} prestado(s) — vence {x.Vence}").ToList()),
+            Prestados.Select(x => $"{x.Titulo} — {x.Prestatario} (tel. {x.Telefono}) — vence {x.Vence}").ToList()),
         ("Stock bajo",
             StockBajo.Select(x => $"{x.Titulo}: {x.Disponibles} disponibles de {x.Stock}").ToList()),
         ("Libros disponibles",

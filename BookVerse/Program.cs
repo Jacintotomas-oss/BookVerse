@@ -14,7 +14,7 @@ namespace BookVerse
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new MenuPrincipal());
-            DbInitializer.Inicializar();
+           // DbInitializer.Inicializar();
             Application.Run(new Login());
         } 
     }

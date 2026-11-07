@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookVerse.Migrations
 {
     [DbContext(typeof(LibreriaContext))]
-    [Migration("20261103175523_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20261107182120_AgregarPrestatario")]
+    partial class AgregarPrestatario
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -228,6 +228,14 @@ namespace BookVerse.Migrations
                     b.Property<int?>("IdLibro")
                         .HasColumnType("int")
                         .HasColumnName("ID_Libro");
+
+                    b.Property<string>("NombrePrestatario")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("TelefonoPrestatario")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("IdPrestamo")
                         .HasName("PK__Prestamo__FE17DB17ADAAEBAB");

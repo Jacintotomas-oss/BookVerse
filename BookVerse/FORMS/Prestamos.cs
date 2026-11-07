@@ -52,6 +52,12 @@ namespace BookVerse.FORMS
 
             cboLibro.DropDownStyle = ComboBoxStyle.DropDownList;
             this.Resize += Prestamos_Resize;
+
+            cboLibro.SelectedValueChanged += (s, e) =>
+            {
+                if (cboLibro.SelectedValue is int id) MostrarDetalle(id);
+                else txtDetalle.Clear();
+            };
         }
 
         private void Prestamos_Load(object sender, EventArgs e)
@@ -103,9 +109,31 @@ namespace BookVerse.FORMS
                 return;
             }
 
-            repo.Prestar(id.Value, out string mensaje);
+            string nombre = txtPrestatario.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            if (nombre == "" || telefono.Count(char.IsDigit) < 8)
+            {
+                MessageBox.Show("Escribe el nombre y un teléfono válido (8 dígitos) de quien se lleva el libro.");
+                return;
+            }
+
+            if (repo.Prestar(id.Value, nombre, telefono, out string mensaje))
+            {
+                txtPrestatario.Clear();
+                txtTelefono.Clear();
+            }
             MessageBox.Show(mensaje);
             CargarGrid();
+            MostrarDetalle(id.Value);
+        }
+
+        private void MostrarDetalle(int idLibro)
+        {
+            var activos = repo.ObtenerPrestamosActivos(idLibro);
+            txtDetalle.Text = activos.Count == 0
+                ? "Sin ejemplares prestados."
+                : string.Join(Environment.NewLine + Environment.NewLine, activos.Select(a =>
+                    $"{a.Prestatario}{Environment.NewLine}Tel.: {a.Telefono}{Environment.NewLine}Prestado: {a.Prestado}   Vence: {a.Vence}"));
         }
 
         private void btnRegistrarDevolucion_Click(object sender, EventArgs e)
