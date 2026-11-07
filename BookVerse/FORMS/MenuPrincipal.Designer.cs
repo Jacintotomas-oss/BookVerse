@@ -28,7 +28,6 @@ namespace BookVerse.FORMS
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             panelHeader = new Panel();
             btnAgregarAutor = new Button();
@@ -47,7 +46,7 @@ namespace BookVerse.FORMS
             panelHeader.Dock = DockStyle.Top;
             panelHeader.Location = new Point(0, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(1360, 65);
+            panelHeader.Size = new Size(1344, 65);
             panelHeader.TabIndex = 0;
             // 
             // btnAgregarAutor
@@ -63,7 +62,6 @@ namespace BookVerse.FORMS
             btnAgregarAutor.Size = new Size(170, 40);
             btnAgregarAutor.TabIndex = 0;
             btnAgregarAutor.Text = "Agregar Autor";
-            btnAgregarAutor.TextAlign = ContentAlignment.MiddleCenter;
             btnAgregarAutor.UseVisualStyleBackColor = false;
             btnAgregarAutor.Click += btnAgregarAutor_Click_1;
             // 
@@ -80,7 +78,6 @@ namespace BookVerse.FORMS
             btnAgregarLibro.Size = new Size(170, 40);
             btnAgregarLibro.TabIndex = 1;
             btnAgregarLibro.Text = "Agregar Libro";
-            btnAgregarLibro.TextAlign = ContentAlignment.MiddleCenter;
             btnAgregarLibro.UseVisualStyleBackColor = false;
             btnAgregarLibro.Click += btnAgregarLibro_Click_2;
             // 
@@ -97,7 +94,6 @@ namespace BookVerse.FORMS
             btnVentaPrestamos.Size = new Size(170, 40);
             btnVentaPrestamos.TabIndex = 2;
             btnVentaPrestamos.Text = "Registro";
-            btnVentaPrestamos.TextAlign = ContentAlignment.MiddleCenter;
             btnVentaPrestamos.UseVisualStyleBackColor = false;
             btnVentaPrestamos.Click += btnVentaPrestamos_Click;
             // 
@@ -107,27 +103,25 @@ namespace BookVerse.FORMS
             flowLayoutCatalogo.AutoScrollMargin = new Size(0, 60);
             flowLayoutCatalogo.BackColor = Color.FromArgb(17, 24, 39);
             flowLayoutCatalogo.Dock = DockStyle.Fill;
-            flowLayoutCatalogo.FlowDirection = FlowDirection.LeftToRight;
             flowLayoutCatalogo.Location = new Point(0, 65);
             flowLayoutCatalogo.Name = "flowLayoutCatalogo";
             flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 60);
-            flowLayoutCatalogo.Size = new Size(1360, 755);
+            flowLayoutCatalogo.Size = new Size(1344, 716);
             flowLayoutCatalogo.TabIndex = 1;
-            flowLayoutCatalogo.WrapContents = true;
             // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 24, 39);
-            ClientSize = new Size(1360, 820);
+            ClientSize = new Size(1344, 781);
             Controls.Add(flowLayoutCatalogo);
             Controls.Add(panelHeader);
             DoubleBuffered = true;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimizeBox = false;
             MinimumSize = new Size(1100, 700);
             Name = "MenuPrincipal";
-            Size = new Size(1360, 820);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "BookVerse - Catálogo Digital";
             Load += Menu_Load;

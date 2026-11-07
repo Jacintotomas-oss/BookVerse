@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,10 +14,33 @@ namespace BookVerse.FORMS
         private LibroRepository repo = new LibroRepository();
         private int idSeleccionado = 0;
         private string rutaPortadaNueva = null;
+        public bool HuboCambios { get; private set; } = false;
 
         public Libros()
         {
             InitializeComponent();
+
+            // Configuración de ventana y fondo oscuro
+            this.BackgroundImage = null;
+            this.Size = new Size(1120, 760);
+            this.ClientSize = new Size(1100, 720);
+            this.MinimumSize = new Size(1100, 740);
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.BackColor = Color.FromArgb(17, 24, 39);
+            this.Text = "Gestión de Libros - BookVerse";
+
+            // Configuración de tabla dgvLibros
+            dgvLibros.ReadOnly = true;
+            dgvLibros.AllowUserToAddRows = false;
+            dgvLibros.MultiSelect = false;
+            dgvLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvLibros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLibros.RowHeadersVisible = false;
+            dgvLibros.BorderStyle = BorderStyle.None;
+            dgvLibros.EnableHeadersVisualStyles = false;
 
             btnAgregar.Click += btnAgregar_Click;
             btnActualizar.Click += btnActualizar_Click;
@@ -26,7 +49,7 @@ namespace BookVerse.FORMS
             btnSeleccionarPortada.Click += btnSeleccionarPortada_Click;
             dgvLibros.CellClick += dgvLibros_CellClick;
 
-            //Evento de redimensionamiento del formulario
+            // Evento de redimensionamiento del formulario
             this.Resize += Libros_Resize;
         }
 
@@ -61,7 +84,63 @@ namespace BookVerse.FORMS
             CargarGrid();
         }
 
-        private void CargarGrid() => dgvLibros.DataSource = repo.ObtenerParaGrid();
+        private void CargarGrid()
+        {
+            dgvLibros.DataSource = repo.ObtenerParaGrid();
+
+            // Ajustar anchos y pesos proporcionales de columnas
+            if (dgvLibros.Columns["IdLibro"] != null)
+            {
+                dgvLibros.Columns["IdLibro"].HeaderText = "ID";
+                dgvLibros.Columns["IdLibro"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dgvLibros.Columns["IdLibro"].Width = 55;
+            }
+            if (dgvLibros.Columns["Titulo"] != null)
+            {
+                dgvLibros.Columns["Titulo"].HeaderText = "Título";
+                dgvLibros.Columns["Titulo"].FillWeight = 160;
+            }
+            if (dgvLibros.Columns["Autor"] != null)
+            {
+                dgvLibros.Columns["Autor"].HeaderText = "Autor";
+                dgvLibros.Columns["Autor"].FillWeight = 135;
+            }
+            if (dgvLibros.Columns["Editorial"] != null)
+            {
+                dgvLibros.Columns["Editorial"].HeaderText = "Editorial";
+                dgvLibros.Columns["Editorial"].FillWeight = 110;
+            }
+            if (dgvLibros.Columns["Categoria"] != null)
+            {
+                dgvLibros.Columns["Categoria"].HeaderText = "Categoría";
+                dgvLibros.Columns["Categoria"].FillWeight = 90;
+            }
+            if (dgvLibros.Columns["Serie"] != null)
+            {
+                dgvLibros.Columns["Serie"].HeaderText = "Serie";
+                dgvLibros.Columns["Serie"].FillWeight = 90;
+            }
+            if (dgvLibros.Columns["NumeroSerie"] != null)
+            {
+                dgvLibros.Columns["NumeroSerie"].HeaderText = "N° Serie";
+                dgvLibros.Columns["NumeroSerie"].FillWeight = 70;
+            }
+
+            // Oculta las columnas de navegación de EF si existen en la tabla
+            string[] columnasNavegacion = {
+                "IdAutorNavigation",
+                "IdCategoriaNavigation",
+                "IdEditorialNavigation",
+                "IdSeriesNavigation",
+                "Prestamos"
+            };
+
+            foreach (var col in columnasNavegacion)
+            {
+                if (dgvLibros.Columns[col] != null)
+                    dgvLibros.Columns[col].Visible = false;
+            }
+        }
 
         private bool Validar()
         {
@@ -118,6 +197,7 @@ namespace BookVerse.FORMS
             {
                 contexto.Libros.Add(libro);
                 contexto.SaveChanges();   // aquí EF llena libro.IdLibro
+                HuboCambios = true;
             }
 
             if (rutaPortadaNueva != null)
@@ -177,6 +257,7 @@ namespace BookVerse.FORMS
                 libro.Descripcion = txtDescripcion.Text.Trim();
                 libro.Stock = (int)nudStock.Value;
                 contexto.SaveChanges();
+                HuboCambios = true;
             }
 
             if (rutaPortadaNueva != null)
@@ -202,6 +283,7 @@ namespace BookVerse.FORMS
                     if (libro == null) return;
                     contexto.Libros.Remove(libro);
                     contexto.SaveChanges();
+                    HuboCambios = true;
                 }
                 Portadas.Borrar(idSeleccionado);
                 CargarGrid();
@@ -235,7 +317,7 @@ namespace BookVerse.FORMS
         // Centrado de panel y contenedor dinamico
         private void Libros_Resize(object sender, EventArgs e)
         {
-            if (panel1 != null)
+            if (panel1 != null && panel1.Dock == DockStyle.None)
             {
                 panel1.Location = new Point(
                     (this.ClientSize.Width - panel1.Width) / 2,

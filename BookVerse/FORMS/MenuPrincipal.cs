@@ -264,11 +264,10 @@ namespace BookVerse.FORMS
         // Agregar Libro: ShowDialog para refrescar el catálogo al cerrar
         private void btnAgregarLibro_Click(object sender, EventArgs e)
         {
-            int totalAntes = flowLayoutCatalogo.Controls.OfType<Panel>().Count();
-            new Libros().ShowDialog();
-            using (var ctx = new LibreriaContext())
+            using (var form = new Libros())
             {
-                if (ctx.Libros.Count() != totalAntes) // Solo recarga si de verdad se agregó o borró un libro
+                form.ShowDialog();
+                if (form.HuboCambios)
                 {
                     CargarCatalogo();
                 }
