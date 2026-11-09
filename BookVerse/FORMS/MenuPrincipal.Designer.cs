@@ -34,12 +34,14 @@ namespace BookVerse.FORMS
             btnAgregarLibro = new Button();
             btnVentaPrestamos = new Button();
             flowLayoutCatalogo = new FlowLayoutPanel();
+            btnAgregarEditorial = new Button();
             panelHeader.SuspendLayout();
             SuspendLayout();
             // 
             // panelHeader
             // 
             panelHeader.BackColor = Color.FromArgb(31, 41, 55);
+            panelHeader.Controls.Add(btnAgregarEditorial);
             panelHeader.Controls.Add(btnAgregarAutor);
             panelHeader.Controls.Add(btnAgregarLibro);
             panelHeader.Controls.Add(btnVentaPrestamos);
@@ -106,15 +108,31 @@ namespace BookVerse.FORMS
             flowLayoutCatalogo.Location = new Point(0, 65);
             flowLayoutCatalogo.Name = "flowLayoutCatalogo";
             flowLayoutCatalogo.Padding = new Padding(35, 25, 35, 60);
-            flowLayoutCatalogo.Size = new Size(1344, 716);
+            flowLayoutCatalogo.Size = new Size(1344, 684);
             flowLayoutCatalogo.TabIndex = 1;
+            // 
+            // btnAgregarEditorial
+            // 
+            btnAgregarEditorial.BackColor = Color.FromArgb(55, 65, 81);
+            btnAgregarEditorial.Cursor = Cursors.Hand;
+            btnAgregarEditorial.FlatAppearance.BorderSize = 0;
+            btnAgregarEditorial.FlatStyle = FlatStyle.Flat;
+            btnAgregarEditorial.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAgregarEditorial.ForeColor = Color.White;
+            btnAgregarEditorial.Location = new Point(976, 12);
+            btnAgregarEditorial.Name = "btnAgregarEditorial";
+            btnAgregarEditorial.Size = new Size(170, 40);
+            btnAgregarEditorial.TabIndex = 3;
+            btnAgregarEditorial.Text = "Agregar Editorial";
+            btnAgregarEditorial.UseVisualStyleBackColor = false;
+            btnAgregarEditorial.Click += btnAgregarEditorial_Click;
             // 
             // MenuPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(17, 24, 39);
-            ClientSize = new Size(1344, 781);
+            ClientSize = new Size(1344, 749);
             Controls.Add(flowLayoutCatalogo);
             Controls.Add(panelHeader);
             DoubleBuffered = true;
@@ -136,5 +154,6 @@ namespace BookVerse.FORMS
         private Button btnAgregarLibro;
         private Button btnAgregarAutor;
         private Button btnVentaPrestamos;
+        private Button btnAgregarEditorial;
     }
 }

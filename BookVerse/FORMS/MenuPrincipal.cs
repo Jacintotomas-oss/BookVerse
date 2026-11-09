@@ -304,6 +304,12 @@ namespace BookVerse.FORMS
         private void button3_Click(object sender, EventArgs e) { }
         private void button5_Click(object sender, EventArgs e) { }
         private void button7_Click(object sender, EventArgs e) { }
+
+        private void btnAgregarEditorial_Click(object sender, EventArgs e)
+        {
+            //manda al form Editorial
+            new Editorial().ShowDialog();
+        }
     }
 
     [DesignerCategory("Code")]

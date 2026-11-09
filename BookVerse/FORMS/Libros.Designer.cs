@@ -32,6 +32,10 @@ namespace BookVerse.FORMS
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Libros));
             panel1 = new Panel();
+            label6 = new Label();
+            txtNumeroSerie = new TextBox();
+            label5 = new Label();
+            cboSerie = new ComboBox();
             chkBoxSeries = new CheckBox();
             lblStock = new Label();
             nudStock = new NumericUpDown();
@@ -53,10 +57,6 @@ namespace BookVerse.FORMS
             pnlPortada = new Panel();
             dgvLibros = new DataGridView();
             label8 = new Label();
-            label6 = new Label();
-            txtNumeroSerie = new TextBox();
-            label5 = new Label();
-            cboSerie = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvLibros).BeginInit();
@@ -97,9 +97,58 @@ namespace BookVerse.FORMS
             panel1.TabIndex = 25;
             panel1.Paint += panel1_Paint;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(660, 530);
+            label6.Name = "label6";
+            label6.Size = new Size(51, 15);
+            label6.TabIndex = 53;
+            label6.Text = "N. Serie";
+            // 
+            // txtNumeroSerie
+            // 
+            txtNumeroSerie.BackColor = Color.FromArgb(31, 41, 55);
+            txtNumeroSerie.BorderStyle = BorderStyle.FixedSingle;
+            txtNumeroSerie.Font = new Font("Segoe UI", 9.5F);
+            txtNumeroSerie.ForeColor = Color.White;
+            txtNumeroSerie.Location = new Point(660, 553);
+            txtNumeroSerie.Name = "txtNumeroSerie";
+            txtNumeroSerie.Size = new Size(410, 24);
+            txtNumeroSerie.TabIndex = 52;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(660, 475);
+            label5.Name = "label5";
+            label5.Size = new Size(36, 15);
+            label5.TabIndex = 51;
+            label5.Text = "Serie";
+            // 
+            // cboSerie
+            // 
+            cboSerie.BackColor = Color.FromArgb(31, 41, 55);
+            cboSerie.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboSerie.FlatStyle = FlatStyle.Flat;
+            cboSerie.Font = new Font("Segoe UI", 9.5F);
+            cboSerie.ForeColor = Color.White;
+            cboSerie.FormattingEnabled = true;
+            cboSerie.Location = new Point(660, 498);
+            cboSerie.Name = "cboSerie";
+            cboSerie.Size = new Size(410, 25);
+            cboSerie.TabIndex = 50;
+            // 
             // chkBoxSeries
             // 
             chkBoxSeries.AutoSize = true;
+            chkBoxSeries.Cursor = Cursors.Hand;
             chkBoxSeries.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             chkBoxSeries.ForeColor = Color.White;
             chkBoxSeries.Location = new Point(246, 550);
@@ -381,54 +430,6 @@ namespace BookVerse.FORMS
             label8.Size = new Size(300, 35);
             label8.TabIndex = 44;
             label8.Text = "Gestión de Libros";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(660, 530);
-            label6.Name = "label6";
-            label6.Size = new Size(51, 15);
-            label6.TabIndex = 53;
-            label6.Text = "N. Serie";
-            // 
-            // txtNumeroSerie
-            // 
-            txtNumeroSerie.BackColor = Color.FromArgb(31, 41, 55);
-            txtNumeroSerie.BorderStyle = BorderStyle.FixedSingle;
-            txtNumeroSerie.Font = new Font("Segoe UI", 9.5F);
-            txtNumeroSerie.ForeColor = Color.White;
-            txtNumeroSerie.Location = new Point(660, 553);
-            txtNumeroSerie.Name = "txtNumeroSerie";
-            txtNumeroSerie.Size = new Size(410, 24);
-            txtNumeroSerie.TabIndex = 52;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(660, 475);
-            label5.Name = "label5";
-            label5.Size = new Size(36, 15);
-            label5.TabIndex = 51;
-            label5.Text = "Serie";
-            // 
-            // cboSerie
-            // 
-            cboSerie.BackColor = Color.FromArgb(31, 41, 55);
-            cboSerie.DropDownStyle = ComboBoxStyle.DropDownList;
-            cboSerie.FlatStyle = FlatStyle.Flat;
-            cboSerie.Font = new Font("Segoe UI", 9.5F);
-            cboSerie.ForeColor = Color.White;
-            cboSerie.FormattingEnabled = true;
-            cboSerie.Location = new Point(660, 498);
-            cboSerie.Name = "cboSerie";
-            cboSerie.Size = new Size(410, 25);
-            cboSerie.TabIndex = 50;
             // 
             // Libros
             // 
