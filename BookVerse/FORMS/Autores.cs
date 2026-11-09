@@ -32,7 +32,7 @@ namespace BookVerse.FORMS
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(17, 24, 39);
-            this.Text = "Gestión de Autores - BookVerse";
+            this.Text = "BookVerse - Gestión de Autores";
 
             // Configuración de tabla dgvAutores
             dgvAutores.ReadOnly = true;

@@ -445,7 +445,7 @@ namespace BookVerse.FORMS
             MinimumSize = new Size(1100, 726);
             Name = "Libros";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Gestión de Libros - BookVerse";
+            Text = "BookVerse - Gestión de Libros";
             Load += Libros_Load;
             Scroll += True;
             panel1.ResumeLayout(false);

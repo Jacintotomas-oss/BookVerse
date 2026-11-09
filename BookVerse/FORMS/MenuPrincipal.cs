@@ -41,7 +41,7 @@ namespace BookVerse.FORMS
             this.MaximizeBox = true;
 
             // Asegurar ancho uniforme y texto centrado en los 3 botones superiores
-            foreach (var btn in new[] { btnAgregarAutor, btnAgregarLibro, btnVentaPrestamos })
+            foreach (var btn in new[] { btnAgregarAutor, btnAgregarLibro, btnAgregarEditorial, btnVentaPrestamos })
             {
                 btn.Size = new Size(170, 40);
                 btn.TextAlign = ContentAlignment.MiddleCenter;
@@ -111,17 +111,26 @@ namespace BookVerse.FORMS
         {
             if (panelHeader == null) return;
 
-            const int anchoBoton = 170;
-            const int altoBoton = 40;
-            const int separacion = 20;
+            int espacio = 15;
+            int anchoTotal = btnAgregarAutor.Width + btnAgregarLibro.Width + btnAgregarEditorial.Width + btnVentaPrestamos.Width + (espacio * 3);
+            int inicioX = (panelHeader.ClientSize.Width - anchoTotal) / 2;
+            int posY = (panelHeader.ClientSize.Height - btnAgregarAutor.Height) / 2;
 
-            int anchoTotal = (anchoBoton * 3) + (separacion * 2);
-            int startX = Math.Max(12, (panelHeader.ClientSize.Width - anchoTotal) / 2);
-            int posY = (panelHeader.Height - altoBoton) / 2;
+            btnAgregarAutor.Location = new System.Drawing.Point(inicioX, posY);
+            btnAgregarLibro.Location = new System.Drawing.Point(btnAgregarAutor.Right + espacio, posY);
+            btnAgregarEditorial.Location = new System.Drawing.Point(btnAgregarLibro.Right + espacio, posY);
+            btnVentaPrestamos.Location = new System.Drawing.Point(btnAgregarEditorial.Right + espacio, posY);
 
-            btnAgregarAutor.Location = new Point(startX, posY);
-            btnAgregarLibro.Location = new Point(startX + anchoBoton + separacion, posY);
-            btnVentaPrestamos.Location = new Point(startX + (anchoBoton + separacion) * 2, posY);
+
+
+
+
+
+
+
+
+
+
         }
 
         private void MostrarBienvenida()

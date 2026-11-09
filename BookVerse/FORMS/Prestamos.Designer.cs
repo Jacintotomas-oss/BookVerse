@@ -341,7 +341,7 @@ namespace BookVerse.FORMS
             MinimizeBox = false;
             Name = "Prestamos";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Préstamos - BookVerse";
+            Text = "BookVerse - Préstamos";
             Load += Prestamos_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

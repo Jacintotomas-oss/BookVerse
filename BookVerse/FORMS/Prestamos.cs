@@ -48,6 +48,7 @@ namespace BookVerse.FORMS
                 else txtDetalle.Clear();
             };
 
+            this.Text = "BookVerse - Préstamos";
             this.Resize += Prestamos_Resize;
         }
 

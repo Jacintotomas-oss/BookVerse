@@ -228,7 +228,7 @@ namespace BookVerse.FORMS
             this.Name = "Autores";
             this.Size = new Size(740, 560);
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Text = "Gestión de Autores - BookVerse";
+            this.Text = "BookVerse - Gestión de Autores";
             this.Load += Autores_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

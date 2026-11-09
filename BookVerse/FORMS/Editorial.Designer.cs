@@ -1,4 +1,4 @@
-﻿namespace BookVerse.FORMS
+namespace BookVerse.FORMS
 {
     partial class Editorial
     {
@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle headerStyleEditoriales = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle cellStyleEditoriales = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle headerStyleSeries = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle cellStyleSeries = new System.Windows.Forms.DataGridViewCellStyle();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             grpEditoriales = new GroupBox();
             btnLimpiar = new Button();
@@ -55,6 +59,7 @@
             // 
             // grpEditoriales
             // 
+            grpEditoriales.BackColor = System.Drawing.Color.Transparent;
             grpEditoriales.Controls.Add(btnLimpiar);
             grpEditoriales.Controls.Add(btnBorrar);
             grpEditoriales.Controls.Add(btnActualizar);
@@ -64,91 +69,148 @@
             grpEditoriales.Controls.Add(dgvEditoriales);
             grpEditoriales.Controls.Add(label1);
             grpEditoriales.Controls.Add(TxtEditorial);
-            grpEditoriales.Location = new Point(12, 12);
+            grpEditoriales.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            grpEditoriales.ForeColor = System.Drawing.Color.White;
+            grpEditoriales.Location = new System.Drawing.Point(20, 15);
             grpEditoriales.Name = "grpEditoriales";
-            grpEditoriales.Size = new Size(839, 195);
+            grpEditoriales.Size = new System.Drawing.Size(848, 200);
             grpEditoriales.TabIndex = 0;
             grpEditoriales.TabStop = false;
             grpEditoriales.Text = "Editoriales";
             // 
-            // btnLimpiar
+            // label1 (País)
             // 
-            btnLimpiar.Location = new Point(263, 149);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(117, 23);
-            btnLimpiar.TabIndex = 15;
-            btnLimpiar.Text = "Limpiar Campos";
-            btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnBorrar
-            // 
-            btnBorrar.Location = new Point(182, 149);
-            btnBorrar.Name = "btnBorrar";
-            btnBorrar.Size = new Size(75, 23);
-            btnBorrar.TabIndex = 14;
-            btnBorrar.Text = "borrar";
-            btnBorrar.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(101, 149);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(75, 23);
-            btnActualizar.TabIndex = 13;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(20, 149);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
-            btnAgregar.TabIndex = 11;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.FromArgb(229, 231, 235);
+            label1.Location = new System.Drawing.Point(20, 44);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(36, 17);
+            label1.TabIndex = 6;
+            label1.Text = "País:";
             // 
             // txtPais
             // 
-            txtPais.Location = new Point(120, 45);
+            txtPais.BackColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            txtPais.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            txtPais.Font = new System.Drawing.Font("Segoe UI", 10F);
+            txtPais.ForeColor = System.Drawing.Color.White;
+            txtPais.Location = new System.Drawing.Point(120, 41);
             txtPais.Name = "txtPais";
-            txtPais.Size = new Size(319, 23);
+            txtPais.Size = new System.Drawing.Size(319, 25);
             txtPais.TabIndex = 10;
             // 
-            // label3
+            // label3 (Editorial)
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(61, 94);
+            label3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            label3.ForeColor = System.Drawing.Color.FromArgb(229, 231, 235);
+            label3.Location = new System.Drawing.Point(20, 92);
             label3.Name = "label3";
-            label3.Size = new Size(53, 15);
+            label3.Size = new System.Drawing.Size(62, 17);
             label3.TabIndex = 9;
-            label3.Text = "Editorial ";
-            // 
-            // dgvEditoriales
-            // 
-            dgvEditoriales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEditoriales.Location = new Point(456, 22);
-            dgvEditoriales.Name = "dgvEditoriales";
-            dgvEditoriales.Size = new Size(361, 150);
-            dgvEditoriales.TabIndex = 8;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(76, 42);
-            label1.Name = "label1";
-            label1.Size = new Size(31, 15);
-            label1.TabIndex = 6;
-            label1.Text = "Pais ";
+            label3.Text = "Editorial:";
             // 
             // TxtEditorial
             // 
-            TxtEditorial.Location = new Point(120, 91);
+            TxtEditorial.BackColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtEditorial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            TxtEditorial.Font = new System.Drawing.Font("Segoe UI", 10F);
+            TxtEditorial.ForeColor = System.Drawing.Color.White;
+            TxtEditorial.Location = new System.Drawing.Point(120, 89);
             TxtEditorial.Name = "TxtEditorial";
-            TxtEditorial.Size = new Size(319, 23);
+            TxtEditorial.Size = new System.Drawing.Size(319, 25);
             TxtEditorial.TabIndex = 5;
             // 
-            // groupBox2
+            // btnAgregar
             // 
+            btnAgregar.BackColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnAgregar.FlatAppearance.BorderSize = 0;
+            btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnAgregar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            btnAgregar.ForeColor = System.Drawing.Color.White;
+            btnAgregar.Location = new System.Drawing.Point(20, 144);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new System.Drawing.Size(90, 34);
+            btnAgregar.TabIndex = 11;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = false;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.BackColor = System.Drawing.Color.FromArgb(16, 185, 129);
+            btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnActualizar.FlatAppearance.BorderSize = 0;
+            btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnActualizar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            btnActualizar.ForeColor = System.Drawing.Color.White;
+            btnActualizar.Location = new System.Drawing.Point(118, 144);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new System.Drawing.Size(100, 34);
+            btnActualizar.TabIndex = 13;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = false;
+            // 
+            // btnBorrar
+            // 
+            btnBorrar.BackColor = System.Drawing.Color.FromArgb(220, 38, 38);
+            btnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnBorrar.FlatAppearance.BorderSize = 0;
+            btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnBorrar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            btnBorrar.ForeColor = System.Drawing.Color.White;
+            btnBorrar.Location = new System.Drawing.Point(226, 144);
+            btnBorrar.Name = "btnBorrar";
+            btnBorrar.Size = new System.Drawing.Size(85, 34);
+            btnBorrar.TabIndex = 14;
+            btnBorrar.Text = "Borrar";
+            btnBorrar.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            btnLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnLimpiar.FlatAppearance.BorderSize = 0;
+            btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular);
+            btnLimpiar.ForeColor = System.Drawing.Color.White;
+            btnLimpiar.Location = new System.Drawing.Point(319, 144);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new System.Drawing.Size(120, 34);
+            btnLimpiar.TabIndex = 15;
+            btnLimpiar.Text = "Limpiar Campos";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // dgvEditoriales
+            // 
+            dgvEditoriales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEditoriales.BackgroundColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            dgvEditoriales.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dgvEditoriales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEditoriales.EnableHeadersVisualStyles = false;
+            dgvEditoriales.GridColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            headerStyleEditoriales.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            headerStyleEditoriales.ForeColor = System.Drawing.Color.White;
+            headerStyleEditoriales.SelectionBackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            headerStyleEditoriales.SelectionForeColor = System.Drawing.Color.White;
+            headerStyleEditoriales.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dgvEditoriales.ColumnHeadersDefaultCellStyle = headerStyleEditoriales;
+            cellStyleEditoriales.BackColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            cellStyleEditoriales.ForeColor = System.Drawing.Color.White;
+            cellStyleEditoriales.SelectionBackColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            cellStyleEditoriales.SelectionForeColor = System.Drawing.Color.White;
+            cellStyleEditoriales.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            dgvEditoriales.DefaultCellStyle = cellStyleEditoriales;
+            dgvEditoriales.Location = new System.Drawing.Point(456, 26);
+            dgvEditoriales.Name = "dgvEditoriales";
+            dgvEditoriales.RowHeadersVisible = false;
+            dgvEditoriales.Size = new System.Drawing.Size(372, 154);
+            dgvEditoriales.TabIndex = 8;
+            // 
+            // groupBox2 (Series)
+            // 
+            groupBox2.BackColor = System.Drawing.Color.Transparent;
             groupBox2.Controls.Add(buttonBorrar);
             groupBox2.Controls.Add(buttonAgregar);
             groupBox2.Controls.Add(buttonActualizar);
@@ -156,88 +218,139 @@
             groupBox2.Controls.Add(dgvSeries);
             groupBox2.Controls.Add(TxtNombreSerie);
             groupBox2.Controls.Add(LblNombreSerie);
-            groupBox2.Location = new Point(12, 230);
+            groupBox2.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold);
+            groupBox2.ForeColor = System.Drawing.Color.White;
+            groupBox2.Location = new System.Drawing.Point(20, 230);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(839, 164);
+            groupBox2.Size = new System.Drawing.Size(848, 175);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Series";
             // 
-            // buttonAgregar
-            // 
-            buttonAgregar.Location = new Point(20, 100);
-            buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(75, 23);
-            buttonAgregar.TabIndex = 6;
-            buttonAgregar.Text = "Agregar";
-            buttonAgregar.UseVisualStyleBackColor = true;
-            // 
-            // buttonActualizar
-            // 
-            buttonActualizar.Location = new Point(101, 100);
-            buttonActualizar.Name = "buttonActualizar";
-            buttonActualizar.Size = new Size(75, 23);
-            buttonActualizar.TabIndex = 5;
-            buttonActualizar.Text = "Actualizar";
-            buttonActualizar.UseVisualStyleBackColor = true;
-            // 
-            // buttonLimpiar
-            // 
-            buttonLimpiar.Location = new Point(263, 100);
-            buttonLimpiar.Name = "buttonLimpiar";
-            buttonLimpiar.Size = new Size(117, 23);
-            buttonLimpiar.TabIndex = 3;
-            buttonLimpiar.Text = "Limpiar Campos";
-            buttonLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // dgvSeries
-            // 
-            dgvSeries.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSeries.Location = new Point(456, 22);
-            dgvSeries.Name = "dgvSeries";
-            dgvSeries.Size = new Size(361, 128);
-            dgvSeries.TabIndex = 2;
-            // 
-            // TxtNombreSerie
-            // 
-            TxtNombreSerie.Location = new Point(120, 45);
-            TxtNombreSerie.Name = "TxtNombreSerie";
-            TxtNombreSerie.Size = new Size(319, 23);
-            TxtNombreSerie.TabIndex = 1;
-            // 
             // LblNombreSerie
             // 
             LblNombreSerie.AutoSize = true;
-            LblNombreSerie.Location = new Point(20, 45);
+            LblNombreSerie.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            LblNombreSerie.ForeColor = System.Drawing.Color.FromArgb(229, 231, 235);
+            LblNombreSerie.Location = new System.Drawing.Point(20, 48);
             LblNombreSerie.Name = "LblNombreSerie";
-            LblNombreSerie.Size = new Size(94, 15);
+            LblNombreSerie.Size = new System.Drawing.Size(113, 17);
             LblNombreSerie.TabIndex = 0;
-            LblNombreSerie.Text = "Nombre de serie";
+            LblNombreSerie.Text = "Nombre de serie:";
+            // 
+            // TxtNombreSerie
+            // 
+            TxtNombreSerie.BackColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            TxtNombreSerie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            TxtNombreSerie.Font = new System.Drawing.Font("Segoe UI", 10F);
+            TxtNombreSerie.ForeColor = System.Drawing.Color.White;
+            TxtNombreSerie.Location = new System.Drawing.Point(140, 45);
+            TxtNombreSerie.Name = "TxtNombreSerie";
+            TxtNombreSerie.Size = new System.Drawing.Size(299, 25);
+            TxtNombreSerie.TabIndex = 1;
+            // 
+            // buttonAgregar
+            // 
+            buttonAgregar.BackColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            buttonAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            buttonAgregar.FlatAppearance.BorderSize = 0;
+            buttonAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            buttonAgregar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            buttonAgregar.ForeColor = System.Drawing.Color.White;
+            buttonAgregar.Location = new System.Drawing.Point(20, 118);
+            buttonAgregar.Name = "buttonAgregar";
+            buttonAgregar.Size = new System.Drawing.Size(90, 34);
+            buttonAgregar.TabIndex = 6;
+            buttonAgregar.Text = "Agregar";
+            buttonAgregar.UseVisualStyleBackColor = false;
+            // 
+            // buttonActualizar
+            // 
+            buttonActualizar.BackColor = System.Drawing.Color.FromArgb(16, 185, 129);
+            buttonActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            buttonActualizar.FlatAppearance.BorderSize = 0;
+            buttonActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            buttonActualizar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            buttonActualizar.ForeColor = System.Drawing.Color.White;
+            buttonActualizar.Location = new System.Drawing.Point(118, 118);
+            buttonActualizar.Name = "buttonActualizar";
+            buttonActualizar.Size = new System.Drawing.Size(100, 34);
+            buttonActualizar.TabIndex = 5;
+            buttonActualizar.Text = "Actualizar";
+            buttonActualizar.UseVisualStyleBackColor = false;
             // 
             // buttonBorrar
             // 
-            buttonBorrar.Location = new Point(182, 100);
+            buttonBorrar.BackColor = System.Drawing.Color.FromArgb(220, 38, 38);
+            buttonBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            buttonBorrar.FlatAppearance.BorderSize = 0;
+            buttonBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            buttonBorrar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            buttonBorrar.ForeColor = System.Drawing.Color.White;
+            buttonBorrar.Location = new System.Drawing.Point(226, 118);
             buttonBorrar.Name = "buttonBorrar";
-            buttonBorrar.Size = new Size(75, 23);
+            buttonBorrar.Size = new System.Drawing.Size(85, 34);
             buttonBorrar.TabIndex = 7;
-            buttonBorrar.Text = "borrar";
-            buttonBorrar.UseVisualStyleBackColor = true;
+            buttonBorrar.Text = "Borrar";
+            buttonBorrar.UseVisualStyleBackColor = false;
+            // 
+            // buttonLimpiar
+            // 
+            buttonLimpiar.BackColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            buttonLimpiar.Cursor = System.Windows.Forms.Cursors.Hand;
+            buttonLimpiar.FlatAppearance.BorderSize = 0;
+            buttonLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            buttonLimpiar.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Regular);
+            buttonLimpiar.ForeColor = System.Drawing.Color.White;
+            buttonLimpiar.Location = new System.Drawing.Point(319, 118);
+            buttonLimpiar.Name = "buttonLimpiar";
+            buttonLimpiar.Size = new System.Drawing.Size(120, 34);
+            buttonLimpiar.TabIndex = 3;
+            buttonLimpiar.Text = "Limpiar Campos";
+            buttonLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // dgvSeries
+            // 
+            dgvSeries.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSeries.BackgroundColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            dgvSeries.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dgvSeries.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSeries.EnableHeadersVisualStyles = false;
+            dgvSeries.GridColor = System.Drawing.Color.FromArgb(55, 65, 81);
+            headerStyleSeries.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            headerStyleSeries.ForeColor = System.Drawing.Color.White;
+            headerStyleSeries.SelectionBackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            headerStyleSeries.SelectionForeColor = System.Drawing.Color.White;
+            headerStyleSeries.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dgvSeries.ColumnHeadersDefaultCellStyle = headerStyleSeries;
+            cellStyleSeries.BackColor = System.Drawing.Color.FromArgb(31, 41, 55);
+            cellStyleSeries.ForeColor = System.Drawing.Color.White;
+            cellStyleSeries.SelectionBackColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            cellStyleSeries.SelectionForeColor = System.Drawing.Color.White;
+            cellStyleSeries.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular);
+            dgvSeries.DefaultCellStyle = cellStyleSeries;
+            dgvSeries.Location = new System.Drawing.Point(456, 26);
+            dgvSeries.Name = "dgvSeries";
+            dgvSeries.RowHeadersVisible = false;
+            dgvSeries.Size = new System.Drawing.Size(372, 132);
+            dgvSeries.TabIndex = 2;
             // 
             // Editorial
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LightSteelBlue;
-            BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(888, 406);
-            Controls.Add(groupBox2);
-            Controls.Add(grpEditoriales);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            Margin = new Padding(2);
-            MinimizeBox = false;
-            Name = "Editorial";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "Editorial";
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(888, 425);
+            this.Controls.Add(groupBox2);
+            this.Controls.Add(grpEditoriales);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "Editorial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "BookVerse - Gestión de Editoriales y Series";
             grpEditoriales.ResumeLayout(false);
             grpEditoriales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEditoriales).EndInit();
