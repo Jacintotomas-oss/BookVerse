@@ -49,8 +49,23 @@ namespace BookVerse.FORMS
             btnSeleccionarPortada.Click += btnSeleccionarPortada_Click;
             dgvLibros.CellClick += dgvLibros_CellClick;
 
+            // [SERIE] El checkbox muestra u oculta los campos de serie (no le des doble clic en el diseñador)
+            chkBoxSeries.CheckedChanged += (s, e) => MostrarCamposSerie();
+            MostrarCamposSerie();   // al abrir, los campos arrancan ocultos
+
             // Evento de redimensionamiento del formulario
             this.Resize += Libros_Resize;
+        }
+
+        // [SERIE] Solo se ven si el libro pertenece a una serie
+        private void MostrarCamposSerie()
+        {
+            bool visible = chkBoxSeries.Checked;
+
+            label5.Visible = visible;          // etiqueta "Serie"
+            cboSerie.Visible = visible;
+            label6.Visible = visible;          // etiqueta "N. Serie"
+            txtNumeroSerie.Visible = visible;
         }
 
         // Los referencia el Designer: no los borres
@@ -73,11 +88,11 @@ namespace BookVerse.FORMS
                 cboCategoria.ValueMember = "IdCategoria";
                 cboCategoria.DataSource = contexto.Categorias.OrderBy(x => x.NombreCategoria).ToList();
 
-                var series = contexto.Series.OrderBy(x => x.Nombre).ToList();
-                series.Insert(0, new Series { IdSeries = 0, Nombre = "(Sin serie)" });
+                // [SERIE] Ya no hace falta "(Sin serie)": sin marcar el checkbox no se guarda serie
                 cboSerie.DisplayMember = "Nombre";
                 cboSerie.ValueMember = "IdSeries";
-                cboSerie.DataSource = series;
+                cboSerie.DataSource = contexto.Series.OrderBy(x => x.Nombre).ToList();
+                cboSerie.SelectedIndex = -1;
             }
 
             nudStock.Value = 1;
@@ -154,17 +169,48 @@ namespace BookVerse.FORMS
                 MessageBox.Show("Registra primero al menos un autor, una editorial y una categoría.");
                 return false;
             }
+
+            // [SERIE] Si el libro pertenece a una serie, la serie y el número son obligatorios
+            if (chkBoxSeries.Checked)
+            {
+                int? idSerie = cboSerie.SelectedValue as int?;
+                if (idSerie == null)
+                {
+                    MessageBox.Show("Elige la serie a la que pertenece el libro (créala antes en el formulario de Editoriales y Series).");
+                    return false;
+                }
+
+                if (!int.TryParse(txtNumeroSerie.Text, out int numero) || numero < 1)
+                {
+                    MessageBox.Show("Escribe el número del libro dentro de la serie (1, 2, 3...).");
+                    return false;
+                }
+
+                using (var contexto = new LibreriaContext())
+                {
+                    if (contexto.Libros.Any(l => l.IdSeries == idSerie && l.NumeroSerie == numero && l.IdLibro != idSeleccionado))
+                    {
+                        MessageBox.Show("Ya hay un libro con ese número en esa serie.");
+                        return false;
+                    }
+                }
+            }
+
             return true;
         }
 
+        // [SERIE] Si el checkbox no está marcado, no se guarda serie aunque haya algo escrito
         private int? LeerIdSerie()
         {
-            int id = (int)cboSerie.SelectedValue;
-            return id == 0 ? (int?)null : id;
+            if (!chkBoxSeries.Checked) return null;
+            return cboSerie.SelectedValue as int?;
         }
 
-        private int? LeerNumeroSerie() =>
-            int.TryParse(txtNumeroSerie.Text, out var n) ? n : (int?)null;
+        private int? LeerNumeroSerie()
+        {
+            if (!chkBoxSeries.Checked) return null;
+            return int.TryParse(txtNumeroSerie.Text, out var n) ? n : (int?)null;
+        }
 
         private void btnSeleccionarPortada_Click(object sender, EventArgs e)
         {
@@ -217,10 +263,21 @@ namespace BookVerse.FORMS
             cboAutor.SelectedValue = libro.IdAutor;
             cboEditorial.SelectedValue = libro.IdEditorial;
             cboCategoria.SelectedValue = libro.IdCategoria;
-            cboSerie.SelectedValue = libro.IdSeries ?? 0;
-            txtNumeroSerie.Text = libro.NumeroSerie?.ToString();
             txtDescripcion.Text = libro.Descripcion;
             nudStock.Value = Math.Min(libro.Stock, nudStock.Maximum);
+
+            // [SERIE] Si el libro tiene serie, el checkbox se marca solo y aparecen los campos
+            chkBoxSeries.Checked = libro.IdSeries != null;
+            if (libro.IdSeries != null)
+            {
+                cboSerie.SelectedValue = libro.IdSeries.Value;
+                txtNumeroSerie.Text = libro.NumeroSerie?.ToString();
+            }
+            else
+            {
+                cboSerie.SelectedIndex = -1;
+                txtNumeroSerie.Clear();
+            }
 
             rutaPortadaNueva = null;
             pnlPortada.BackgroundImage = Portadas.Cargar(idSeleccionado);
@@ -299,6 +356,7 @@ namespace BookVerse.FORMS
                     contexto.Prestamos.RemoveRange(prestamos);
                     contexto.Libros.Remove(libro);
                     contexto.SaveChanges();
+                    HuboCambios = true;
                 }
 
                 Portadas.Borrar(idSeleccionado);
@@ -310,6 +368,7 @@ namespace BookVerse.FORMS
                 MessageBox.Show("No se pudo eliminar: " + (ex.InnerException?.Message ?? ex.Message));
             }
         }
+
         private void btnLimpiar_Click(object sender, EventArgs e) => Limpiar();
 
         private void Limpiar()
@@ -319,9 +378,12 @@ namespace BookVerse.FORMS
             txtTitulo.Clear();
             txtNumeroSerie.Clear();
             txtDescripcion.Clear();
-            cboSerie.SelectedValue = 0;
             nudStock.Value = 1;
             pnlPortada.BackgroundImage = null;
+
+            // [SERIE] Al desmarcar, los campos se ocultan solos
+            chkBoxSeries.Checked = false;
+            cboSerie.SelectedIndex = -1;
         }
 
         // Los referencia el Designer: no los borres
